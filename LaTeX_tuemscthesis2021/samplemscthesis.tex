@@ -1,68 +1,208 @@
-%
-% TU/e Style Master Thesis template for LaTeX
-%
-% 2021 Created by Marko Boon to new corporate identity,
-% Based on a template by Thijs Nugteren and Joos Buijs.
-%
-% THIS IS THE MAIN FILE (i.e. compile this file, compiling the others directly won't work)
-%
-\documentclass[a4paper,10pt,twoside]{book}
-\usepackage{tuethesis2021}
+\documentclass[11pt,a4paper]{article}
 
-%
-% These commands need to be defined in order to produce a correct and personalized document.
-% You will get error messages if not all these commands are defined. 
-% If you don't need a specific command, just leave the argument empty. 
-% For example: \docsubtitle{}
-%
-\newcommand{\doctitle}{My Thesis Title}
-\newcommand{\docsubtitle}{Master's Thesis}
-\newcommand{\me}{My Name}
-\newcommand{\version}{Draft version}
-\newcommand{\placeMonthYear}{Eindhoven, Month 20XX}
-\newcommand{\department}{Department of Mathematics and Computer Science}
-\newcommand{\group}{Architecture of Information Systems Research Group}
-\newcommand{\firstCommitteeMember}{Your First Committee Member} % use all the titles for your committee members!
-\newcommand{\secondCommitteeMember}{Your second Committee Member} % usually the daily supervisor
-\newcommand{\thirdCommitteeMember}{Your Third Committee Member} % usually the external member
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{natbib}
+\usepackage[hidelinks]{hyperref}
 
+\setstretch{1.08}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\renewcommand{\arraystretch}{1.15}
+\newcommand{\placeholder}[1]{\textcolor{gray}{[TODO: #1]}}
 
 \begin{document}
-% The title page will be inserted automatically, here.
+
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\Large Eindhoven University of Technology\par}
+\vspace{1.5cm}
+{\huge\bfseries AI-Supported Sustainability Self-Assessment for TU/e Research\par}
+\vspace{0.6cm}
+{\Large ENSU -- Written Assignment Stage 1\par}
+\vfill
+\begin{tabular}{@{}ll@{}}
+Course: & 5ARF0 Ethics of AI: Theory and Practice \\
+Group members: & \placeholder{Names and student numbers} \\
+Clients: & Philip Nickel and Tijn Borghuis \\
+Primary coach: & Qin Tao (Tata) Zeng \\
+Date: & \placeholder{Submission date} \\
+Word count: & \placeholder{Main-text word count}
+\end{tabular}
+\vfill
+\end{titlepage}
+
+\section{Introduction and Motivation (500 words)}
+
+\textbf{Topic and motivation.}
+\placeholder{Define the sustainability problem in TU/e research. Explain why an AI-supported tool may help. Cite evidence.}
+
+\textbf{Objectives and terms.}
+\placeholder{State one project aim and one research question. Define the essential terms.}
+
+\textbf{Context and scope.}
+\placeholder{Specify users, research activity, decision point, setting, and non-goals.}
+
+\textbf{Values and needs.}
+\placeholder{Introduce stakeholder needs and the main values: sustainability, transparency, accountability, fairness, and human oversight.}
+
+\textbf{Methods.}
+\placeholder{Explain why Design for Values or Value Sensitive Design fits the aim. Introduce conceptual, empirical, and technical investigations with references.}
+
+\textbf{Logic:} research context $\rightarrow$ stakeholder need $\rightarrow$ value $\rightarrow$ requirement $\rightarrow$ tool feature $\rightarrow$ success indicator.
+
+\section{Initial Results (1,000 words)}
+
+\textbf{Preliminary literature search.}
+\placeholder{Report databases, search terms, dates, selection criteria, number of sources, and main evidence gaps.}
+
+\begin{table}[htbp]
+\centering
+\caption{Literature-search log.}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}p{0.12\textwidth}XXp{0.18\textwidth}@{}}
+\toprule
+Source & Type & Main finding & Need or value & Design implication \\
+\midrule
+\placeholder{Citation} & \placeholder{Type} & \placeholder{Finding} & \placeholder{Need/value} & \placeholder{Implication} \\
+\placeholder{Citation} & \placeholder{Type} & \placeholder{Finding} & \placeholder{Need/value} & \placeholder{Implication} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Preliminary findings.}
+\placeholder{Synthesize researcher needs, current assessment methods, AI opportunities, known risks, and evidence gaps.}
+
+\textbf{Stakeholders, needs, and values.}
+\placeholder{Identify users, affected groups, governors, experts, and their roles in the design.}
+
+\begin{table}[htbp]
+\centering
+\caption{Stakeholder and value map.}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}XXXp{0.17\textwidth}@{}}
+\toprule
+Stakeholder & Need & Value & Benefit or harm & Design role \\
+\midrule
+TU/e researchers & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
+\placeholder{Stakeholder} & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
+\placeholder{Stakeholder} & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Tool concept and purpose.}
+\placeholder{Describe the user task, inputs, AI function, outputs, next human decision, and connection to the current TU/e self-assessment tool. State how experts can modify it.}
+
+\textbf{Requirements and constraints.}
+\placeholder{Separate functional, non-functional, ethical requirements, constraints, and non-goals.}
+
+\begin{table}[htbp]
+\centering
+\caption{Requirement traceability matrix.}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}p{0.05\textwidth}p{0.15\textwidth}p{0.12\textwidth}XXX@{}}
+\toprule
+ID & Stakeholder need & Value & Requirement & Tool feature & Success indicator \\
+\midrule
+R1 & \placeholder{Need} & Sustainability & \placeholder{Requirement} & \placeholder{Feature} & \placeholder{Indicator} \\
+R2 & \placeholder{Need} & Transparency & \placeholder{Requirement} & \placeholder{Feature} & \placeholder{Indicator} \\
+R3 & \placeholder{Need} & Human oversight & \placeholder{Requirement} & \placeholder{Feature} & \placeholder{Indicator} \\
+R4 & \placeholder{Need} & \placeholder{Value} & \placeholder{Requirement} & \placeholder{Feature} & \placeholder{Indicator} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Design strategy.}
+\placeholder{Describe the steps from evidence and stakeholder input to requirements, mock-up, expert review, evaluation, and revision.}
+
+\section{Discussion (500 words)}
+
+\textbf{Ethical issues and value conflicts.}
+\placeholder{Discuss two or three project-specific conflicts. Link stakeholders, values, design choices, ethical frameworks, and remaining limitations.}
+
+\begin{table}[htbp]
+\centering
+\caption{Ethical risks and responses.}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.17\textwidth}p{0.14\textwidth}XXX@{}}
+\toprule
+Risk & Stakeholders & Values & Response & Limitation \\
+\midrule
+Privacy & \placeholder{Who} & Privacy; autonomy & \placeholder{Response} & \placeholder{Limit} \\
+Unclear AI advice & \placeholder{Who} & Transparency; accountability & \placeholder{Response} & \placeholder{Limit} \\
+Greenwashing & \placeholder{Who} & Sustainability; trust & \placeholder{Response} & \placeholder{Limit} \\
+Rebound effects & \placeholder{Who} & Environmental impact & \placeholder{Response} & \placeholder{Limit} \\
+Unfair recommendations & \placeholder{Who} & Fairness & \placeholder{Response} & \placeholder{Limit} \\
+Reduced human control & \placeholder{Who} & Human oversight & \placeholder{Response} & \placeholder{Limit} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Barriers and challenges.}
+\placeholder{Discuss relevant limits in evidence, representation, data, bias, explainability, adoption, AI energy use, and project scope.}
+
+\textbf{Next steps.}
+\placeholder{State what expert feedback or prototype evaluation must test next.}
 
 \clearpage
-
-%Sometimes line numbers are nice, uncomment the next line to enable:
-%\linenumbers
-
-\input{chapters/abstract}
-
-\input{chapters/preface}
-
-\tableofcontents
-
-\listoffigures
-
-\listoftables
-
-\lstlistoflistings
-
-\mainmatter
-
-\input{chapters/introduction}
-
-\input{chapters/first_real_chapter}
-
-\input{chapters/second_real_chapter}
-
-\input{chapters/conclusions}
-
-\bibliographystyle{plain}
+\nocite{*}
+\bibliographystyle{plainnat}
 \bibliography{references}
 
 \appendix
-\addcontentsline{toc}{chapter}{Appendix}
+\clearpage
+\section{Documentation of Process}
 
-\input{appendices/main}
+\placeholder{Record meetings, research, design work, writing work, decisions, and evidence.}
+
+\begin{longtable}{@{}p{0.10\textwidth}p{0.14\textwidth}p{0.17\textwidth}p{0.20\textwidth}p{0.20\textwidth}@{}}
+\caption{Project process log.}\\
+\toprule
+Date & Participants & Activity & Output or decision & Next action \\
+\midrule
+\endfirsthead
+\toprule
+Date & Participants & Activity & Output or decision & Next action \\
+\midrule
+\endhead
+\placeholder{Date} & \placeholder{Names} & \placeholder{Activity} & \placeholder{Output} & \placeholder{Action} \\
+\placeholder{Date} & \placeholder{Names} & \placeholder{Activity} & \placeholder{Output} & \placeholder{Action} \\
+\bottomrule
+\end{longtable}
+
+\clearpage
+\section{Project Planning}
+
+\begin{longtable}{@{}p{0.15\textwidth}p{0.27\textwidth}p{0.19\textwidth}p{0.23\textwidth}@{}}
+\caption{Stage 1 project schedule.}\\
+\toprule
+Date & Activity & Owner & Deliverable \\
+\midrule
+\endfirsthead
+\toprule
+Date & Activity & Owner & Deliverable \\
+\midrule
+\endhead
+8 September & Fix scope and research question & \placeholder{Owner} & Scope statement \\
+9--10 September & Conduct literature search & \placeholder{Owner} & Search log and sources \\
+11 September & Map stakeholders and values & \placeholder{Owner} & Stakeholder map \\
+12--13 September & Define tool concept and flow & \placeholder{Owner} & Concept sketch \\
+14 September & Specify requirements and risks & \placeholder{Owner} & Traceability tables \\
+15 September & Complete first draft & \placeholder{Owner} & Full draft \\
+16 September & Review grading criteria & \placeholder{Owner} & Revision list \\
+17 September & Revise and proofread & \placeholder{Owner} & Final draft \\
+18 September & Submit before 23:59 & \placeholder{Owner} & Stage 1 submission \\
+\bottomrule
+\end{longtable}
 
 \end{document}
