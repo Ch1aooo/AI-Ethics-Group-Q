@@ -11,7 +11,7 @@
 \usepackage{tabularx}
 \usepackage{xcolor}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usetikzlibrary{arrows.meta,positioning}
 \usepackage[section]{placeins}
 \usepackage{natbib}
 \usepackage[hidelinks]{hyperref}
@@ -134,8 +134,6 @@ R4 & \placeholder{Need} & \placeholder{Value} & \placeholder{Requirement} & \pla
 
 Figures~\ref{fig:workflow} and~\ref{fig:activity} present a design proposal for group confirmation, rather than implemented functionality. AI would structure descriptions and draft source-supported suggestions; a calculation module would apply explicit formulas. Missing inputs would be returned for clarification, with unsupported estimates withheld if the information remains unavailable.
 
-A proposed TU/e sustainability case archive would retain activity conditions, the model and recommendation versions used, and follow-up evidence under a pseudonymous case identifier. For a teaching-material printing case, it could record print volume and settings, the advice adopted, and subsequent paper use alongside any assessment-score change. Comparable cases could then inform peer comparisons and revised suggestions. A higher score alone would not establish environmental improvement. Researchers would confirm outcomes and consent to reuse; a campus curator would review evidence and comparability before admitting cases or revising guidance. This extension to teaching activities would require client agreement on scope.
-
 \input{figures/proposed-workflows}
 \FloatBarrier
 
@@ -163,42 +161,36 @@ TU/e researchers & \placeholder{Need} & \placeholder{Value} & \placeholder{Benef
 
 \subsection{Ethical Issues and Value Conflicts}
 
-The definition of sustainable research determines how activities are assessed. \citet{hasselbalch2025sustainability} locate sustainability within sociotechnical relations of power, making the selection of criteria an ethical issue. If electricity consumption is prioritised, an intensive experiment may be rated unfavourably despite its scientific value. In the proposed assessment, environmental indicators would therefore be presented alongside explanations of research purpose. Comparisons would be restricted to activities with comparable objectives and quality requirements. Client agreement is needed on the weighting of criteria and the appropriateness of comparisons across disciplines. A single aggregate score could otherwise conceal disagreements about research priorities.
+What should our tool count as sustainable research? \citet{hasselbalch2025sustainability} connect sustainability to power within sociotechnical systems. For us, this raises the question of who sets the assessment criteria. Prioritising electricity consumption could penalise an intensive experiment despite its scientific value. We would therefore present environmental indicators alongside researchers' explanations of purpose, comparing activities only where objectives and research quality are comparable. The criteria still need agreement with the client. Researchers should be able to explain why a demanding step is necessary, rather than receive a lower score without context. This would make disagreements visible instead of hiding them inside an aggregate rating. The client would still need to decide how competing considerations are weighed and whether comparisons across disciplines are appropriate for the intended use of the assessment tool.
 
-Numerical estimates may be treated as more authoritative than their evidence warrants. \citet{lacoste2019carbon} identify hardware, runtime and electricity supply as factors affecting emissions from machine learning training. Their method does not establish validity for every research activity. Apparent differences between cases may be smaller than calculation uncertainty. Measured and estimated values would therefore be distinguished, with missing information flagged and sources and boundaries disclosed. Input correction would remain available to researchers. These provisions support scrutiny, but cannot ensure that an assessment is critically examined.
+Numerical estimates could also acquire more authority than their evidence warrants. \citet{lacoste2019carbon} show how hardware, runtime and electricity supply affect emissions from machine learning training; their method does not validate assessments of every research activity. In our tool, apparent differences may be smaller than calculation uncertainty. Results should distinguish measured from estimated values, flag missing information and identify sources and boundaries. Researchers must be able to correct inputs, although this cannot ensure that they question the output.
 
-The resource consumption of the assessment tool also requires justification. \citet{lin2023cost} argues for transparency about AI's energy use. Explicit calculations would be assigned to fixed formulas, while AI assistance would be limited to interpreting descriptions and drafting supported suggestions. Comparison with a structured non-AI assessment is needed to establish whether any additional benefit warrants the computation and review effort. Environmental improvement has not yet been demonstrated.
+The tool's own resource use also needs justification. \citet{lin2023cost} argues for transparency about AI's energy consumption. We would use fixed formulas where available and reserve AI for interpreting descriptions and drafting supported suggestions. Its contribution should be tested against a structured non-AI assessment, accounting for computation and human review. Environmental benefit remains an untested hypothesis.
 
 \subsection{Design Barriers and Challenges}
 
-Defining a manageable assessment boundary is a practical constraint. Consumption from shared equipment and computing services may be difficult to attribute to individual activities. One representative workflow would be mapped with the client to establish which records are available. Estimates of equipment operation would state their exclusions. Replacement advice would require evidence about manufacturing impacts as well as operating savings.
+A manageable assessment boundary is the first practical challenge. Shared equipment and computing services make consumption difficult to attribute. Mapping one representative workflow with the client would establish which records researchers can supply. An estimate of equipment operation must state its exclusions; it cannot stand for a complete lifecycle assessment. Replacement advice would also need evidence about manufacturing impacts, not merely operating savings.
 
-Reference data and recommendations require maintenance. Sources, review dates and version histories would be recorded so that earlier assessments remain traceable. Following the institutional perspective of \citet{hasselbalch2025sustainability}, responsibility for correcting or withdrawing outdated guidance would need to be assigned at TU/e. The responsible role and available resources remain unresolved. For the proposed campus archive, outcome evidence and comparable activity conditions would require review before cases were reused. Higher assessment scores alone would not demonstrate reduced environmental impact. Reported outcomes would be distinguished from verified measurements, since selective reporting could favour successful cases and bias recommendations for future users of the proposed archive.
+Recommendations depend on evidence that requires maintenance. Reference data and guidance need sources and review dates, with version histories so earlier assessments remain traceable. Applying the institutional perspective of \citet{hasselbalch2025sustainability}, TU/e would need someone authorised to correct or withdraw outdated advice. The responsible role and available resources remain unresolved. This responsibility matters because researchers cannot reasonably verify every equipment parameter themselves. A source link alone does not establish that guidance remains appropriate for their activity.
 
-Evaluation would compare AI-assisted feedback with a structured checklist on the same cases. Evidence support, omitted issues and correction effort would be examined to establish whether further development is justified.
+Finally, intended users should compare AI-assisted feedback with a structured checklist on the same cases, checking whether advice follows from the evidence and recording omissions and correction effort. This would test whether the assistance is useful enough to justify further development.
 
-\begin{table}[!htbp]
+\begin{table}[htbp]
 \centering
-\caption{Anticipated ethical risks and proposed responses. References motivate the risks; responses are project-specific proposals.}
+\caption{Anticipated ethical risks and proposed responses.}
 \label{tab:ethical-risks}
-\footnotesize
+\small
 \setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.35}
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}p{0.13\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
-Risk & Stakeholders & Values & Response and basis & Limitation \\
+Risk & Stakeholders & Values & Response & Limitation \\
 \midrule
-Privacy & Researchers; case contributors & Privacy; autonomy & Minimise stored details; control archive access and case reuse \citep{hasselbalch2025sustainability}. & Activity descriptions may identify a contributor. \\
-\midrule
-Unclear AI advice & Researchers & Transparency; accountability & Show sources, model version and uncertainty \citep{lacoste2019carbon}. & A retrieved case may be irrelevant or misinterpreted. \\
-\midrule
-Greenwashing & TU/e; researchers & Sustainability; trust & State boundaries; check observed impacts alongside score changes \citep{lin2023cost}. & Better scores need not reflect lower overall impacts. \\
-\midrule
-Rebound effects & TU/e; affected communities & Environmental impact & Track total activity and resource use alongside efficiency \citep{luccioni2025rebound}. & Savings may encourage additional activity. \\
-\midrule
-Unfair recommendations & Research groups & Fairness & Compare similar objectives and conditions; review archive coverage \citep{hasselbalch2025sustainability}. & Uneven case contributions can distort comparisons. \\
-\midrule
-Reduced human control & Researchers; campus curator & Human oversight & Keep decisions with researchers; assign responsibility for archive updates \citep{santoni2018control}. & Formal review does not ensure critical engagement. \\
+Privacy & Researchers & Privacy; autonomy & Request only necessary activity data & Descriptions may reveal sensitive work \\
+Unclear AI advice & Researchers & Transparency; accountability & Show sources and uncertainty & Sources may be misapplied \\
+Greenwashing & TU/e; researchers & Sustainability; trust & State boundaries and exclusions & Partial estimates omit wider impacts \\
+Rebound effects & TU/e; affected communities & Environmental impact & Track total use alongside efficiency & Future demand is uncertain \\
+Unfair recommendations & Research groups & Fairness & Compare similar research objectives & Criteria remain contestable \\
+Reduced human control & Researchers & Human oversight & Require input checks and final review & Users may accept advice uncritically \\
 \bottomrule
 \end{tabularx}
 \end{table}

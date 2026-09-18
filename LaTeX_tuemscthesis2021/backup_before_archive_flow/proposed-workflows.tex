@@ -1,0 +1,56 @@
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=black!60, rounded corners=2pt, fill=black!3,
+    text width=10cm, align=center, minimum height=1.13cm, font=\small},
+  flow/.style={-{Stealth[length=2mm]}, thick}, node distance=0.38cm]
+\node[box] (input) {\textbf{Researcher describes a research activity}\\
+Activity description, equipment, duration, available measurements};
+\node[box,below=of input] (structure) {\textbf{System structures the activity into steps}\\
+AI-assisted extraction and organisation};
+\node[box,below=of structure] (check) {\textbf{Researcher checks the extracted information}\\
+Confirm details; add missing information};
+\node[box,below=of check] (sources) {\textbf{Available data and reference sources are matched}\\
+Equipment data, emission factors, approved guidance};
+\node[box,below=of sources] (calc) {\textbf{Calculations and draft recommendations}\\
+Formula-based estimates; source-supported suggestions};
+\node[box,below=of calc] (review) {\textbf{Researcher reviews the assessment and next actions}\\
+Estimated impacts, uncertainty, missing data, improvement options};
+\foreach \a/\b in {input/structure,structure/check,check/sources,sources/calc,calc/review}
+  \draw[flow] (\a) -- (\b);
+\draw[flow] (sources.east) -- ++(1.5,0) |- (check.east)
+ node[pos=0.25,right,align=left,font=\footnotesize] {Missing\\information};
+\end{tikzpicture}
+\caption{Proposed workflow for AI-supported sustainability self-assessment. Researchers verify activity information before reviewing estimates and source-supported recommendations.}
+\label{fig:workflow}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+ activitybox/.style={draw=black!60,fill=black!3,text width=3.05cm,minimum height=1.1cm,align=center,font=\small\bfseries},
+ detail/.style={text width=3.05cm,align=left,font=\small},
+ flow/.style={-{Stealth[length=2mm]},thick}]
+\node[activitybox] (prep) at (0,0) {Data preparation};
+\node[activitybox] (exp) at (3.8,0) {Computational\\experiment};
+\node[activitybox] (analysis) at (7.6,0) {Analysis};
+\node[activitybox] (storage) at (11.4,0) {Storage};
+\draw[flow] (prep)--(exp);
+\draw[flow] (exp)--(analysis);
+\draw[flow] (analysis)--(storage);
+\node[detail,anchor=north] at (0,-0.85) {\textbf{Records}\\Data volume; processing time; equipment\\[0.6em]\textbf{Research output}\\Prepared dataset};
+\node[detail,anchor=north] at (3.8,-0.85) {\textbf{Records}\\Hardware; runtime; electricity use\\[0.6em]\textbf{Research output}\\Experimental results};
+\node[detail,anchor=north] at (7.6,-0.85) {\textbf{Records}\\Processing steps; runtime; quality needs\\[0.6em]\textbf{Research output}\\Interpreted findings};
+\node[detail,anchor=north] at (11.4,-0.85) {\textbf{Records}\\Data retained; retention period; storage setup\\[0.6em]\textbf{Research output}\\Archived outputs};
+\node[draw=black!60,align=left,text width=14.35cm,font=\small,inner sep=7pt] (out) at (5.7,-5.5)
+{\textbf{Self-assessment output}\\Step-level impacts where data permit; evidence gaps; improvement options for investigation.\\[0.4em]
+\textbf{Data status:} Measured / Estimated / Unavailable (labels to assign when data are collected).};
+\end{tikzpicture}
+\caption{Illustrative computing activity and its assessment records. Research outputs are shown separately from self-assessment outputs; no measurements are assumed.}
+\label{fig:activity}
+\vspace{0.3em}
+\begin{minipage}{0.96\textwidth}\small
+Illustrative assessment boundary: selected computing activities. Hardware manufacturing and shared infrastructure require additional data.
+\end{minipage}
+\end{figure}
+

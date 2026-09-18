@@ -1,27 +1,49 @@
-\begin{figure}[!htbp]
+\begin{figure}[p]
 \centering
 \begin{tikzpicture}[
-  box/.style={draw=black!60, rounded corners=2pt, fill=black!3,
-    text width=10cm, align=center, minimum height=1.13cm, font=\small},
-  flow/.style={-{Stealth[length=2mm]}, thick}, node distance=0.38cm]
-\node[box] (input) {\textbf{Researcher describes a research activity}\\
-Activity description, equipment, duration, available measurements};
-\node[box,below=of input] (structure) {\textbf{System structures the activity into steps}\\
-AI-assisted extraction and organisation};
-\node[box,below=of structure] (check) {\textbf{Researcher checks the extracted information}\\
-Confirm details; add missing information};
-\node[box,below=of check] (sources) {\textbf{Available data and reference sources are matched}\\
-Equipment data, emission factors, approved guidance};
-\node[box,below=of sources] (calc) {\textbf{Calculations and draft recommendations}\\
-Formula-based estimates; source-supported suggestions};
-\node[box,below=of calc] (review) {\textbf{Researcher reviews the assessment and next actions}\\
-Estimated impacts, uncertainty, missing data, improvement options};
-\foreach \a/\b in {input/structure,structure/check,check/sources,sources/calc,calc/review}
-  \draw[flow] (\a) -- (\b);
-\draw[flow] (sources.east) -- ++(1.5,0) |- (check.east)
- node[pos=0.25,right,align=left,font=\footnotesize] {Missing\\information};
+ base/.style={draw=black!65,thick,rounded corners=2pt,text width=6.5cm,
+ align=center,font=\small,minimum height=1.15cm,inner sep=6pt},
+ ai/.style={base,draw=green!35!black,fill=green!10},
+ human/.style={base,fill=black!12},
+ process/.style={base,fill=white},
+ terminal/.style={base,rounded corners=14pt,fill=white},
+ side/.style={text width=4.3cm},
+ flow/.style={-{Stealth[length=2mm]},thick},
+ note/.style={font=\footnotesize,fill=white,inner sep=2pt,align=center}]
+\node[terminal] (input) at (0,0) {\textbf{INPUT: Research activity}\\Description, equipment, duration and available measurements};
+\node[ai] (extract) at (0,-1.8) {\textbf{AI structures the activity}\\Extract steps and organise supplied information};
+\node[human] (check) at (0,-3.6) {\textbf{Researcher checks the information}\\Confirm details or supply missing records};
+\node[ai] (match) at (0,-5.4) {\textbf{AI matches relevant sources and cases}\\Retrieve evidence for comparable activities};
+\node[process] (calc) at (0,-7.2) {\textbf{Calculation module applies formulas}\\Use supported inputs; flag uncertainty and gaps};
+\node[ai] (draft) at (0,-9) {\textbf{AI drafts recommendations}\\Link options to sources and relevant past outcomes};
+\node[human] (review) at (0,-10.8) {\textbf{Researcher reviews and decides}\\Check the assessment; choose next actions};
+\node[terminal] (output) at (0,-12.6) {\textbf{OUTPUT: Reviewed assessment}\\Estimated impacts, evidence gaps and selected actions};
+\foreach \a/\b in {input/extract,extract/check,check/match,match/calc,calc/draft,draft/review,review/output}
+ \draw[flow] (\a)--(\b);
+\draw[flow] (calc.west)--++(-0.65,0) |- (check.west)
+ node[pos=0.25,note,rotate=90,above] {Missing information};
+
+\node[process,side] (refs) at (7.2,-1.8) {\textbf{Reference sources}\\Equipment data, emission factors and approved guidance};
+\node[cylinder,shape border rotate=90,aspect=0.2,draw=black!65,thick,
+ fill=white,text width=4.3cm,align=center,font=\small,minimum height=2.4cm,inner sep=8pt]
+ (db) at (7.2,-5.4) {\textbf{Proposed TU/e sustainability case archive}\\Activity context; model and advice versions; scores; observed outcomes};
+\node[human,side] (curate) at (7.2,-9) {\textbf{Campus client / curator review}\\Approve comparable cases and evidence; version guidance updates};
+\node[human,side] (follow) at (7.2,-12.0) {\textbf{Researcher follow-up}\\Report the adopted action and outcome evidence; consent to case reuse};
+\draw[flow] (refs)--node[note,right] {Curated\\sources} (db);
+\draw[flow] (db.west)--node[note,above] {Comparable\\cases} (match.east);
+\draw[flow] (output.east)--++(0.45,0) |- (follow.west);
+\draw[flow] (follow)--node[note,right] {Case record} (curate);
+\draw[flow] (curate)--node[note,right] {Approved cases;\\revised guidance} (db);
+
+\node[anchor=north west,font=\footnotesize\bfseries] at (4.65,-13.35) {Indicators};
+\node[draw=green!35!black,thick,fill=green!10,minimum width=0.42cm,minimum height=0.25cm] at (4.95,-14.0) {};
+\node[anchor=west,font=\footnotesize] at (5.3,-14.0) {AI-assisted processing};
+\node[draw=black!65,fill=black!12,minimum width=0.42cm,minimum height=0.25cm] at (4.95,-14.5) {};
+\node[anchor=west,font=\footnotesize] at (5.3,-14.5) {Researcher / campus client};
+\node[draw=black!65,fill=white,minimum width=0.42cm,minimum height=0.25cm] at (4.95,-15.0) {};
+\node[anchor=west,font=\footnotesize] at (5.3,-15.0) {Data / rule-based processing};
 \end{tikzpicture}
-\caption{Proposed workflow for AI-supported sustainability self-assessment. Researchers verify activity information before reviewing estimates and source-supported recommendations.}
+\caption{Proposed assessment workflow with a campus case archive. Reviewed follow-up evidence informs later case comparisons and guidance updates. The archive and workflow are design proposals, not implemented services.}
 \label{fig:workflow}
 \end{figure}
 

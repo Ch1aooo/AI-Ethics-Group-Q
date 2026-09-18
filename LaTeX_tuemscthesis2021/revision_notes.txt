@@ -1,13 +1,11 @@
-Revision 18 September 2026
+Latest revision: 18 September 2026
 
-Discussion: 450 English words in discussion_revised.txt, excluding headings and references; whitespace count, hyphenated compounds count as one. LaTeX author-year citation rendering may change the count slightly. Risk table: approximately 92 words including column headers, excluding caption.
+Discussion rewritten in objective language: 450 words in the TXT body (headings and references excluded; whitespace count). First-person proposals removed; conditional wording retained for unimplemented features.
 
-Added figures/proposed-workflows.tex under Tool concept and purpose. Intended final location: Section 2.4; the current template has unnumbered bold labels, so no other member sections were renumbered. Figures are design proposals for group confirmation.
+Table 4: all six risks have citations and horizontal row separators. Sustainability lecture references prioritised (Hasselbalch and van Wynsberghe; Lin); Lacoste supports estimation limits, Luccioni et al. supports rebound effects, and Santoni de Sio and van den Hoven is a Study Guide reading on human control.
 
-Original risk table columns and six risk categories retained. Added Lacoste and Lin references; existing bibliography entries retained. Lin metadata checked against the journal site (2023, Training).
+Figure 1: distinct input/output, green AI nodes, grey human nodes, bottom-right indicators, campus case archive with curator approval and follow-up loop. A printing example is illustrative and would require agreement to extend the research scope.
 
-Project planning remains a table. Course deadlines use the Study Guide; intermediate work is proposed, and unknown owners remain TODO. Existing process-log placeholders remain; one dated revision entry was added with AI assistance acknowledged.
+Main-text count is recalculated by build-report.ps1 using TeXcount; it differs from the discussion-only TXT count and excludes headings, TODOs, figures, tables, references and appendices.
 
-Other members' section text and placeholders remain unchanged. Full-group integration, unresolved placeholders and final subsection numbering remain for later. Original tex, bib and PDF are saved in backup_before_revision.
-
-Compilation: pdflatex, bibtex, pdflatex twice. PDF visually inspected after layout corrections.
+Current section numbering: 1.1-1.4 and 2.1-2.5. Peng Wang student ID remains unprovided. Other members' content and placeholders preserved.
