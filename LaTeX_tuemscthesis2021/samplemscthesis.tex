@@ -15,6 +15,9 @@
 \usepackage[section]{placeins}
 \usepackage{natbib}
 \usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{array}
 
 \setstretch{1.08}
 \setlength{\parindent}{0pt}
@@ -52,7 +55,7 @@ Name & Student ID & Email \\
 Yehao Chen & 2216655 & \href{mailto:y.chen13@student.tue.nl}{\nolinkurl{y.chen13@student.tue.nl}} \\
 Dennis de Hoon & 1732773 & \href{mailto:d.b.a.d.hoon@student.tue.nl}{\nolinkurl{d.b.a.d.hoon@student.tue.nl}} \\
 Gerald Tobenna Eluagu & 2419289 & \href{mailto:g.t.eluagu@student.tue.nl}{\nolinkurl{g.t.eluagu@student.tue.nl}} \\
-Peng Wang & 2342944 & \href{mailto:allseagulls@gmail.com}{\nolinkurl{allseagulls@gmail.com}} \\
+Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{allseagulls@gmail.com}} \\
 \bottomrule
 \end{tabularx}
 
@@ -66,16 +69,19 @@ Peng Wang & 2342944 & \href{mailto:allseagulls@gmail.com}{\nolinkurl{allseagulls
 \section{Introduction and Motivation}
 
 \subsection{Topic, Motivation, Values and Needs}
-\placeholder{Define the sustainability problem in TU/e research. Explain why an AI-supported tool may help. Cite evidence.}
-
-\textbf{Values and needs.}
-\placeholder{Introduce stakeholder needs and the main values: sustainability, transparency, accountability, fairness, and human oversight.}
+According to TU/e’s Sustainability Visioning Report, TU/e has already seen sustainable development as a major part of campus development and trying to achieve the goal of fully embodying sustainability and proactively engaging with societal challenges in 2050. However, the researchers need to put these into practical activities; this refers to specific equipment and data, which is often confusing. This project is trying to explore whether AI can help in this progress while remaining transparent and supporting human judgement.
 
 \subsection{Objectives and Key Terms}
-\placeholder{State one project aim and one research question. Define the essential terms.}
+In this project, AI support tool is proposed to help users judge and examine the potential environmental impacts, taking equipment use, runtime, electricity consumption and other relevant factors into account.
+
+A large language model (LLM) is a language model with a large number of parameters, trained on extensive text data to support language understanding and generation. Here, LLM would provide supported suggestions based on the provided description of activities and use the formulas to calculate the environmental impacts through a separate module.
+
+The design objective is trying to help the researchers get reliable self-reflection on their own project. The basic working flow contains: submit the plan, analysis, and assume the environmental effects by the LLM, compare it with the database we established, then score and give the final feedback with some practical advise and recommendations. The database will be based on the known data and results of the papers, and will also include some examples, aiming to be professional and reliable. Missing information should trigger questions or qualified feedback. Evaluation would examine evidence traceability, consistency and whether users find the feedback helpful when revising their plans.
 
 \subsection{Context and Scope}
-\placeholder{Specify users, research activity, decision point, setting, and non-goals.}
+
+The project focuses on the Research domain at TU/e. Its intended users are researchers, including students conducting research, who want to reflect on the environmental impacts of their planned research activities. This tool is designed for the planning and revising the research activities, such as date processing and computational experiments. The assessment covers selected environmental impacts for which sufficient activity data and reference information are available.
+The tool will not be used to manage campus facilities, evaluate university curricula, or decide which projects receive approval or funding. It will not provide a complete life-cycle assessment or rank researchers and projects across disciplines.
 
 \subsection{Tools, Methods and Frameworks}
 \placeholder{Explain why Design for Values or Value Sensitive Design fits the aim. Introduce conceptual, empirical, and technical investigations with references.}
@@ -110,27 +116,70 @@ Source & Type & Main finding & Need or value & Design implication \\
 
 \FloatBarrier
 \subsection{Initial Requirements and Constraints}
-\placeholder{Separate functional, non-functional, ethical requirements, constraints, and non-goals.}
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
-\caption{Requirement traceability matrix.}
-\scriptsize
-\begin{tabularx}{\textwidth}{@{}p{0.05\textwidth}p{0.15\textwidth}p{0.12\textwidth}XXX@{}}
-\toprule
-ID & Stakeholder need & Value & Requirement & Tool feature & Success indicator \\
-\midrule
-R1 & \placeholder{Need} & Sustainability & \placeholder{Requirement} & \placeholder{Feature} & \placeholder{Indicator} \\
-R2 & \placeholder{Need} & Transparency & \placeholder{Requirement} & \placeholder{Feature} & \placeholder{Indicator} \\
-R3 & \placeholder{Need} & Human oversight & \placeholder{Requirement} & \placeholder{Feature} & \placeholder{Indicator} \\
-R4 & \placeholder{Need} & \placeholder{Value} & \placeholder{Requirement} & \placeholder{Feature} & \placeholder{Indicator} \\
-\bottomrule
+\caption{Initial requirements and constraints}
+\label{tab:requirements}
+\begin{tabularx}{\textwidth}{|c|c|X|X|X|}
+\hline
+\textbf{ID} & \textbf{Type} & \textbf{Requirement or constraint} & 
+\textbf{Rationale or source} & \textbf{How to check it} \\
+\hline
+
+R1 & Functional &
+The tool needs to allow researchers to describe their work in their own words. &
+This is important to make the tool easily usable. &
+Test with example research projects. \\
+\hline
+
+R2 & Functional &
+The tool has to identify the impact of the research on sustainability. &
+This is the main purpose of the tool. &
+Provide the tool with examples of research that have different sustainability impacts. \\
+\hline
+
+R3 & Constraint &
+The tool needs to make clear that it is not an official approval, but a guideline. &
+Sustainability is complex and AI alone will not be enough to make a final judgement. &
+Check whether the tool clearly communicates its advisory nature and requires human review of the output. \\
+\hline
+
+R4 & Constraint &
+The researcher is responsible for changes made according to the advice from the tool. &
+The users are performing the research and therefore remain responsible for their decisions. &
+Check whether responsibility for decisions remains with the researcher. \\
+\hline
+
 \end{tabularx}
 \end{table}
 
+Identifying the sustainability impacts is the most important requirement mentioned above. This is what the initial goal was for the tool. Researchers, including students performing research, will use the tool to find out what parts of their research potentially form a problem for sustainability. 
+All kinds of domains need to be taken into account, such as environmental, social and economic. The output of the tool is only a guideline for the user so that they can improve their research. The responsibility therefore stays with the researcher. 
+
+
 \FloatBarrier
 \subsection{Anticipated Function and Purpose of the Tool}
-\placeholder{Describe the user task, inputs, AI function, outputs, next human decision, and connection to the current TU/e self-assessment tool. State how experts can modify it.}
+\begin{itemize}
+    \item \textbf{User and immediate goal:} TU/e researchers wanting to know the sustainability impact of their research.
+    
+    \item \textbf{Input:} A precise description of the research.
+    
+    \item \textbf{System actions:} The tool analyzes the research for potential sustainability impacts and, if needed, asks follow-up questions.
+    
+    \item \textbf{Output:} A guideline for researchers explaining how their research impacts sustainability.
+    
+    \item \textbf{Human review or correction:} Researchers need to carefully review the feedback from the tool.
+    
+    \item \textbf{Handling of missing information or uncertainty:} The tool continues asking questions when there is insufficient information.
+\end{itemize} 
+
+For this scenario, a Tu/e researcher describes their work to the tool. Their research is about developing a new battery for electric cars. 
+Potential impacts can be, for example, the gathering and production of required materials for the battery. The production will of course require energy and potentially lots of costs. The tool will also look at the environmental impacts of the production.
+The tool will ask questions about the materials used for the production of the new battery. With this information, the tool can then ask further questions about the costs, energy, etc. 
+When the tool has all the necessary information, it can then provide a detailed guideline for the research containing the potential impact with explanations and possible improvements. 
+It is now up to the researchers to review the guidelines from the tool and decide what they want to change. The AI is not responsible for these decisions, as it makes clear that the output is not an official approval for the research.
+
 
 Figures~\ref{fig:workflow} and~\ref{fig:activity} present a design proposal for group confirmation, rather than implemented functionality. AI would structure descriptions and draft source-supported suggestions; a calculation module would apply explicit formulas. Missing inputs would be returned for clarification, with unsupported estimates withheld if the information remains unavailable.
 
@@ -141,22 +190,45 @@ A proposed TU/e sustainability case archive would retain activity conditions, th
 
 \FloatBarrier
 \subsection{Projected Users, Stakeholders and Values}
-\placeholder{Identify users, affected groups, governors, experts, and their roles in the design.}
-
-\begin{table}[htbp]
+\begin{table}[ht]
 \centering
-\caption{Stakeholder and value map.}
-\small
-\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}XXXp{0.17\textwidth}@{}}
-\toprule
-Stakeholder & Need & Value & Benefit or harm & Design role \\
-\midrule
-TU/e researchers & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
-\placeholder{Stakeholder} & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
-\placeholder{Stakeholder} & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
-\bottomrule
+\caption{Stakeholder notes}
+\label{tab:stakeholders}
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline
+\textbf{Stakeholder} & \textbf{Role or relationship to the tool} & 
+\textbf{Expected benefit} & \textbf{Concern or burden} \\
+\hline
+
+TU/e researchers &
+Main users &
+Identify impact on sustainability &
+Takes time providing all the information \\
+\hline
+
+Students &
+Main users &
+Same as researchers &
+Maybe depending too much on the tool \\
+\hline
+
+Supervisors &
+Support &
+Get a better understanding to help &
+Needs to spend extra time reviewing the output of the tool 
+\\
+\hline
+
+TU/e sustainability team &
+Experts &
+Validate the tool &
+Not always available \\
+\hline
+
 \end{tabularx}
 \end{table}
+
+The Tu/e researchers and students will be the main users of our tool. They provide the tool with their research and receive sustainability guidance for their project in return.  Supervisors for the projects performed by the researchers and students will also use this information from the tool but will not need to use the tool directly.  Some stakeholders might have different expectations from the tool, but these are the benefits it is intended to provide.
 
 \FloatBarrier
 \section{Discussion}
