@@ -9,3 +9,5 @@ Figure 1: distinct input/output, green AI nodes, grey human nodes, bottom-right 
 Main-text count is recalculated by build-report.ps1 using TeXcount; it differs from the discussion-only TXT count and excludes headings, TODOs, figures, tables, references and appendices.
 
 Current section numbering: 1.1-1.4 and 2.1-2.5. Peng Wang student ID remains unprovided. Other members' content and placeholders preserved.
+
+Team-content layout update: preserved new Sections 1.1-1.3 and 2.3-2.5, with local consistency edits to scope, formula/AI roles and missing-data handling. Figure 2 now follows the battery example; the archive example was aligned accordingly. Figure 1 uses rounded connectors, separated arrow labels and a diagonal human/AI management node. All figure/table captions are below their content and at most two sentences. Main sections, references and appendices start on separate pages. Word count: 1373 (TeXcount prose convention). Figure/table layout and compiled references checked.

@@ -1,78 +1,98 @@
 \begin{figure}[p]
 \centering
 \begin{tikzpicture}[
- base/.style={draw=black!65,thick,rounded corners=2pt,text width=6.5cm,
+ base/.style={draw=black!65,thick,rounded corners=5pt,text width=6cm,
  align=center,font=\small,minimum height=1.15cm,inner sep=6pt},
  ai/.style={base,draw=green!35!black,fill=green!10},
  human/.style={base,fill=black!12},
  process/.style={base,fill=white},
- terminal/.style={base,rounded corners=14pt,fill=white},
- side/.style={text width=4.3cm},
- flow/.style={-{Stealth[length=2mm]},thick},
- note/.style={font=\footnotesize,fill=white,inner sep=2pt,align=center}]
+ terminal/.style={base,rounded corners=15pt,fill=white},
+ side/.style={text width=4cm},
+ mixed/.style={base,side,fill=black!12,path picture={
+ \fill[green!10] (path picture bounding box.south west)--(path picture bounding box.north east)--(path picture bounding box.south east)--cycle;
+ \draw[black!45] (path picture bounding box.south west)--(path picture bounding box.north east);}},
+ flow/.style={-{Stealth[length=2mm]},thick,rounded corners=5pt},
+ note/.style={font=\footnotesize,align=center,inner sep=1pt}]
 \node[terminal] (input) at (0,0) {\textbf{INPUT: Research activity}\\Description, equipment, duration and available measurements};
-\node[ai] (extract) at (0,-1.8) {\textbf{AI structures the activity}\\Extract steps and organise supplied information};
-\node[human] (check) at (0,-3.6) {\textbf{Researcher checks the information}\\Confirm details or supply missing records};
-\node[ai] (match) at (0,-5.4) {\textbf{AI matches relevant sources and cases}\\Retrieve evidence for comparable activities};
-\node[process] (calc) at (0,-7.2) {\textbf{Calculation module applies formulas}\\Use supported inputs; flag uncertainty and gaps};
-\node[ai] (draft) at (0,-9) {\textbf{AI drafts recommendations}\\Link options to sources and relevant past outcomes};
-\node[human] (review) at (0,-10.8) {\textbf{Researcher reviews and decides}\\Check the assessment; choose next actions};
-\node[terminal] (output) at (0,-12.6) {\textbf{OUTPUT: Reviewed assessment}\\Estimated impacts, evidence gaps and selected actions};
+\node[ai] (extract) at (0,-2) {\textbf{AI structures the activity}\\Extract steps and organise information};
+\node[human] (check) at (0,-4) {\textbf{Researcher checks the information}\\Confirm details; supply missing records};
+\node[ai] (match) at (0,-6.7) {\textbf{AI matches sources and cases}\\Retrieve evidence for similar activities};
+\node[process] (calc) at (0,-8.8) {\textbf{Formula-based calculations}\\Use supported inputs; disclose data gaps};
+\node[ai] (draft) at (0,-10.8) {\textbf{AI drafts recommendations}\\Link options to sources and outcomes};
+\node[human] (review) at (0,-12.8) {\textbf{Researcher reviews and decides}\\Check feedback; select next actions};
+\node[terminal] (output) at (0,-14.8) {\textbf{OUTPUT: Reviewed assessment}\\Estimated impacts, uncertainty and actions};
 \foreach \a/\b in {input/extract,extract/check,check/match,match/calc,calc/draft,draft/review,review/output}
  \draw[flow] (\a)--(\b);
-\draw[flow] (calc.west)--++(-0.65,0) |- (check.west)
- node[pos=0.25,note,rotate=90,above] {Missing information};
+\draw[flow] (calc.west)--(-3.9,-8.8)--(-3.9,-4)--(check.west);
+\node[note,rotate=90] at (-4.15,-6.4) {Missing information};
 
-\node[process,side] (refs) at (7.2,-1.8) {\textbf{Reference sources}\\Equipment data, emission factors and approved guidance};
+\node[process,side] (refs) at (7.7,0) {\textbf{Reference sources}\\Equipment data, emission factors and guidance};
+\node[mixed] (curate) at (7.7,-2.7) {\textbf{Human / AI archive management}\\AI organises and flags records; campus curator approves updates};
 \node[cylinder,shape border rotate=90,aspect=0.2,draw=black!65,thick,
- fill=white,text width=4.3cm,align=center,font=\small,minimum height=2.4cm,inner sep=8pt]
- (db) at (7.2,-5.4) {\textbf{Proposed TU/e sustainability case archive}\\Activity context; model and advice versions; scores; observed outcomes};
-\node[human,side] (curate) at (7.2,-9) {\textbf{Campus client / curator review}\\Approve comparable cases and evidence; version guidance updates};
-\node[human,side] (follow) at (7.2,-12.0) {\textbf{Researcher follow-up}\\Report the adopted action and outcome evidence; consent to case reuse};
-\draw[flow] (refs)--node[note,right] {Curated\\sources} (db);
-\draw[flow] (db.west)--node[note,above] {Comparable\\cases} (match.east);
-\draw[flow] (output.east)--++(0.45,0) |- (follow.west);
-\draw[flow] (follow)--node[note,right] {Case record} (curate);
-\draw[flow] (curate)--node[note,right] {Approved cases;\\revised guidance} (db);
+ fill=white,text width=4cm,align=center,font=\small,minimum height=2.35cm,inner sep=7pt]
+ (db) at (7.7,-6.7) {\textbf{TU/e case archive}\\Research conditions; model / advice versions; outcome evidence};
+\node[human,side] (follow) at (7.7,-12.8) {\textbf{Researcher follow-up}\\Report actions and outcomes; consent to case reuse};
+\draw[flow] (refs)--(curate);
+\node[note,anchor=west] at (7.9,-1.3) {Candidate sources};
+\draw[flow] (curate)--(db);
+\node[note,anchor=west] at (7.9,-4.15) {Approved records};
+\draw[flow] (db.west)--(match.east);
+\node[note] at (4.6,-6.15) {Relevant\\evidence};
+\draw[flow] (output.east)--(4.6,-14.8)--(4.6,-12.8)--(follow.west);
+\draw[flow] (follow.east)--(10.7,-12.8)--(10.7,-2.7)--(curate.east);
+\node[note,rotate=90] at (10.95,-9.4) {Follow-up evidence for review};
 
-\node[anchor=north west,font=\footnotesize\bfseries] at (4.65,-13.35) {Indicators};
-\node[draw=green!35!black,thick,fill=green!10,minimum width=0.42cm,minimum height=0.25cm] at (4.95,-14.0) {};
-\node[anchor=west,font=\footnotesize] at (5.3,-14.0) {AI-assisted processing};
-\node[draw=black!65,fill=black!12,minimum width=0.42cm,minimum height=0.25cm] at (4.95,-14.5) {};
-\node[anchor=west,font=\footnotesize] at (5.3,-14.5) {Researcher / campus client};
-\node[draw=black!65,fill=white,minimum width=0.42cm,minimum height=0.25cm] at (4.95,-15.0) {};
-\node[anchor=west,font=\footnotesize] at (5.3,-15.0) {Data / rule-based processing};
+\node[anchor=west,font=\footnotesize\bfseries] at (5.45,-14.25) {Indicators};
+\node[draw=green!35!black,rounded corners=1pt,fill=green!10,minimum width=0.4cm,minimum height=0.23cm] at (5.7,-14.85) {};
+\node[anchor=west,font=\footnotesize] at (6.05,-14.85) {AI assistance};
+\node[draw=black!65,rounded corners=1pt,fill=black!12,minimum width=0.4cm,minimum height=0.23cm] at (5.7,-15.35) {};
+\node[anchor=west,font=\footnotesize] at (6.05,-15.35) {Human participation};
+\node[mixed,text width=0cm,minimum width=0.4cm,minimum height=0.23cm,inner sep=0pt,rounded corners=1pt] at (5.7,-15.85) {};
+\node[anchor=west,font=\footnotesize] at (6.05,-15.85) {Human / AI collaboration};
+\node[draw=black!65,rounded corners=1pt,fill=white,minimum width=0.4cm,minimum height=0.23cm] at (5.7,-16.35) {};
+\node[anchor=west,font=\footnotesize] at (6.05,-16.35) {Data / formula-based step};
 \end{tikzpicture}
-\caption{Proposed assessment workflow with a campus case archive. Reviewed follow-up evidence informs later case comparisons and guidance updates. The archive and workflow are design proposals, not implemented services.}
+\caption{Proposed research self-assessment workflow with human-reviewed reuse of campus case evidence.}
 \label{fig:workflow}
 \end{figure}
 
 \begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[
- activitybox/.style={draw=black!60,fill=black!3,text width=3.05cm,minimum height=1.1cm,align=center,font=\small\bfseries},
- detail/.style={text width=3.05cm,align=left,font=\small},
- flow/.style={-{Stealth[length=2mm]},thick}]
-\node[activitybox] (prep) at (0,0) {Data preparation};
-\node[activitybox] (exp) at (3.8,0) {Computational\\experiment};
-\node[activitybox] (analysis) at (7.6,0) {Analysis};
-\node[activitybox] (storage) at (11.4,0) {Storage};
-\draw[flow] (prep)--(exp);
-\draw[flow] (exp)--(analysis);
-\draw[flow] (analysis)--(storage);
-\node[detail,anchor=north] at (0,-0.85) {\textbf{Records}\\Data volume; processing time; equipment\\[0.6em]\textbf{Research output}\\Prepared dataset};
-\node[detail,anchor=north] at (3.8,-0.85) {\textbf{Records}\\Hardware; runtime; electricity use\\[0.6em]\textbf{Research output}\\Experimental results};
-\node[detail,anchor=north] at (7.6,-0.85) {\textbf{Records}\\Processing steps; runtime; quality needs\\[0.6em]\textbf{Research output}\\Interpreted findings};
-\node[detail,anchor=north] at (11.4,-0.85) {\textbf{Records}\\Data retained; retention period; storage setup\\[0.6em]\textbf{Research output}\\Archived outputs};
-\node[draw=black!60,align=left,text width=14.35cm,font=\small,inner sep=7pt] (out) at (5.7,-5.5)
-{\textbf{Self-assessment output}\\Step-level impacts where data permit; evidence gaps; improvement options for investigation.\\[0.4em]
-\textbf{Data status:} Measured / Estimated / Unavailable (labels to assign when data are collected).};
+ stagebox/.style={draw=black!60,rounded corners=4pt,fill=black!3,text width=2.5cm,minimum height=1.05cm,align=center,font=\small\bfseries},
+ cell/.style={text width=2.5cm,align=left,font=\small},
+ rowlabel/.style={text width=1.9cm,align=left,font=\small\bfseries},
+ flow/.style={-{Stealth[length=2mm]},thick,rounded corners=4pt},
+ band/.style={draw=black!60,rounded corners=4pt,text width=13.5cm,align=left,font=\small,inner sep=8pt}]
+\node[rowlabel] at (0,0) {Research\\stage};
+\node[stagebox] (a) at (2.8,0) {Material\\preparation};
+\node[stagebox] (b) at (5.9,0) {Battery\\fabrication};
+\node[stagebox] (c) at (9,0) {Performance\\testing};
+\node[stagebox] (d) at (12.1,0) {Data\\analysis};
+\draw[flow] (a)--(b);\draw[flow] (b)--(c);\draw[flow] (c)--(d);
+\node[rowlabel] at (0,-1.65) {Activity\\records};
+\node[cell] at (2.8,-1.65) {Material types; quantities; supplier data};
+\node[cell] at (5.9,-1.65) {Equipment; process time; electricity use};
+\node[cell] at (9,-1.65) {Test cycles; duration; measured energy};
+\node[cell] at (12.1,-1.65) {Computing time; hardware; data retained};
+\draw[black!25] (-0.95,-2.6)--(13.5,-2.6);
+\node[rowlabel] at (0,-3.3) {Research\\outputs};
+\node[cell] at (2.8,-3.3) {Prepared materials};
+\node[cell] at (5.9,-3.3) {Prototype cells};
+\node[cell] at (9,-3.3) {Performance data};
+\node[cell] at (12.1,-3.3) {Interpreted results};
+\node[band,draw=green!35!black,fill=green!10] (assist) at (6.2,-4.85)
+{\textbf{AI assistance:} Structure the activity records, retrieve comparable cases and draft evidence-linked suggestions.};
+\node[band,fill=black!12] (verify) at (6.2,-6.25)
+{\textbf{Human review:} Confirm activity details and assess whether the suggested changes preserve research quality.};
+\draw[flow] (assist)--(verify);
+\node[band] (result) at (6.2,-7.65)
+{\textbf{Self-assessment output:} Supported step-level estimates, unresolved data gaps and options for investigation.};
+\draw[flow] (verify)--(result);
+\node[align=left,text width=14.3cm,font=\footnotesize] at (6.2,-9.2)
+{\textbf{Data status:} Measured / Estimated / Unavailable.\\
+\textbf{Boundary:} Selected laboratory and computing activities; upstream material impacts require supplier or lifecycle data.};
 \end{tikzpicture}
-\caption{Illustrative computing activity and its assessment records. Research outputs are shown separately from self-assessment outputs; no measurements are assumed.}
+\caption{Illustrative battery research stages, records and outputs used for self-assessment. Green denotes AI assistance; grey denotes human review.}
 \label{fig:activity}
-\vspace{0.3em}
-\begin{minipage}{0.96\textwidth}\small
-Illustrative assessment boundary: selected computing activities. Hardware manufacturing and shared infrastructure require additional data.
-\end{minipage}
 \end{figure}
-
