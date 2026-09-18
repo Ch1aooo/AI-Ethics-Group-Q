@@ -17,6 +17,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{float}
 \usepackage{array}
+\usepackage{graphicx}
 
 \setstretch{1.08}
 \setlength{\parindent}{0pt}
@@ -83,16 +84,49 @@ The project focuses on the Research domain at TU/e. Its intended users are resea
 The tool will not be used to manage campus facilities, evaluate university curricula, or decide which projects receive approval or funding. It will not provide a complete life-cycle assessment or rank researchers and projects across disciplines.
 
 \subsection{Tools, Methods and Frameworks}
-\placeholder{Explain why Design for Values or Value Sensitive Design fits the aim. Introduce conceptual, empirical, and technical investigations with references.}
+The proposed system will be guided by 2 design methodologies; 
 
-{\small \textbf{Logic:} research context $\rightarrow$ stakeholder need $\rightarrow$ value $\rightarrow$ requirement $\rightarrow$ tool feature $\rightarrow$ success indicator.}
+1) \textbf{The Value-Sensitive Design (VSD) framework} – We will use Value Sensitive Design (VSD) to identify stakeholder values and translate them into design requirements. (The TU/e Research Data Management Handbook, 2026). It would also embody academic integrity (The Netherlands Code of Conduct for Research Integrity & TU/e Code, 2018), making it different from Claude and ChatGPT. This framework will be achieved by ensuring that this system does not steal people’s ideas and uses as few resources (e.g., electricity) as possible.
+
+2) \textbf{The Iterative Engineering Design process} – As our software cannot be built perfectly on the first attempt, we are going to use an iterative cycle: Requirements – Prototype – Expert Evaluation – Refine (Haptic in-seat feedback for lane departure warning (de Vries, 2013)). The local repository of the system would be able to update and adapt instantly to new TU/e policies. The user just has to update the reference. Also, outputs of this system would be refined using Retrieval Augmented Generation (RAG) with TU/e documents. 
+
+\textbf{As for the tools}: 
+
+1) To lay the groundwork, we would use an open-source \textbf{LLM Llama 3(8B) or Mistral(7B)} - lightweight, would run efficiently while keeping data private. 
+
+2) \textbf{The Retrieval Engine (RAG Stack)} would be used to ground the LLM specifically in TU/e's rules. The vector database, (Chroma DB or Qdrant) will be deployed alongside LangChain/LlamaIndex (LangChain, 2026). This will serve as our system framework 
+ 
+3)\textbf{ Streamlit / Gradio }will be used to create a custom web dashboard whose interface will feature a tweak panel where lecturers or research students can adjust the compliance weights or input an updated TU/e policy file. HTML, CSS and JS may also be explored.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{LaTeX_tuemscthesis2021/figures/Workflow of our system.png} % Replace 'filename' with your actual image file name
+    \caption{The system flowchart}
+    \label{fig:system_flowchart}
+\end{figure} 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{LaTeX_tuemscthesis2021/figures/wireframe mockup.png} % Replace 'filename' with your actual image file name
+    \caption{Generated sketch of how the wireframing of the proposed system would look like  }
+    \label{fig:system_flowchart}
+\end{figure}
+ 
+
+
 
 \clearpage
 \section{Initial Results}
 
 \subsection{Preliminary Literature Search}
-\placeholder{Report databases, search terms, dates, selection criteria, number of sources, and main evidence gaps.}
 
+A literature search was carried out on 15 October,2025 by Bayta Friedman and other professors at the University of Washington in USA. Making use of Scopus and IEEE Xplore databases, the search string was made using boolean operators to contain intersections between certain institutional frameworks: smart university approach or campus sustainability approach. Another one was LLMs or RAG. 
+
+The search was restricted to articles (between 2021 and 2026) that had undergone strict evaluation by independent experts before they were published. The sources were picked based on the fulfilment of 2 factors:
+1) title/abstract relevance screening and 2) full text evaluation.
+Articles evaluating public and generic models without a secure local framework were completely excluded. At the end of this search, 42 sources were identfied. This was later filtered down to 5 major papers that match our exact scope.
+
+The major gap identified is the lack of empirical framework (no standardized systems)that measures or monitors the localized computing footprint of hosting open-source LLMs directly on university frameworks. Alongside that is also the inability of subject experts to modify the tool when they are using the system/software (i.e., the Human-in-the-Loop interface)
 \begin{table}[htbp]
 \centering
 \small
@@ -100,8 +134,13 @@ The tool will not be used to manage campus facilities, evaluate university curri
 \toprule
 Source & Type & Main finding & Need or value & Design implication \\
 \midrule
-\placeholder{Citation} & \placeholder{Type} & \placeholder{Finding} & \placeholder{Need/value} & \placeholder{Implication} \\
-\placeholder{Citation} & \placeholder{Type} & \placeholder{Finding} & \placeholder{Need/value} & \placeholder{Implication} \\
+Friedman et al., 2003
+& Academic Book Chapter  
+& Technology design is never really impartial. Certain human values like transparency and accountability must be looked into empirically, technically and conceptually (VSD)
+& This solves the need to specifically balance TU/e's data privacy regulations with its public environmental carbon reduction goals. 
+& We have to add a specific, visible Expert Control Panel to keep humans in control of the AI's logic.  \\
+Friedman and Hendry, 2019
+& Academic Text & \placeholder{Finding} & \placeholder{Need/value} & \placeholder{Implication} \\
 \bottomrule
 \end{tabularx}
 \caption{Literature-search log.}
@@ -142,13 +181,13 @@ Provide the tool with examples of research that have different sustainability im
 R3 & Constraint &
 The tool needs to make clear that it is not an official approval, but a guideline. &
 Sustainability is complex and AI alone will not be enough to make a final judgement. &
-Check whether the tool clearly communicates its advisory nature and requires human review of the output. \\
+Human review of the output.\\
 \hline
 
 R4 & Constraint &
 The researcher is responsible for changes made according to the advice from the tool. &
 The users are performing the research and therefore remain responsible for their decisions. &
-Check whether responsibility for decisions remains with the researcher. \\
+Check if it is made clear by the tool at the output that it remains the users' responsibility \\
 \hline
 
 \end{tabularx}
@@ -219,8 +258,8 @@ Needs to spend extra time reviewing the output of the tool
 
 TU/e sustainability team &
 Experts &
-Validate the tool &
-Not always available \\
+Potentially use the tool as an improvement or addition to existing tool &
+Will need to understand the tool \\
 \hline
 
 \end{tabularx}
