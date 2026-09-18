@@ -10,6 +10,9 @@
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{placeins}
 \usepackage{natbib}
 \usepackage[hidelinks]{hyperref}
 
@@ -19,8 +22,11 @@
 \renewcommand{\arraystretch}{1.15}
 \newcommand{\placeholder}[1]{\textcolor{gray}{[TODO: #1]}}
 
+\input{wordcount}
+
 \begin{document}
 
+\hypersetup{pageanchor=false}
 \begin{titlepage}
 \centering
 \vspace*{3cm}
@@ -30,16 +36,32 @@
 \vspace{0.6cm}
 {\Large ENSU -- Written Assignment Stage 1\par}
 \vfill
-\begin{tabular}{@{}ll@{}}
+\begin{tabularx}{0.95\textwidth}{@{}lX@{}}
 Course: & 5ARF0 Ethics of AI: Theory and Practice \\
-Group members: & Yehao Chen, 2216655, Dennis de Hoon, 1732773 \\
 Clients: & Philip Nickel and Tijn Borghuis \\
 Primary coach: & Qin Tao (Tata) Zeng \\
-Date: & \placeholder{Submission date} \\
-Word count: & \placeholder{Main-text word count}
-\end{tabular}
+Submission date: & 18 September 2026 \\
+Word count: & \mainwordcount{} (main text)
+\end{tabularx}
+
+\vspace{1cm}
+\begin{tabularx}{0.95\textwidth}{@{}p{0.30\textwidth}p{0.13\textwidth}X@{}}
+\toprule
+Name & Student ID & Email \\
+\midrule
+Yehao Chen & 2216655 & \href{mailto:y.chen13@student.tue.nl}{\nolinkurl{y.chen13@student.tue.nl}} \\
+Dennis de Hoon & 1732773 & \href{mailto:d.b.a.d.hoon@student.tue.nl}{\nolinkurl{d.b.a.d.hoon@student.tue.nl}} \\
+Gerald Tobenna Eluagu & 2419289 & \href{mailto:g.t.eluagu@student.tue.nl}{\nolinkurl{g.t.eluagu@student.tue.nl}} \\
+Peng Wang & \placeholder{ID} & \href{mailto:allseagulls@gmail.com}{\nolinkurl{allseagulls@gmail.com}} \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.6cm}
+{\footnotesize Main-text count excludes headings, tables, figures, references, appendices and draft placeholders.\par}
+
 \vfill
 \end{titlepage}
+\hypersetup{pageanchor=true}
 
 \section{Introduction and Motivation (500 words)}
 
@@ -103,6 +125,12 @@ TU/e researchers & \placeholder{Need} & \placeholder{Value} & \placeholder{Benef
 \textbf{Tool concept and purpose.}
 \placeholder{Describe the user task, inputs, AI function, outputs, next human decision, and connection to the current TU/e self-assessment tool. State how experts can modify it.}
 
+% Intended for Section 2.4 when the group finalises subsection numbering.
+Figures~\ref{fig:workflow} and~\ref{fig:activity} present a design proposal for group confirmation, rather than implemented functionality. AI would structure descriptions and draft source-supported suggestions; a calculation module would apply explicit formulas. Missing inputs would be returned for clarification, with unsupported estimates withheld if the information remains unavailable.
+
+\input{figures/proposed-workflows}
+\FloatBarrier
+
 \textbf{Requirements and constraints.}
 \placeholder{Separate functional, non-functional, ethical requirements, constraints, and non-goals.}
 
@@ -125,34 +153,45 @@ R4 & \placeholder{Need} & \placeholder{Value} & \placeholder{Requirement} & \pla
 \textbf{Design strategy.}
 \placeholder{Describe the steps from evidence and stakeholder input to requirements, mock-up, expert review, evaluation, and revision.}
 
-\section{Discussion (500 words)}
+\FloatBarrier
+\section{Discussion}
 
-\textbf{Ethical issues and value conflicts.}
-\placeholder{Discuss two or three project-specific conflicts. Link stakeholders, values, design choices, ethical frameworks, and remaining limitations.}
+\subsection{Ethical Issues and Value Conflicts}
+
+What should our tool count as sustainable research? \citet{hasselbalch2025sustainability} connect sustainability to power within sociotechnical systems. For us, this raises the question of who sets the assessment criteria. Prioritising electricity consumption could penalise an intensive experiment despite its scientific value. We would therefore present environmental indicators alongside researchers' explanations of purpose, comparing activities only where objectives and research quality are comparable. The criteria still need agreement with the client. Researchers should be able to explain why a demanding step is necessary, rather than receive a lower score without context. This would make disagreements visible instead of hiding them inside an aggregate rating. The client would still need to decide how competing considerations are weighed and whether comparisons across disciplines are appropriate for the intended use of the assessment tool.
+
+Numerical estimates could also acquire more authority than their evidence warrants. \citet{lacoste2019carbon} show how hardware, runtime and electricity supply affect emissions from machine learning training; their method does not validate assessments of every research activity. In our tool, apparent differences may be smaller than calculation uncertainty. Results should distinguish measured from estimated values, flag missing information and identify sources and boundaries. Researchers must be able to correct inputs, although this cannot ensure that they question the output.
+
+The tool's own resource use also needs justification. \citet{lin2023cost} argues for transparency about AI's energy consumption. We would use fixed formulas where available and reserve AI for interpreting descriptions and drafting supported suggestions. Its contribution should be tested against a structured non-AI assessment, accounting for computation and human review. Environmental benefit remains an untested hypothesis.
+
+\subsection{Design Barriers and Challenges}
+\enlargethispage{\baselineskip}
+
+A manageable assessment boundary is the first practical challenge. Shared equipment and computing services make consumption difficult to attribute. Mapping one representative workflow with the client would establish which records researchers can supply. An estimate of equipment operation must state its exclusions; it cannot stand for a complete lifecycle assessment. Replacement advice would also need evidence about manufacturing impacts, not merely operating savings.
+
+Recommendations depend on evidence that requires maintenance. Reference data and guidance need sources and review dates, with version histories so earlier assessments remain traceable. Applying the institutional perspective of \citet{hasselbalch2025sustainability}, TU/e would need someone authorised to correct or withdraw outdated advice. The responsible role and available resources remain unresolved. This responsibility matters because researchers cannot reasonably verify every equipment parameter themselves. A source link alone does not establish that guidance remains appropriate for their activity.
+
+Finally, intended users should compare AI-assisted feedback with a structured checklist on the same cases, checking whether advice follows from the evidence and recording omissions and correction effort. This would test whether the assistance is useful enough to justify further development.
 
 \begin{table}[htbp]
 \centering
-\caption{Ethical risks and responses.}
+\caption{Anticipated ethical risks and proposed responses.}
+\label{tab:ethical-risks}
 \small
-\begin{tabularx}{\textwidth}{@{}p{0.17\textwidth}p{0.14\textwidth}XXX@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}p{0.13\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 Risk & Stakeholders & Values & Response & Limitation \\
 \midrule
-Privacy & \placeholder{Who} & Privacy; autonomy & \placeholder{Response} & \placeholder{Limit} \\
-Unclear AI advice & \placeholder{Who} & Transparency; accountability & \placeholder{Response} & \placeholder{Limit} \\
-Greenwashing & \placeholder{Who} & Sustainability; trust & \placeholder{Response} & \placeholder{Limit} \\
-Rebound effects & \placeholder{Who} & Environmental impact & \placeholder{Response} & \placeholder{Limit} \\
-Unfair recommendations & \placeholder{Who} & Fairness & \placeholder{Response} & \placeholder{Limit} \\
-Reduced human control & \placeholder{Who} & Human oversight & \placeholder{Response} & \placeholder{Limit} \\
+Privacy & Researchers & Privacy; autonomy & Request only necessary activity data & Descriptions may reveal sensitive work \\
+Unclear AI advice & Researchers & Transparency; accountability & Show sources and uncertainty & Sources may be misapplied \\
+Greenwashing & TU/e; researchers & Sustainability; trust & State boundaries and exclusions & Partial estimates omit wider impacts \\
+Rebound effects & TU/e; affected communities & Environmental impact & Track total use alongside efficiency & Future demand is uncertain \\
+Unfair recommendations & Research groups & Fairness & Compare similar research objectives & Criteria remain contestable \\
+Reduced human control & Researchers & Human oversight & Require input checks and final review & Users may accept advice uncritically \\
 \bottomrule
 \end{tabularx}
 \end{table}
-
-\textbf{Barriers and challenges.}
-\placeholder{Discuss relevant limits in evidence, representation, data, bias, explainability, adoption, AI energy use, and project scope.}
-
-\textbf{Next steps.}
-\placeholder{State what expert feedback or prototype evaluation must test next.}
 
 \clearpage
 \nocite{*}
@@ -175,7 +214,7 @@ Date & Participants & Activity & Output or decision & Next action \\
 Date & Participants & Activity & Output or decision & Next action \\
 \midrule
 \endhead
-\placeholder{Date} & \placeholder{Names} & \placeholder{Activity} & \placeholder{Output} & \placeholder{Action} \\
+18 Sep 2026 & Yehao Chen; AI writing assistance & Revise Discussion; draft diagrams & Proposed workflow; revised text & Group review of scope and wording \\
 \placeholder{Date} & \placeholder{Names} & \placeholder{Activity} & \placeholder{Output} & \placeholder{Action} \\
 \bottomrule
 \end{longtable}
@@ -184,7 +223,7 @@ Date & Participants & Activity & Output or decision & Next action \\
 \section{Project Planning}
 
 \begin{longtable}{@{}p{0.15\textwidth}p{0.27\textwidth}p{0.19\textwidth}p{0.23\textwidth}@{}}
-\caption{Stage 1 project schedule.}\\
+\caption{Proposed remaining project schedule (2026).}\\
 \toprule
 Date & Activity & Owner & Deliverable \\
 \midrule
@@ -193,16 +232,16 @@ Date & Activity & Owner & Deliverable \\
 Date & Activity & Owner & Deliverable \\
 \midrule
 \endhead
-8 September & Fix scope and research question & \placeholder{Owner} & Scope statement \\
-9--10 September & Conduct literature search & \placeholder{Owner} & Search log and sources \\
-11 September & Map stakeholders and values & \placeholder{Owner} & Stakeholder map \\
-12--13 September & Define tool concept and flow & \placeholder{Owner} & Concept sketch \\
-14 September & Specify requirements and risks & \placeholder{Owner} & Traceability tables \\
-15 September & Complete first draft & \placeholder{Owner} & Full draft \\
-16 September & Review grading criteria & \placeholder{Owner} & Revision list \\
-17 September & Revise and proofread & \placeholder{Owner} & Final draft \\
-18 September & Submit before 23:59 & \placeholder{Owner} & Stage 1 submission \\
+18 Sep, 23:59 & Integrate and submit Phase 1 & \placeholder{Owner} & Phase 1 report \\
+22--29 Sep & Confirm scope and evidence needs during coaching & \placeholder{Owner} & Revised requirements \\
+30 Sep--10 Oct & Develop mock-up; prepare evaluation and practice pitch & \placeholder{Owner} & Mock-up and evaluation plan \\
+11 Oct, 23:59 & Submit Phase 2 draft for peer review & \placeholder{Owner} & Draft report \\
+16 Oct, 23:59 & Complete individual peer review & Each member & Peer feedback \\
+17--20 Oct & Revise and record pitch & \placeholder{Owner} & Video pitch: 20 Oct, 23:59 \\
+23 Oct, 23:59 & Submit Phase 2 final version & \placeholder{Owner} & Final report \\
+24 Oct, 23:59 & Complete groupmate evaluation & Each member & Individual evaluation \\
 \bottomrule
 \end{longtable}
 
 \end{document}
+

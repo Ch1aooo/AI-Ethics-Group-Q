@@ -1,0 +1,25 @@
+3 Discussion
+
+3.1 Ethical Issues and Value Conflicts
+
+What should our tool count as sustainable research? Hasselbalch and van Wynsberghe (2025) connect sustainability to power within sociotechnical systems. For us, this raises the question of who sets the assessment criteria. Prioritising electricity consumption could penalise an intensive experiment despite its scientific value. We would therefore present environmental indicators alongside researchers' explanations of purpose, comparing activities only where objectives and research quality are comparable. The criteria still need agreement with the client. Researchers should be able to explain why a demanding step is necessary, rather than receive a lower score without context. This would make disagreements visible instead of hiding them inside an aggregate rating. The client would still need to decide how competing considerations are weighed and whether comparisons across disciplines are appropriate for the intended use of the assessment tool.
+
+Numerical estimates could also acquire more authority than their evidence warrants. Lacoste et al. (2019) show how hardware, runtime and electricity supply affect emissions from machine learning training; their method does not validate assessments of every research activity. In our tool, apparent differences may be smaller than calculation uncertainty. Results should distinguish measured from estimated values, flag missing information and identify sources and boundaries. Researchers must be able to correct inputs, although this cannot ensure that they question the output.
+
+The tool's own resource use also needs justification. Lin (2023) argues for transparency about AI's energy consumption. We would use fixed formulas where available and reserve AI for interpreting descriptions and drafting supported suggestions. Its contribution should be tested against a structured non-AI assessment, accounting for computation and human review. Environmental benefit remains an untested hypothesis.
+
+3.2 Design Barriers and Challenges
+
+A manageable assessment boundary is the first practical challenge. Shared equipment and computing services make consumption difficult to attribute. Mapping one representative workflow with the client would establish which records researchers can supply. An estimate of equipment operation must state its exclusions; it cannot stand for a complete lifecycle assessment. Replacement advice would also need evidence about manufacturing impacts, not merely operating savings.
+
+Recommendations depend on evidence that requires maintenance. Reference data and guidance need sources and review dates, with version histories so earlier assessments remain traceable. Applying Hasselbalch and van Wynsberghe's (2025) institutional perspective, TU/e would need someone authorised to correct or withdraw outdated advice. The responsible role and available resources remain unresolved. This responsibility matters because researchers cannot reasonably verify every equipment parameter themselves. A source link alone does not establish that guidance remains appropriate for their activity.
+
+Finally, intended users should compare AI-assisted feedback with a structured checklist on the same cases, checking whether advice follows from the evidence and recording omissions and correction effort. This would test whether the assistance is useful enough to justify further development.
+
+4 References
+
+Hasselbalch, G., & van Wynsberghe, A. (2025). Artificial intelligence, power and sustainability. In N. A. Smuha (Ed.), The Cambridge handbook of the law, ethics and policy of artificial intelligence (pp. 117-130). Cambridge University Press. https://doi.org/10.1017/9781009367783.008
+
+Lacoste, A., Luccioni, A., Schmidt, V., & Dandres, T. (2019). Quantifying the carbon emissions of machine learning [Preprint]. arXiv. https://doi.org/10.48550/arXiv.1910.09700
+
+Lin, P. K. (2023). The cost of training a machine: Lighting the way for a climate-aware policy framework that addresses artificial intelligence's carbon footprint problem. Fordham Environmental Law Review, 34(2). https://ir.lawnet.fordham.edu/elr/vol34/iss2/1/

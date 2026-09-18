@@ -1,0 +1,13 @@
+Revision 18 September 2026
+
+Discussion: 450 English words in discussion_revised.txt, excluding headings and references; whitespace count, hyphenated compounds count as one. LaTeX author-year citation rendering may change the count slightly. Risk table: approximately 92 words including column headers, excluding caption.
+
+Added figures/proposed-workflows.tex under Tool concept and purpose. Intended final location: Section 2.4; the current template has unnumbered bold labels, so no other member sections were renumbered. Figures are design proposals for group confirmation.
+
+Original risk table columns and six risk categories retained. Added Lacoste and Lin references; existing bibliography entries retained. Lin metadata checked against the journal site (2023, Training).
+
+Project planning remains a table. Course deadlines use the Study Guide; intermediate work is proposed, and unknown owners remain TODO. Existing process-log placeholders remain; one dated revision entry was added with AI assistance acknowledged.
+
+Other members' section text and placeholders remain unchanged. Full-group integration, unresolved placeholders and final subsection numbering remain for later. Original tex, bib and PDF are saved in backup_before_revision.
+
+Compilation: pdflatex, bibtex, pdflatex twice. PDF visually inspected after layout corrections.
