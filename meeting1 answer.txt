@@ -1,0 +1,14 @@
+input output system,->activity analysis->sustainability estim->
+comparison with database ->recommend (final score)
+
+accountability
+transparency
+privacy
+
+VSD/4+1/stakeholder analysis
+
+question: ref to survey of 64 students
+
+API opensource used business model?
+school or student using it?
+framework can be updated and selected no limited from lectures

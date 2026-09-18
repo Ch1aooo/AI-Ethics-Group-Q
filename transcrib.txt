@@ -1,0 +1,183 @@
+AI 生成的内容可能不正确
+
+Chen, Yehao 已开始听录
+BT
+
+Borghuis, Tijn
+0 30:03
+Borghuis, Tijn 0 分钟 3 秒
+generating music with AI, and we used deep learning. And at that time, I bought a machine learning server with four GPUs and put it in my attic. And then our entire electricity bill tripled. And that also opened my eyes, let's say, practically and realistically about
+Borghuis, Tijn 0 分钟 22 秒
+how resource intensive all this research is.
+Borghuis, Tijn 0 分钟 28 秒
+Well, I mean, by now there are also papers appearing on how much water or how much electricity is actually being used by the current systems. And if you look at all the data centers they're still planning to build, then this will really get worse. But yeah.
+H
+
+Himanshu
+0 300:30
+Himanshu 0 分钟 30 秒
+Thank you.
+BT
+
+Borghuis, Tijn
+0 460:46
+Borghuis, Tijn 0 分钟 46 秒
+It's let's say a personal reason why I got interested in this topic.
+
+Nickel, Philip
+0 530:53
+Nickel, Philip 0 分钟 53 秒
+And from my point of view, I'm interested in kind of research governance at the university. So I'm part of the ethical review board, but I also take an interest in the sustainability initiatives. And from a researcher's point of view and from a student point of view, I kind of keep track of how people are thinking about the environmental impact of what they do using AI.
+Nickel, Philip 1 分钟 16 秒
+And it strikes me that the universities has a statement about sustainability and they're really trying to prioritize it, but they don't say anything about AI use and they simply have nothing on the website about how AI use may factor into the environmental impact. So to prepare for this meeting, I completed the self-assessment for one of my research projects just to see what the tools are.
+Nickel, Philip 1 分钟 40 秒
+was like that this topic is based on. And I can tell you more about that if you're interested, but maybe you can also complete the self-assessment yourself.
+Nickel, Philip 1 分钟 55 秒
+So at this meeting, I thought it might be interesting just to talk about some ideas or questions that you may have about the existing tool, about the TUE's approach to sustainability, about what the utility of the self-assessment would be for researchers, for the administration at the university, and also for students.
+Nickel, Philip 2 分钟 16 秒
+Like yourselves.
+Nickel, Philip 2 分钟 20 秒
+So I'm curious to know what your questions are and also how you may be thinking your first ideas about refining the topic for doing the assignment.
+H
+Henrique da Silva Couto
+2 分钟 21 秒2:21
+Henrique da Silva Couto 2 分钟 21 秒
+Yeah.
+Henrique da Silva Couto 2 分钟 30 秒
+Okay, that is, I can start off here. Henrik here. Nice meeting you, Tijn, and thanks, Professor, also for the for being present. My initial understanding, and I think Tan's comment was very relevant in the sense that kind of
+Henrique da Silva Couto 2 分钟 50 秒
+being conscious about the actual like power draw of like AI solutions and I was thinking what would be the
+Henrique da Silva Couto 3 分钟 1 秒
+The idea for the maximum impact of this of this initiative, so it's like...
+Henrique da Silva Couto 3 分钟 7 秒
+Are we talking about something more related to research, something more related to kind of daily usage for the students to be, to kind of measure the impact of what they are doing with some sort of AI tool, or should we opt?
+Henrique da Silva Couto 3 分钟 27 秒
+also take into consideration the actual...
+Henrique da Silva Couto 3 分钟 30 秒
+not use AI in vain type of thing, should we kind of regulate how we use AI in terms of not to kind of, you know, waste any power by doing kind of not value add type of prompts, stuff like that. So what is more or less kind of the general.
+Henrique da Silva Couto 3 分钟 49 秒
+Initial scope for the deliverable, or for something that would be more impactful for this.
+Henrique da Silva Couto 3 分钟 57 秒
+Assignment, but not only for the assignment, but for the for the whole TUE community.
+
+Nickel, Philip
+4 分钟 7 秒4:07
+Nickel, Philip 4 分钟 7 秒
+Do you have thoughts about that, Tijn?
+BT
+Borghuis, Tijn
+4 分钟 11 秒4:11
+Borghuis, Tijn 4 分钟 11 秒
+Well, I mean, as far as I understand, it's an instrument to think about the sustainability of your research, right?
+
+Nickel, Philip
+4 分钟 20 秒4:20
+Nickel, Philip 4 分钟 20 秒
+Not just research, but it can also be other uses at the university. So it could also be potentially for students or for the administration or others.
+BT
+Borghuis, Tijn
+4 分钟 30 秒4:30
+Borghuis, Tijn 4 分钟 30 秒
+But is it comparable in the, do you envision something that's comparable with, let's say, ethics approval of research in the sense that there could be some kind of
+Borghuis, Tijn 4 分钟 48 秒
+Um...
+Borghuis, Tijn 4 分钟 50 秒
+It's a combination of parameters, and if you stay within that combination, then you're basically fine, whereas if you exceed that, and I have...
+Borghuis, Tijn 5 分钟 3 秒
+I have no idea, Erik, how to formulate these parameters yet, but I mean, so to capture, like with the ethics, you capture the idea that, okay, there's, of course, you always need consent and there's, but there's lots of stuff if you were just interviewing people and you stay away from certain topics and you do another.
+Borghuis, Tijn 5 分钟 23 秒
+a couple of other things, then basically you are fine and the instrument also tells you that. You're basically fine and you have, if you go beyond that, you have to go through the full procedure for approval. Is the idea of the instrument like that? So in a way,
+Borghuis, Tijn 5 分钟 44 秒
+giving people a means to self-diagnose, also their use of resources and then...
+Borghuis, Tijn 5 分钟 55 秒
+Of course, you don't have to really ask for permission, but similarly, sort of...
+Borghuis, Tijn 6 分钟 3 秒
+report your research as being more resource intensive and more less maybe sustainable than what's considered the norm? So is it both, let's say, diagnostic and normative, or how do you view this, the role of this?
+
+Nickel, Philip
+6 分钟 23 秒6:23
+Nickel, Philip 6 分钟 23 秒
+Yeah, I think it's a really good question. I don't think there's any appetite at the moment among the administration to place additional constraints, institutional constraints on research. So to say, to make it a go, no-go question. But in order to give it some traction, it would be interesting if it could be related to some kind of international standard.
+Nickel, Philip 6 分钟 48 秒
+you know, or some kind of a metric that would be recognized outside the university as well as inside of it. So that it could be used as a way of communicating the environmental impact.
+Nickel, Philip 7 分钟 3 秒
+And maybe also to fit in with the university's own ambitions to kind of quantify and express its environmental impact to the outside world.
+Nickel, Philip 7 分钟 19 秒
+As with companies that prepare a sustainability report, you know, every year, the university also, you know, could and should take an interest in trying to somehow, yep, put some metrics on their impact in this respect.
+BT
+Borghuis, Tijn
+7 分钟 41 秒7:41
+Borghuis, Tijn 7 分钟 41 秒
+I mean, they do publish, I think, annually how much energy they did use, I think, but it's not specified further in any way.
+
+Nickel, Philip
+7 分钟 52 秒7:52
+Nickel, Philip 7 分钟 52 秒
+hm, for example, yeah.
+BT
+Borghuis, Tijn
+7 分钟 53 秒7:53
+Borghuis, Tijn 7 分钟 53 秒
+Ohh.
+
+Nickel, Philip
+7 分钟 57 秒7:57
+Nickel, Philip 7 分钟 57 秒
+I mean, you can think of the, like, you know, let's just take like student use of AI for working on assignments or whatever. Is that something that should be included in that amount because it was initiated within the context of the university, or is it something that can be treated as external?
+Nickel, Philip 8 分钟 14 秒
+Oh.
+BT
+Borghuis, Tijn
+8 分钟 15 秒8:15
+Borghuis, Tijn 8 分钟 15 秒
+Well, anyway, I mean, there's for other reasons, there's debate also on how much facilities of that kind should be offered by the university.
+Borghuis, Tijn 8 分钟 25 秒
+And their university, of course, has currently a contract with Microsoft, so Copilot can be used by everyone, let's say the slow version of it. And in that sense, you could say, well,
+Borghuis, Tijn 8 分钟 45 秒
+It's not our problem, because it's a Microsoft tool and these are their data centers. On the other hand, by offering these tools, the university of course is playing a role in the usage of these things, and they are there are...
+Nickel, Philip 31 分钟 27 秒
+All right. So, Tijn, is it okay if I make some arrangements for you just to participate in the final round of student presentations at the end of the?
+BT
+Borghuis, Tijn
+31 分钟 42 秒31:42
+Borghuis, Tijn 31 分钟 42 秒
+Yeah, of course, very, very curious to see what comes out of this. Yeah, definitely.
+
+Nickel, Philip
+31 分钟 43 秒31:43
+Nickel, Philip 31 分钟 43 秒
+trajectory.
+Nickel, Philip 31 分钟 48 秒
+Great, yeah. And certainly, yeah, so you could attend those in person or there will also be video clips of the pitches for the project ideas. And there may be some working demos of some kind for some of the projects, but that's not strictly required.
+Nickel, Philip 32 分钟 11 秒
+Yeah, okay, well, thanks everyone for being here at this late time slot, and I hope you have a nice evening, and I'll see many of you tomorrow in lecture, hopefully.
+PE
+Pouliquen, Ewen
+32 分钟 24 秒32:24
+Pouliquen, Ewen 32 分钟 24 秒
+Sounds good. Thank you again.
+H
+Henrique da Silva Couto
+32 分钟 26 秒32:26
+Henrique da Silva Couto 32 分钟 26 秒
+Thanks, guys. Cheers. Hello, company.
+
+Nickel, Philip
+32 分钟 26 秒32:26
+Nickel, Philip 32 分钟 26 秒
+All right, thanks. Bye-bye.
+BT
+Borghuis, Tijn
+32 分钟 27 秒32:27
+Borghuis, Tijn 32 分钟 27 秒
+Bye-bye.
+
+Marugán Barbero, Ignacio
+32 分钟 29 秒32:29
+Marugán Barbero, Ignacio 32 分钟 29 秒
+Thank you, bye.
+H
+Henrique da Silva Couto
+32 分钟 30 秒32:30
+Henrique da Silva Couto 32 分钟 30 秒
+Bye-bye.
