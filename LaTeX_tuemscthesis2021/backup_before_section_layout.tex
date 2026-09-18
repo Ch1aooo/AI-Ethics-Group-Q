@@ -12,7 +12,7 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning}
-\usepackage[section]{placeins}
+\usepackage{placeins}
 \usepackage{natbib}
 \usepackage[hidelinks]{hyperref}
 
@@ -63,28 +63,28 @@ Peng Wang & \placeholder{ID} & \href{mailto:allseagulls@gmail.com}{\nolinkurl{al
 \end{titlepage}
 \hypersetup{pageanchor=true}
 
-\section{Introduction and Motivation}
+\section{Introduction and Motivation (500 words)}
 
-\subsection{Topic, Motivation, Values and Needs}
+\textbf{Topic and motivation.}
 \placeholder{Define the sustainability problem in TU/e research. Explain why an AI-supported tool may help. Cite evidence.}
+
+\textbf{Objectives and terms.}
+\placeholder{State one project aim and one research question. Define the essential terms.}
+
+\textbf{Context and scope.}
+\placeholder{Specify users, research activity, decision point, setting, and non-goals.}
 
 \textbf{Values and needs.}
 \placeholder{Introduce stakeholder needs and the main values: sustainability, transparency, accountability, fairness, and human oversight.}
 
-\subsection{Objectives and Key Terms}
-\placeholder{State one project aim and one research question. Define the essential terms.}
-
-\subsection{Context and Scope}
-\placeholder{Specify users, research activity, decision point, setting, and non-goals.}
-
-\subsection{Tools, Methods and Frameworks}
+\textbf{Methods.}
 \placeholder{Explain why Design for Values or Value Sensitive Design fits the aim. Introduce conceptual, empirical, and technical investigations with references.}
 
 \textbf{Logic:} research context $\rightarrow$ stakeholder need $\rightarrow$ value $\rightarrow$ requirement $\rightarrow$ tool feature $\rightarrow$ success indicator.
 
-\section{Initial Results}
+\section{Initial Results (1,000 words)}
 
-\subsection{Preliminary Literature Search}
+\textbf{Preliminary literature search.}
 \placeholder{Report databases, search terms, dates, selection criteria, number of sources, and main evidence gaps.}
 
 \begin{table}[htbp]
@@ -104,12 +104,34 @@ Source & Type & Main finding & Need or value & Design implication \\
 \textbf{Preliminary findings.}
 \placeholder{Synthesize researcher needs, current assessment methods, AI opportunities, known risks, and evidence gaps.}
 
-\FloatBarrier
-\subsection{Design Strategy}
-\placeholder{Describe the steps from evidence and stakeholder input to requirements, mock-up, expert review, evaluation, and revision.}
+\textbf{Stakeholders, needs, and values.}
+\placeholder{Identify users, affected groups, governors, experts, and their roles in the design.}
 
+\begin{table}[htbp]
+\centering
+\caption{Stakeholder and value map.}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}XXXp{0.17\textwidth}@{}}
+\toprule
+Stakeholder & Need & Value & Benefit or harm & Design role \\
+\midrule
+TU/e researchers & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
+\placeholder{Stakeholder} & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
+\placeholder{Stakeholder} & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Tool concept and purpose.}
+\placeholder{Describe the user task, inputs, AI function, outputs, next human decision, and connection to the current TU/e self-assessment tool. State how experts can modify it.}
+
+% Intended for Section 2.4 when the group finalises subsection numbering.
+Figures~\ref{fig:workflow} and~\ref{fig:activity} present a design proposal for group confirmation, rather than implemented functionality. AI would structure descriptions and draft source-supported suggestions; a calculation module would apply explicit formulas. Missing inputs would be returned for clarification, with unsupported estimates withheld if the information remains unavailable.
+
+\input{figures/proposed-workflows}
 \FloatBarrier
-\subsection{Initial Requirements and Constraints}
+
+\textbf{Requirements and constraints.}
 \placeholder{Separate functional, non-functional, ethical requirements, constraints, and non-goals.}
 
 \begin{table}[htbp]
@@ -128,33 +150,8 @@ R4 & \placeholder{Need} & \placeholder{Value} & \placeholder{Requirement} & \pla
 \end{tabularx}
 \end{table}
 
-\FloatBarrier
-\subsection{Anticipated Function and Purpose of the Tool}
-\placeholder{Describe the user task, inputs, AI function, outputs, next human decision, and connection to the current TU/e self-assessment tool. State how experts can modify it.}
-
-Figures~\ref{fig:workflow} and~\ref{fig:activity} present a design proposal for group confirmation, rather than implemented functionality. AI would structure descriptions and draft source-supported suggestions; a calculation module would apply explicit formulas. Missing inputs would be returned for clarification, with unsupported estimates withheld if the information remains unavailable.
-
-\input{figures/proposed-workflows}
-\FloatBarrier
-
-\FloatBarrier
-\subsection{Projected Users, Stakeholders and Values}
-\placeholder{Identify users, affected groups, governors, experts, and their roles in the design.}
-
-\begin{table}[htbp]
-\centering
-\caption{Stakeholder and value map.}
-\small
-\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}XXXp{0.17\textwidth}@{}}
-\toprule
-Stakeholder & Need & Value & Benefit or harm & Design role \\
-\midrule
-TU/e researchers & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
-\placeholder{Stakeholder} & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
-\placeholder{Stakeholder} & \placeholder{Need} & \placeholder{Value} & \placeholder{Benefit/harm} & \placeholder{Role} \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\textbf{Design strategy.}
+\placeholder{Describe the steps from evidence and stakeholder input to requirements, mock-up, expert review, evaluation, and revision.}
 
 \FloatBarrier
 \section{Discussion}
@@ -168,6 +165,7 @@ Numerical estimates could also acquire more authority than their evidence warran
 The tool's own resource use also needs justification. \citet{lin2023cost} argues for transparency about AI's energy consumption. We would use fixed formulas where available and reserve AI for interpreting descriptions and drafting supported suggestions. Its contribution should be tested against a structured non-AI assessment, accounting for computation and human review. Environmental benefit remains an untested hypothesis.
 
 \subsection{Design Barriers and Challenges}
+\enlargethispage{\baselineskip}
 
 A manageable assessment boundary is the first practical challenge. Shared equipment and computing services make consumption difficult to attribute. Mapping one representative workflow with the client would establish which records researchers can supply. An estimate of equipment operation must state its exclusions; it cannot stand for a complete lifecycle assessment. Replacement advice would also need evidence about manufacturing impacts, not merely operating savings.
 
