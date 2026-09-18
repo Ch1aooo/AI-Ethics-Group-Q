@@ -2,8 +2,7 @@
 
 3.1 Ethical Issues and Value Conflicts
 
-
-The definition of sustainable research determines how activities are assessed. Hasselbalch and van Wynsberghe (2025) locate sustainability within sociotechnical relations of power, making the selection of criteria an ethical issue. If electricity consumption is prioritised, an intensive experiment may be rated unfavourably despite its scientific value. In the proposed assessment, environmental indicators would therefore be presented alongside explanations of research purpose. Comparisons would be restricted to activities with comparable objectives and quality requirements. The initial design therefore omits aggregate scores and cross-disciplinary rankings. Client agreement is still needed on indicator selection and the conditions under which similar activities can be compared.
+The definition of sustainable research determines how activities are assessed. Hasselbalch and van Wynsberghe (2025) locate sustainability within sociotechnical relations of power, making the selection of criteria an ethical issue. If electricity consumption is prioritised, an intensive experiment may be rated unfavourably despite its scientific value. In the proposed assessment, environmental indicators would therefore be presented alongside explanations of research purpose. Comparisons would be restricted to activities with comparable objectives and quality requirements. Client agreement is needed on the weighting of criteria and the appropriateness of comparisons across disciplines. A single aggregate score could otherwise conceal disagreements about research priorities.
 
 Numerical estimates may be treated as more authoritative than their evidence warrants. Lacoste et al. (2019) identify hardware, runtime and electricity supply as factors affecting emissions from machine learning training. Their method does not establish validity for every research activity. Apparent differences between cases may be smaller than calculation uncertainty. Measured and estimated values would therefore be distinguished, with missing information flagged and sources and boundaries disclosed. Input correction would remain available to researchers. These provisions support scrutiny, but cannot ensure that an assessment is critically examined.
 
@@ -16,8 +15,6 @@ Defining a manageable assessment boundary is a practical constraint. Consumption
 Reference data and recommendations require maintenance. Sources, review dates and version histories would be recorded so that earlier assessments remain traceable. Following the institutional perspective of Hasselbalch and van Wynsberghe (2025), responsibility for correcting or withdrawing outdated guidance would need to be assigned at TU/e. The responsible role and available resources remain unresolved. For the proposed campus archive, outcome evidence and comparable activity conditions would require review before cases were reused. Higher assessment scores alone would not demonstrate reduced environmental impact. Reported outcomes would be distinguished from verified measurements, since selective reporting could favour successful cases and bias recommendations for future users of the proposed archive.
 
 Evaluation would compare AI-assisted feedback with a structured checklist on the same cases. Evidence support, omitted issues and correction effort would be examined to establish whether further development is justified.
-
-
 
 4 References
 

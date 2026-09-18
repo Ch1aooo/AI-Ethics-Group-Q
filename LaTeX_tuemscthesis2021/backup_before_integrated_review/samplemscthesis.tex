@@ -1,0 +1,369 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage[section]{placeins}
+\usepackage{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{array}
+\usepackage{graphicx}
+
+\setstretch{1.08}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\renewcommand{\arraystretch}{1.15}
+\newcommand{\placeholder}[1]{\textcolor{gray}{[TODO: #1]}}
+
+\input{wordcount}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\Large Eindhoven University of Technology\par}
+\vspace{1.5cm}
+{\huge\bfseries AI-Supported Sustainability Self-Assessment for TU/e Research\par}
+\vspace{0.6cm}
+{\Large ENSU -- Written Assignment Stage 1\par}
+\vfill
+\begin{tabularx}{0.95\textwidth}{@{}lX@{}}
+Course: & 5ARF0 Ethics of AI: Theory and Practice \\
+Clients: & Philip Nickel and Tijn Borghuis \\
+Primary coach: & Qin Tao (Tata) Zeng \\
+Submission date: & 18 September 2026 \\
+Word count: & \mainwordcount{} (main text)
+\end{tabularx}
+
+\vspace{1cm}
+\begin{tabularx}{0.95\textwidth}{@{}p{0.30\textwidth}p{0.13\textwidth}X@{}}
+\toprule
+Name & Student ID & Email \\
+\midrule
+Yehao Chen & 2216655 & \href{mailto:y.chen13@student.tue.nl}{\nolinkurl{y.chen13@student.tue.nl}} \\
+Dennis de Hoon & 1732773 & \href{mailto:d.b.a.d.hoon@student.tue.nl}{\nolinkurl{d.b.a.d.hoon@student.tue.nl}} \\
+Gerald Tobenna Eluagu & 2419289 & \href{mailto:g.t.eluagu@student.tue.nl}{\nolinkurl{g.t.eluagu@student.tue.nl}} \\
+Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{p.wang1@student.tue.nl}} \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.6cm}
+{\footnotesize Main-text count excludes headings, tables, figures, references, appendices and draft placeholders.\par}
+
+\vfill
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\section{Introduction and Motivation}
+
+\subsection{Topic, Motivation, Values and Needs}
+According to TU/e’s Sustainability Visioning Report, TU/e has already seen sustainable development as a major part of campus development and trying to achieve the goal of fully embodying sustainability and proactively engaging with societal challenges in 2050. However, the researchers need to put these into practical activities; this refers to specific equipment and data, which is often confusing. This project is trying to explore whether AI can help in this progress while remaining transparent and supporting human judgement.
+
+\subsection{Objectives and Key Terms}
+In this project, AI support tool is proposed to help users judge and examine the potential environmental impacts, taking equipment use, runtime, electricity consumption and other relevant factors into account.
+
+A large language model (LLM) is a language model with a large number of parameters, trained on extensive text data to support language understanding and generation. Here, LLM would provide supported suggestions based on the provided description of activities and use the formulas to calculate the environmental impacts through a separate module.
+
+The design objective is trying to help the researchers get reliable self-reflection on their own project. The proposed workflow comprises plan submission, AI-assisted activity analysis, formula-based impact estimation, comparison with relevant reference cases, and feedback with practical recommendations. Any assessment score would require agreed criteria. The database will be based on the known data and results of the papers, and will also include some examples, aiming to be professional and reliable. Missing information should trigger questions or qualified feedback. Evaluation would examine evidence traceability, consistency and whether users find the feedback helpful when revising their plans.
+
+\subsection{Context and Scope}
+
+The project focuses on the Research domain at TU/e. Its intended users are researchers, including students conducting research, who want to reflect on the environmental impacts of their planned research activities. This tool is designed for the planning and revising the research activities, such as date processing and computational experiments. The assessment covers selected environmental impacts for which sufficient activity data and reference information are available.
+The tool will not be used to manage campus facilities, evaluate university curricula, or decide which projects receive approval or funding. It will not provide a complete life-cycle assessment or rank researchers and projects across disciplines.
+
+\subsection{Tools, Methods and Frameworks}
+The proposed system will be guided by 2 design methodologies; 
+
+1) \textbf{The Value-Sensitive Design (VSD) framework} – We will use Value Sensitive Design (VSD) to identify stakeholder values and translate them into design requirements. (The TU/e Research Data Management Handbook, 2026). It would also embody academic integrity (The Netherlands Code of Conduct for Research Integrity & TU/e Code, 2018), making it different from Claude and ChatGPT. This framework will be achieved by ensuring that this system does not steal people’s ideas and uses as few resources (e.g., electricity) as possible.
+
+2) \textbf{The Iterative Engineering Design process} – As our software cannot be built perfectly on the first attempt, we are going to use an iterative cycle: Requirements – Prototype – Expert Evaluation – Refine (Haptic in-seat feedback for lane departure warning (de Vries, 2013)). The local repository of the system would be able to update and adapt instantly to new TU/e policies. The user just has to update the reference. Also, outputs of this system would be refined using Retrieval Augmented Generation (RAG) with TU/e documents. 
+
+\textbf{As for the tools}: 
+
+1) To lay the groundwork, we would use an open-source \textbf{LLM Llama 3(8B) or Mistral(7B)} - lightweight, would run efficiently while keeping data private. 
+
+2) \textbf{The Retrieval Engine (RAG Stack)} would be used to ground the LLM specifically in TU/e's rules. The vector database, (Chroma DB or Qdrant) will be deployed alongside LangChain/LlamaIndex (LangChain, 2026). This will serve as our system framework 
+ 
+3)\textbf{ Streamlit / Gradio }will be used to create a custom web dashboard whose interface will feature a tweak panel where lecturers or research students can adjust the compliance weights or input an updated TU/e policy file. HTML, CSS and JS may also be explored.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{LaTeX_tuemscthesis2021/figures/Workflow of our system.png} % Replace 'filename' with your actual image file name
+    \caption{The system flowchart}
+    \label{fig:system_flowchart}
+\end{figure} 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{LaTeX_tuemscthesis2021/figures/wireframe mockup.png} % Replace 'filename' with your actual image file name
+    \caption{Generated sketch of how the wireframing of the proposed system would look like  }
+    \label{fig:system_flowchart}
+\end{figure}
+ 
+
+
+
+\clearpage
+\section{Initial Results}
+
+\subsection{Preliminary Literature Search}
+
+A literature search was carried out on 15 October,2025 by Bayta Friedman and other professors at the University of Washington in USA. Making use of Scopus and IEEE Xplore databases, the search string was made using boolean operators to contain intersections between certain institutional frameworks: smart university approach or campus sustainability approach. Another one was LLMs or RAG. 
+
+The search was restricted to articles (between 2021 and 2026) that had undergone strict evaluation by independent experts before they were published. The sources were picked based on the fulfilment of 2 factors:
+1) title/abstract relevance screening and 2) full text evaluation.
+Articles evaluating public and generic models without a secure local framework were completely excluded. At the end of this search, 42 sources were identfied. This was later filtered down to 5 major papers that match our exact scope.
+
+The major gap identified is the lack of empirical framework (no standardized systems)that measures or monitors the localized computing footprint of hosting open-source LLMs directly on university frameworks. Alongside that is also the inability of subject experts to modify the tool when they are using the system/software (i.e., the Human-in-the-Loop interface)
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}p{0.12\textwidth}XXp{0.18\textwidth}@{}}
+\toprule
+Source & Type & Main finding & Need or value & Design implication \\
+\midrule
+Friedman et al., 2003
+& Academic Book Chapter  
+& Technology design is never really impartial. Certain human values like transparency and accountability must be looked into empirically, technically and conceptually (VSD)
+& This solves the need to specifically balance TU/e's data privacy regulations with its public environmental carbon reduction goals. 
+& We have to add a specific, visible Expert Control Panel to keep humans in control of the AI's logic.  \\
+Friedman and Hendry, 2019
+& Academic Text & \placeholder{Finding} & \placeholder{Need/value} & \placeholder{Implication} \\
+\bottomrule
+\end{tabularx}
+\caption{Literature-search log.}
+
+\end{table}
+
+\textbf{Preliminary findings.}
+\placeholder{Synthesize researcher needs, current assessment methods, AI opportunities, known risks, and evidence gaps.}
+
+\FloatBarrier
+\subsection{Design Strategy}
+\placeholder{Describe the steps from evidence and stakeholder input to requirements, mock-up, expert review, evaluation, and revision.}
+
+\FloatBarrier
+\subsection{Initial Requirements and Constraints}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|c|c|X|X|X|}
+\hline
+\textbf{ID} & \textbf{Type} & \textbf{Requirement or constraint} & 
+\textbf{Rationale or source} & \textbf{How to check it} \\
+\hline
+
+R1 & Functional &
+The tool needs to allow researchers to describe their work in their own words. &
+This is important to make the tool easily usable. &
+Test with example research projects. \\
+\hline
+
+R2 & Functional &
+The tool has to identify the impact of the research on sustainability. &
+This is the main purpose of the tool. &
+Provide the tool with examples of research that have different sustainability impacts. \\
+\hline
+
+R3 & Constraint &
+The tool needs to make clear that it is not an official approval, but a guideline. &
+Sustainability is complex and AI alone will not be enough to make a final judgement. &
+Human review of the output.\\
+\hline
+
+R4 & Constraint &
+The researcher is responsible for changes made according to the advice from the tool. &
+The users are performing the research and therefore remain responsible for their decisions. &
+Check if it is made clear by the tool at the output that it remains the users' responsibility \\
+\hline
+
+\end{tabularx}
+\caption{Initial requirements and constraints}
+\label{tab:requirements}
+\end{table}
+
+Identifying the sustainability impacts is the most important requirement mentioned above. This is what the initial goal was for the tool. Researchers, including students performing research, will use the tool to find out what parts of their research potentially form a problem for sustainability. 
+Environmental, social and economic considerations inform the sustainability discussion; the initial assessment is limited to selected environmental impacts, as specified in Section~1.3. The output of the tool is only a guideline for the user so that they can improve their research. The responsibility therefore stays with the researcher. 
+
+
+\FloatBarrier
+\subsection{Anticipated Function and Purpose of the Tool}
+\begin{itemize}
+    \item \textbf{User and immediate goal:} TU/e researchers wanting to know the sustainability impact of their research.
+    
+    \item \textbf{Input:} A precise description of the research.
+    
+    \item \textbf{System actions:} The tool analyzes the research for potential sustainability impacts and, if needed, asks follow-up questions.
+    
+    \item \textbf{Output:} A guideline for researchers explaining how their research impacts sustainability.
+    
+    \item \textbf{Human review or correction:} Researchers need to carefully review the feedback from the tool.
+    
+    \item \textbf{Handling of missing information or uncertainty:} Missing information prompts follow-up questions; unresolved gaps are reported and unsupported estimates are withheld.
+\end{itemize} 
+
+For this scenario, a Tu/e researcher describes their work to the tool. Their research is about developing a new battery for electric cars. 
+Potential impacts can be, for example, the gathering and production of required materials for the battery. The production will of course require energy and potentially lots of costs. The tool will also look at the environmental impacts of the production.
+The tool will ask questions about the materials used for the production of the new battery. With this information, the tool can then ask further questions about the costs, energy, etc. 
+When the tool has all the necessary information, it can then provide a detailed guideline for the research containing the potential impact with explanations and possible improvements. 
+It is now up to the researchers to review the guidelines from the tool and decide what they want to change. The AI is not responsible for these decisions, as it makes clear that the output is not an official approval for the research.
+
+
+Figure~\ref{fig:workflow} summarises the proposed workflow; Figure~\ref{fig:activity} applies it to the battery research example. AI would organise descriptions and draft source-supported suggestions, while explicit calculations would be performed by a separate module. Unresolved data gaps would be disclosed and unsupported estimates withheld.
+
+A proposed TU/e sustainability archive would store comparable research cases with activity conditions, model and advice versions, and follow-up evidence under pseudonymous identifiers. For battery research, records could link a change in a fabrication procedure to subsequent material use and electricity measurements. AI could assist with organising records and identifying relevant cases; an authorised campus curator would approve evidence and guidance updates. Researcher-confirmed outcomes would inform later suggestions, subject to consent and comparability checks. Score changes would be recorded only under agreed criteria and would not, by themselves, demonstrate environmental improvement. Archive roles and resources remain to be agreed with the client.
+
+\input{figures/proposed-workflows}
+\FloatBarrier
+\subsection{Projected Users, Stakeholders and Values}
+\begin{table}[ht]
+\centering
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline
+\textbf{Stakeholder} & \textbf{Role or relationship to the tool} & 
+\textbf{Expected benefit} & \textbf{Concern or burden} \\
+\hline
+
+TU/e researchers &
+Main users &
+Identify impact on sustainability &
+Takes time providing all the information \\
+\hline
+
+Students &
+Main users &
+Same as researchers &
+Maybe depending too much on the tool \\
+\hline
+
+Supervisors &
+Support &
+Get a better understanding to help &
+Needs to spend extra time reviewing the output of the tool 
+\\
+\hline
+
+TU/e sustainability team &
+Experts &
+Potentially use the tool as an improvement or addition to existing tool &
+Will need to understand the tool \\
+\hline
+
+\end{tabularx}
+\caption{Stakeholder notes}
+\label{tab:stakeholders}
+\end{table}
+
+The Tu/e researchers and students will be the main users of our tool. They provide the tool with their research and receive sustainability guidance for their project in return.  Supervisors for the projects performed by the researchers and students will also use this information from the tool but will not need to use the tool directly.  Some stakeholders might have different expectations from the tool, but these are the benefits it is intended to provide.
+
+\FloatBarrier
+\clearpage
+\section{Discussion}
+
+\subsection{Ethical Issues and Value Conflicts}
+
+The definition of sustainable research determines how activities are assessed. \citet{hasselbalch2025sustainability} locate sustainability within sociotechnical relations of power, making the selection of criteria an ethical issue. If electricity consumption is prioritised, an intensive experiment may be rated unfavourably despite its scientific value. In the proposed assessment, environmental indicators would therefore be presented alongside explanations of research purpose. Comparisons would be restricted to activities with comparable objectives and quality requirements. Client agreement is needed on the weighting of criteria and the appropriateness of comparisons across disciplines. A single aggregate score could otherwise conceal disagreements about research priorities.
+
+Numerical estimates may be treated as more authoritative than their evidence warrants. \citet{lacoste2019carbon} identify hardware, runtime and electricity supply as factors affecting emissions from machine learning training. Their method does not establish validity for every research activity. Apparent differences between cases may be smaller than calculation uncertainty. Measured and estimated values would therefore be distinguished, with missing information flagged and sources and boundaries disclosed. Input correction would remain available to researchers. These provisions support scrutiny, but cannot ensure that an assessment is critically examined.
+
+The resource consumption of the assessment tool also requires justification. \citet{lin2023cost} argues for transparency about AI's energy use. Explicit calculations would be assigned to fixed formulas, while AI assistance would support descriptions and suggestions, including retrieval from the reviewed archive. Comparison with a structured non-AI assessment is needed to establish whether any additional benefit warrants the computation and review effort. Environmental improvement has not yet been demonstrated.
+
+\subsection{Design Barriers and Challenges}
+
+Defining a manageable assessment boundary is a practical constraint. Consumption from shared equipment and computing services may be difficult to attribute to individual activities. One representative workflow would be mapped with the client to establish which records are available. Estimates of equipment operation would state their exclusions. Replacement advice would require evidence about manufacturing impacts as well as operating savings.
+
+Reference data and recommendations require maintenance. Sources, review dates and version histories would be recorded so that earlier assessments remain traceable. Following the institutional perspective of \citet{hasselbalch2025sustainability}, responsibility for correcting or withdrawing outdated guidance would need to be assigned at TU/e. The responsible role and available resources remain unresolved. For the proposed campus archive, outcome evidence and comparable activity conditions would require review before cases were reused. Higher assessment scores alone would not demonstrate reduced environmental impact. Reported outcomes would be distinguished from verified measurements, since selective reporting could favour successful cases and bias recommendations for future users of the proposed archive.
+
+Evaluation would compare AI-assisted feedback with a structured checklist on the same cases. Evidence support, omitted issues and correction effort would be examined to establish whether further development is justified.
+
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
+\toprule
+Risk & Stakeholders & Values & Response and basis & Limitation \\
+\midrule
+Privacy & Researchers; case contributors & Privacy; autonomy & Minimise stored details; control archive access and case reuse \citep{hasselbalch2025sustainability}. & Activity descriptions may identify a contributor. \\
+\midrule
+Unclear AI advice & Researchers & Transparency; accountability & Show sources, model version and uncertainty \citep{lacoste2019carbon}. & A retrieved case may be irrelevant or misinterpreted. \\
+\midrule
+Greenwashing & TU/e; researchers & Sustainability; trust & State boundaries; check observed impacts alongside score changes \citep{lin2023cost}. & Better scores need not reflect lower overall impacts. \\
+\midrule
+Rebound effects & TU/e; affected communities & Environmental impact & Track total activity and resource use alongside efficiency \citep{luccioni2025rebound}. & Savings may encourage additional activity. \\
+\midrule
+Unfair recommendations & Research groups & Fairness & Compare similar objectives and conditions; review archive coverage \citep{hasselbalch2025sustainability}. & Uneven case contributions can distort comparisons. \\
+\midrule
+Reduced human control & Researchers; campus curator & Human oversight & Keep decisions with researchers; assign responsibility for archive updates \citep{santoni2018control}. & Formal review does not ensure critical engagement. \\
+\bottomrule
+\end{tabularx}
+\caption{Anticipated ethical risks, literature-informed responses and remaining limitations.}
+\label{tab:ethical-risks}
+\end{table}
+
+\clearpage
+\nocite{*}
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\clearpage
+\section{Documentation of Process}
+
+\placeholder{Record meetings, research, design work, writing work, decisions, and evidence.}
+
+\begin{longtable}{@{}p{0.10\textwidth}p{0.14\textwidth}p{0.17\textwidth}p{0.20\textwidth}p{0.20\textwidth}@{}}
+\toprule
+Date & Participants & Activity & Output or decision & Next action \\
+\midrule
+\endfirsthead
+\toprule
+Date & Participants & Activity & Output or decision & Next action \\
+\midrule
+\endhead
+18 Sep 2026 & Yehao Chen; AI writing assistance & Revise Discussion; draft diagrams & Proposed workflow; revised text & Group review of scope and wording \\
+\placeholder{Date} & \placeholder{Names} & \placeholder{Activity} & \placeholder{Output} & \placeholder{Action} \\
+\bottomrule
+\caption{Project process log.}\\
+\end{longtable}
+
+\clearpage
+\section{Project Planning}
+
+\begin{longtable}{@{}p{0.15\textwidth}p{0.27\textwidth}p{0.19\textwidth}p{0.23\textwidth}@{}}
+\toprule
+Date & Activity & Owner & Deliverable \\
+\midrule
+\endfirsthead
+\toprule
+Date & Activity & Owner & Deliverable \\
+\midrule
+\endhead
+18 Sep, 23:59 & Integrate and submit Phase 1 & \placeholder{Owner} & Phase 1 report \\
+22--29 Sep & Confirm scope and evidence needs during coaching & \placeholder{Owner} & Revised requirements \\
+30 Sep--10 Oct & Develop mock-up; prepare evaluation and practice pitch & \placeholder{Owner} & Mock-up and evaluation plan \\
+11 Oct, 23:59 & Submit Phase 2 draft for peer review & \placeholder{Owner} & Draft report \\
+16 Oct, 23:59 & Complete individual peer review & Each member & Peer feedback \\
+17--20 Oct & Revise and record pitch & \placeholder{Owner} & Video pitch: 20 Oct, 23:59 \\
+23 Oct, 23:59 & Submit Phase 2 final version & \placeholder{Owner} & Final report \\
+24 Oct, 23:59 & Complete groupmate evaluation & Each member & Individual evaluation \\
+\bottomrule
+\caption{Proposed remaining project schedule (2026).}\\
+\end{longtable}
+
+\end{document}
+

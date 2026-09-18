@@ -13,52 +13,46 @@
  \draw[black!45] (path picture bounding box.south west)--(path picture bounding box.north east);}},
  flow/.style={-{Stealth[length=2mm]},thick,rounded corners=5pt},
  note/.style={font=\footnotesize,align=center,inner sep=1pt}]
-\node[terminal] (input) at (0,0) {\textbf{INPUT: Researcher selects data}\\Provide necessary activity records; remove confidential details};
+\node[terminal] (input) at (0,0) {\textbf{INPUT: Research activity}\\Description, equipment, duration and available measurements};
 \node[ai] (extract) at (0,-2) {\textbf{AI structures the activity}\\Extract steps and organise information};
-\node[human] (check) at (0,-4) {\textbf{Researcher confirms inputs (R1)}\\Correct details; supply missing records};
+\node[human] (check) at (0,-4) {\textbf{Researcher checks the information}\\Confirm details; supply missing records};
 \node[ai] (match) at (0,-6.7) {\textbf{AI matches sources and cases}\\Retrieve evidence for similar activities};
-\node[process] (calc) at (0,-8.8) {\textbf{Formula-based calculations (R3)}\\Label estimates and gaps; show sources};
+\node[process] (calc) at (0,-8.8) {\textbf{Formula-based calculations}\\Use supported inputs; disclose data gaps};
 \node[ai] (draft) at (0,-10.8) {\textbf{AI drafts recommendations}\\Link options to sources and outcomes};
-\node[human] (review) at (0,-12.8) {\textbf{Researcher decides (R4)}\\Accept, revise or reject suggested actions};
-\node[terminal] (output) at (0,-14.8) {\textbf{OUTPUT: Advice (R2)}\\Separate indicators and uncertainty; no overall score};
+\node[human] (review) at (0,-12.8) {\textbf{Researcher reviews and decides}\\Check feedback; select next actions};
+\node[terminal] (output) at (0,-14.8) {\textbf{OUTPUT: Reviewed assessment}\\Estimated impacts, uncertainty and actions};
 \foreach \a/\b in {input/extract,extract/check,check/match,match/calc,calc/draft,draft/review,review/output}
  \draw[flow] (\a)--(\b);
 \draw[flow] (calc.west)--(-3.9,-8.8)--(-3.9,-4)--(check.west);
 \node[note,rotate=90] at (-4.15,-6.4) {Missing information};
 
 \node[process,side] (refs) at (7.7,0) {\textbf{Reference sources}\\Equipment data, emission factors and guidance};
-\node[mixed] (curate) at (7.7,-2.7) {\textbf{Human / AI archive review (R5)}\\AI flags records; curator checks consent, privacy and evidence};
+\node[mixed] (curate) at (7.7,-2.7) {\textbf{Human / AI archive management}\\AI organises and flags records; campus curator approves updates};
 \node[cylinder,shape border rotate=90,aspect=0.2,draw=black!65,thick,
  fill=white,text width=4cm,align=center,font=\small,minimum height=2.35cm,inner sep=7pt]
- (db) at (7.7,-6.7) {\textbf{Restricted TU/e case archive}\\Approved access; pseudonymous cases; versioned evidence};
-\node[human,side] (follow) at (7.7,-10.0) {\textbf{Researcher selects case details}\\Remove sensitive content; choose permitted users and reuse};
-\node[diamond,aspect=2.8,draw=black!65,thick,fill=black!12,text width=2.5cm,align=center,font=\footnotesize,inner sep=2pt] (consent) at (7.7,-12.4) {Share case?\\Consent (R5)};
-\node[terminal,side,font=\footnotesize] (private) at (7.7,-14.6) {\textbf{No archive sharing}\\Assessment remains available};
+ (db) at (7.7,-6.7) {\textbf{TU/e case archive}\\Research conditions; model / advice versions; outcome evidence};
+\node[human,side] (follow) at (7.7,-12.8) {\textbf{Researcher follow-up}\\Report actions and outcomes; consent to case reuse};
 \draw[flow] (refs)--(curate);
 \node[note,anchor=west] at (7.9,-1.3) {Candidate sources};
 \draw[flow] (curate)--(db);
 \node[note,anchor=west] at (7.9,-4.15) {Approved records};
 \draw[flow] (db.west)--(match.east);
 \node[note] at (4.6,-6.15) {Relevant\\evidence};
-\draw[flow] (output.east)--(4.4,-14.8)--(4.4,-10.0)--(follow.west);
-\draw[flow] (follow)--(consent);
-\draw[flow] (consent.east)--(10.7,-12.4)--(10.7,-2.7)--(curate.east);
-\node[note,anchor=west] at (10.2,-12.0) {Yes};
-\draw[flow] (consent)--(private);
-\node[note,anchor=west] at (7.85,-13.7) {No};
-\node[note,rotate=90] at (10.95,-9.4) {Consented case for review};
+\draw[flow] (output.east)--(4.6,-14.8)--(4.6,-12.8)--(follow.west);
+\draw[flow] (follow.east)--(10.7,-12.8)--(10.7,-2.7)--(curate.east);
+\node[note,rotate=90] at (10.95,-9.4) {Follow-up evidence for review};
 
-\node[anchor=west,font=\footnotesize\bfseries] at (5.45,-15.75) {Indicators};
-\node[draw=green!35!black,rounded corners=1pt,fill=green!10,minimum width=0.4cm,minimum height=0.23cm] at (5.7,-16.35) {};
-\node[anchor=west,font=\footnotesize] at (6.05,-16.35) {AI assistance};
-\node[draw=black!65,rounded corners=1pt,fill=black!12,minimum width=0.4cm,minimum height=0.23cm] at (5.7,-16.85) {};
-\node[anchor=west,font=\footnotesize] at (6.05,-16.85) {Human participation};
-\node[mixed,text width=0cm,minimum width=0.4cm,minimum height=0.23cm,inner sep=0pt,rounded corners=1pt] at (5.7,-17.35) {};
-\node[anchor=west,font=\footnotesize] at (6.05,-17.35) {Human / AI collaboration};
-\node[draw=black!65,rounded corners=1pt,fill=white,minimum width=0.4cm,minimum height=0.23cm] at (5.7,-17.85) {};
-\node[anchor=west,font=\footnotesize] at (6.05,-17.85) {Data / formula-based step};
+\node[anchor=west,font=\footnotesize\bfseries] at (5.45,-14.25) {Indicators};
+\node[draw=green!35!black,rounded corners=1pt,fill=green!10,minimum width=0.4cm,minimum height=0.23cm] at (5.7,-14.85) {};
+\node[anchor=west,font=\footnotesize] at (6.05,-14.85) {AI assistance};
+\node[draw=black!65,rounded corners=1pt,fill=black!12,minimum width=0.4cm,minimum height=0.23cm] at (5.7,-15.35) {};
+\node[anchor=west,font=\footnotesize] at (6.05,-15.35) {Human participation};
+\node[mixed,text width=0cm,minimum width=0.4cm,minimum height=0.23cm,inner sep=0pt,rounded corners=1pt] at (5.7,-15.85) {};
+\node[anchor=west,font=\footnotesize] at (6.05,-15.85) {Human / AI collaboration};
+\node[draw=black!65,rounded corners=1pt,fill=white,minimum width=0.4cm,minimum height=0.23cm] at (5.7,-16.35) {};
+\node[anchor=west,font=\footnotesize] at (6.05,-16.35) {Data / formula-based step};
 \end{tikzpicture}
-\caption{Proposed self-assessment workflow with optional case sharing and curator review. Requirement IDs link decisions to Table~\ref{tab:requirements}.}
+\caption{Proposed research self-assessment workflow with human-reviewed reuse of campus case evidence.}
 \label{fig:workflow}
 \end{figure}
 

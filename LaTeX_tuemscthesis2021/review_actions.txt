@@ -1,0 +1,15 @@
+Integrated review draft, 18 September 2026
+
+1. Replaced unsupported Scopus/IEEE dates and 42-to-5 screening claims with a traceable targeted-review record. No systematic-review claim is made.
+2. VSD now links conceptual value conflicts, empirical Q&A/walkthroughs and technical comparison to R1-R6.
+3. Added evidence-to-requirement-to-prototype-to-evaluation-to-revision strategy and an identical-source non-AI baseline.
+4. Q&A timestamps are paraphrased in Appendix A; no anecdote is treated as an empirical benchmark.
+5. Initial output has separate indicators, no aggregate sustainability/compliance score.
+6. R4 assigns developer and institutional responsibilities as well as researcher decisions.
+7. Both original raster images are retained in Appendix C, with short captions identifying unverified numerical/policy placeholders. An additional conceptual TikZ sketch shows the current no-score design.
+8. No unresolved TODO placeholders remain in the report. Unknown facts (allocation, archive roles, review status) are stated as unresolved rather than invented.
+9. Course rules prohibit AI composing assignment text. Actual substantive drafting assistance is disclosed; this is a review draft, not a claim of compliance or a submission-ready student-authored report. Authors must produce and check their final permitted text and disclose additional tools.
+
+Appendix A contains evidenced project activities; Appendix B adds proposed group meetings and work sessions to course deadlines. Actual AI-use disclosure is retained separately in Appendix D; no claim of wholly independent authorship is made.
+
+Reference restoration: all original group entries retained and displayed using nocite{*}; Friedman2003 restored verbatim. Its year/booktitle/page metadata still requires verification. This is a metadata issue, not a reason to delete the source.

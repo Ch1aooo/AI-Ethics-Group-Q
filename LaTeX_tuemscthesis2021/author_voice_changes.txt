@@ -1,0 +1,7 @@
+Conservative revision
+
+Restored the original paragraphs in 1.1-1.3, the numbered methods/tools organisation in 1.4, the five-column requirements table, the user-flow bullet list and battery example in 2.4, and the original stakeholder table and paragraph in 2.5. Original model and software candidates are retained.
+
+Necessary exceptions: unverified search history and screening totals are not asserted; local hosting is not described as guaranteed privacy/efficiency; policy updates require review; R4 retains shared responsibility; the no-score design and baseline remain connected to the report. Unfinished content in 2.1 and 2.2 is restored as the original TODO placeholders.
+
+Discussion, figures, full 12-entry bibliography, appendices and actual AI-use disclosure retained.
