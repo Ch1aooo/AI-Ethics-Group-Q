@@ -1,1 +1,196 @@
-\section{Mock-up}
+% PHASE 2 DESIGN ADDENDUM. Team members may edit their named blocks below.
+% This is a proposed mock-up, not a deployed or validated TU/e service.
+\clearpage
+\section{Phase 2 Mock-up: From Reflection to Action}
+\label{sec:phase2-mockup}
+
+\subsection{Orientation and purpose}
+This section translates the Phase 1 ethical analysis into a testable web interface. A researcher should be able to see where a project stands, why an assessment was produced, what evidence is missing, and what action could improve it. The tool guides a structured reflection loop rather than assigning an unexplained sustainability score. Its intended output is an advisory, multidimensional profile with source-linked recommendations and a record of how the researcher's understanding or plan changes. It does not grant research approval. Figure~\ref{fig:workflow} in the retained Phase 1 report remains the detailed architecture and consent flow; the diagrams here focus on the user-facing prototype.
+
+\subsection{System structure and modules}
+% MEMBER 1: Dennis de Hoon -- homepage, shared navigation and visual style.
+% MEMBERS 2 + 3: Peng Wang and Yehao Chen -- Assess branch.
+% MEMBER 3: Yehao Chen -- Check & Learn branch.
+% MEMBER 4: Gerald Tobenna Eluagu -- Query branch.
+% Owners may edit, move, add or remove nodes. Coordinates below are editable.
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  every node/.style={font=\sffamily},
+  root/.style={draw=green!50!black,fill=green!8,rounded corners,align=center,text width=8cm,minimum height=0.85cm,font=\sffamily\bfseries},
+  branch/.style={draw,rounded corners,align=center,text width=4.5cm,minimum height=0.8cm,font=\sffamily\bfseries},
+  items/.style={draw,rounded corners,align=left,text width=4.5cm,inner sep=8pt,font=\sffamily\small},
+  link/.style={-{Stealth[length=2mm]},thick}]
+\node[root] (home) at (0,0) {Home: AI for a Greener Research Future\\\footnotesize Member 1 -- entry page and shared navigation};
+% ASSESS -- Peng and Yehao may edit this block and its position.
+\node[branch,draw=blue!70!black,fill=blue!8] (assess) at (-5.25,-1.55) {1. I want to Assess};
+\node[items,draw=blue!55!black,fill=blue!3,anchor=north] (assessitems) at (-5.25,-2.15)
+ {1. Project Information\\2. Activity Assessment\\3. Impact and Criteria\\4. Recommendations\\5. Summary, Report and Feedback};
+% CHECK & LEARN -- Yehao may edit this block and its position.
+\node[branch,draw=green!60!black,fill=green!8] (learn) at (0,-1.55) {2. I want to Check \& Learn};
+\node[items,draw=green!50!black,fill=green!3,anchor=north] (learnitems) at (0,-2.15)
+ {1. Our Story\\2. Why It Matters\\3. Key Concepts\\4. Resources \& Library\\5. FAQ / User Guide};
+% QUERY -- Gerald may edit this block and its position.
+\node[branch,draw=violet!70!black,fill=violet!8] (query) at (5.25,-1.55) {3. I want to Query};
+\node[items,draw=violet!55!black,fill=violet!3,anchor=north] (queryitems) at (5.25,-2.15)
+ {1. My History\\2. Database Search\\3. Filters \& Categories\\4. Details \& Download};
+\draw[link] (home.south) -- ++(0,-0.3) -| (assess.north);
+\draw[link] (home.south) -- (learn.north);
+\draw[link] (home.south) -- ++(0,-0.3) -| (query.north);
+\draw[link] (assess.south) -- (assessitems.north);
+\draw[link] (learn.south) -- (learnitems.north);
+\draw[link] (query.south) -- (queryitems.north);
+\end{tikzpicture}}
+\caption{Editable information hierarchy and navigation. Detailed processing and ownership appear below; the tree only maps the interface.}
+\label{fig:phase2-menu}
+\end{figure}
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Module and purpose & Input & Processing and output & Why it matters \\
+\midrule
+Home: orient & Goal choice. & Routes to three modules; states advisory scope. & Clear entry and limits. \\
+Assess: revise & Project data; Start perception. & AI structures; formulas calculate; criteria support profile, advice and report. & Turns concern into inspectable decisions. \\
+Check \& Learn: understand & Question or concept. & Curated explanations, examples and sources. & Explains criteria and gaps. \\
+Query: compare & Filters or consented history. & Retrieves reviewed cases with scope and conditions. & Supports valid comparison. \\
+\bottomrule
+\end{tabularx}
+\caption{Module contracts. The exact TU/e web entry point, authentication and maintainer role require client agreement.}
+\label{tab:phase2-modules}
+\end{table}
+
+\subsection{Current gaps and improvement directions}
+TU/e has a sustainability vision and, according to the client Q\&A documented in Appendix~\ref{app:process}, an existing researcher self-assessment. This prototype should complement that practice; its precise integration is unresolved. In a separate US survey of 64 graduate engineering researchers working with AI, 43 reported no environmental impact assessment of their work. Reported reasons included perceived irrelevance or small scale, lack of know-how and competing research priorities. These findings suggest design questions, not measured deficiencies among TU/e researchers \citep{shiekh2026graduate}.
+\begin{table}[H]
+\centering\footnotesize
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.32\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Element & Current status and gap & Evidence & Improvement direction \\
+\midrule
+Awareness & TU/e has a vision and self-assessment; project-level impacts still need local testing. & Vision; client Q\&A; \citep{shiekh2026graduate}. & Ask for Start perception; show activity quantities; interview TU/e users. \\
+Action & Information alone leaves no feasible next step. & \citep{shiekh2026graduate,abrahamse2005review}. & Pair each gap with an action, constraint and source. \\
+Explicability & Phase 1 calls for traceability; local factors and boundaries are unspecified. & \citep{friedman2019shaping}. & Expose formula, source version, uncertainty and missing data. \\
+Control and privacy & Correction and consent are proposed; reviewer and retention are unassigned. & \citep{santoni2018control,nissenbaum2004privacy}. & Give correction and sharing controls; name a curator. \\
+Benchmark & Comparable cases proposed; peer groups and weights unvalidated. & \citep{oecd2008composite}. & Match like activities; test criteria and weights. \\
+\bottomrule
+\end{tabularx}
+\caption{Gap analysis. The US survey motivates questions for local validation; it is not evidence of TU/e prevalence.}
+\label{tab:phase2-gaps}
+\end{table}
+
+\subsection{Example user journey and system processing}
+% ALL MEMBERS: keep these two lanes aligned with the Phase 1 workflow.
+The example user is a researcher planning a six-hour experiment on four GPUs. They want to understand resource use before running it while preserving scientific quality. The journey inherits Phase 1's input, analysis, estimation, comparison, recommendation and feedback sequence.
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[box/.style={draw=black!60,rounded corners,fill=black!3,text width=3.4cm,minimum height=1.3cm,align=center,font=\small},arr/.style={-{Stealth[length=2mm]},thick}]
+\node[box] (u1) at (0,0) {Start perception\\Enter project and consent choices};
+\node[box] (u2) at (4.0,0) {Confirm activities\\Add or correct evidence};
+\node[box] (u3) at (8.0,0) {See profile\\Inspect comparable cases and advice};
+\node[box] (u4) at (12.0,0) {Choose action\\Record Shift and follow-up};
+\draw[arr] (u1)--(u2);\draw[arr] (u2)--(u3);\draw[arr] (u3)--(u4);
+\node[box,fill=green!8] (s1) at (0,-2.0) {Input validation\\Data minimisation};
+\node[box,fill=green!8] (s2) at (4.0,-2.0) {AI activity analysis\\Ask about gaps};
+\node[box,fill=green!8] (s3) at (8.0,-2.0) {Formula estimation\\Reviewed case comparison};
+\node[box,fill=green!8] (s4) at (12.0,-2.0) {AI recommendation draft\\Criteria evaluation and feedback};
+\draw[arr] (s1)--(s2);\draw[arr] (s2)--(s3);\draw[arr] (s3)--(s4);
+\node[anchor=east,font=\small\bfseries] at (-2.1,0) {User};
+\node[anchor=east,font=\small\bfseries] at (-2.1,-2.0) {System};
+\end{tikzpicture}}
+\caption{Two views of one workflow. User actions are above; internal processing is below. A correction returns to input validation and recalculation. The detailed optional case-sharing route remains in Figure~\ref{fig:workflow}.}
+\label{fig:phase2-two-lanes}
+\end{figure}
+The system identifies activity types and missing fields, performs checkable calculations, retrieves cases only when their boundaries are comparable, and drafts recommendations linked to reviewed sources. A researcher can reject a classification or revise an input; the system then recalculates and records what changed. Missing factors produce a qualified result rather than an invented estimate.
+
+\subsection{Criteria, profile and concrete output}
+The score is a possible quantitative outcome of reflection, not the product itself. Raw environmental quantities and evidence quality must remain distinct. For this demonstration, four GPUs used for six hours at an assumed average 0.30 kW each imply $4\times6\times0.30=7.20$ kWh. With a provisional 20\% system allowance the displayed total is 8.64 kWh. These assumptions are not TU/e measurements; carbon emissions and a peer benchmark are withheld until applicable reviewed factors are available \citep{lacoste2019carbon}.
+
+The following compact screen is the intended output format. Its 0--2 ratings describe \emph{evidence and practice readiness}, not physical environmental impact: 0 = not addressed, 1 = planned or estimated, 2 = supported by a record or measured comparison. User self-ratings and system-supported ratings are shown side by side so that disagreements can be inspected. The target of 2 is a demonstration rubric, not an official TU/e standard.
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.10\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Criterion & Start self-rating & Evidence-supported & Demo target & Improvement action \\
+\midrule
+Energy record & 2 & 1 & 2 & Measure actual power and runtime. \\
+Compute efficiency & 2 & 0 & 2 & Compare a short pilot with fewer GPUs at equal quality. \\
+Hardware reuse & 1 & ? & 2 & Confirm whether shared or existing equipment is used. \\
+Data retention & 1 & ? & 2 & Specify retention period and necessity. \\
+Documentation & 2 & 1 & 2 & Add factors, boundaries and source versions. \\
+\bottomrule
+\end{tabularx}
+\caption{Illustrative multidimensional profile. A question mark means insufficient evidence; it must not be converted to zero. No empirical TU/e benchmark or overall score is claimed.}
+\label{tab:phase2-profile}
+\end{table}
+\begin{center}
+\fcolorbox{blue!65!black}{blue!3}{\begin{minipage}{0.91\textwidth}
+\textbf{Your preliminary sustainability profile}\\
+\textbf{Where am I?} Estimated run electricity: 8.64 kWh; compute-efficiency evidence 0/2.\\
+\textbf{Why?} Four GPUs, six hours, assumed 0.30 kW each and a provisional 20\% allowance.\\
+\textbf{Gap:} Self-rating 2/2; evidence 0/2; against the demo target 2/2, $g=-2$. This is an evidence/practice gap, not a measured environmental loss.\\
+\textbf{What is missing?} Metered power, utilisation, equipment history and an approved peer set.\\
+\textbf{What next?} Pilot the run, record actual energy and check a smaller configuration at equal scientific quality.\\
+\textbf{Shift:} Pending follow-up. A documented pilot could change the evidence rating; no improvement is assumed in advance.\\
+\textbf{Controls:} [Correct] [Challenge] [Private] [Aggregate comparison] [Review ``Case A'' for sharing].
+\end{minipage}}
+\end{center}
+
+An optional overall index $S=\sum_i w_i s_i$ could be displayed only after relevant impact criteria $s_i$ have approved definitions, compatible normalisation, weights $w_i$, comparable reference cases, uncertainty checks and sensitivity analysis. It would appear beside the full profile, never replace it. The present evidence-readiness rubric is not averaged with kWh or presented as a sustainability impact score. OECD/JRC guidance explains why weighting and aggregation are value-laden choices that require transparency \citep{oecd2008composite}. Comparisons should prioritise a researcher's earlier version, an approved practice benchmark or genuinely comparable cases; the interface should not rank unlike disciplines.
+
+\subsection{Start--Shift: direction, not just a number}
+The user first records a self-rating $P_0$ and chooses a relevant goal $T$. The system then produces an evidence-supported profile $E_0$. For a validated criterion where higher means better, $g_i=E_{0,i}-T_i<0$ indicates room to improve; $E_{0,i}-P_{0,i}$ separately reveals any mismatch between self-perception and evidence. After a feasible action, a later assessment $E_1$ gives the criterion-level Shift $\Delta_i=E_{1,i}-E_{0,i}$.
+\begin{figure}[H]
+\centering
+\resizebox{0.91\textwidth}{!}{%
+\begin{tikzpicture}[
+  loopbox/.style={draw=blue!65!black,fill=blue!4,rounded corners,align=center,text width=3.35cm,minimum height=1.25cm,font=\small},
+  loop/.style={-{Stealth[length=2mm]},thick}]
+\node[loopbox] (start) at (0,2.1) {\textbf{Start}\\Self-view $P_0$; goal $T$};
+\node[loopbox] (assess) at (4.1,0.75) {\textbf{Evaluate}\\Evidence profile $E_0$};
+\node[loopbox] (gap) at (2.55,-2.0) {\textbf{Gap}\\$g_i=E_{0,i}-T_i$};
+\node[loopbox] (act) at (-2.55,-2.0) {\textbf{Act}\\Relevant case and advice};
+\node[loopbox] (shift) at (-4.1,0.75) {\textbf{Shift}\\Follow-up $\Delta_i=E_{1,i}-E_{0,i}$};
+\draw[loop] (start.east)--(assess.north west);
+\draw[loop] (assess.south)--(gap.north east);
+\draw[loop] (gap.west)--(act.east);
+\draw[loop] (act.north west)--(shift.south);
+\draw[loop] (shift.north east)--(start.west);
+\node[align=center,font=\footnotesize] at (0,0) {Review evidence\\and repeat};
+\end{tikzpicture}}
+\caption{Start--Shift feedback loop. Negative gaps are meaningful only for comparable, validated higher-is-better criteria. Unknown evidence remains unknown; raw impacts such as kWh keep their original units.}
+\label{fig:start-shift-loop}
+\end{figure}
+Goal-reference research supports presenting change relative to a meaningful target: people evaluate gains and shortfalls relative to reference points, rather than only final totals \citep{kahneman1979prospect,heath1999goals}. This motivates showing a signed gap and next action alongside the absolute profile. It does \emph{not} establish that a negative number will always motivate TU/e researchers; comprehension, discouragement and actual follow-up must be tested \citep{carver1982control,hattie2007feedback}.
+
+Consented cases from a proposed restricted repository could provide a nearby peer reference when activity, scale and research-quality requirements match. This addresses the gap between general sustainability knowledge and locally relevant action illustrated by the graduate survey \citep{shiekh2026graduate}. Social-norm experiments on household energy use show both potential benefits and a possible boomerang effect, so peer comparison should remain contextual and opt-in rather than a public ranking \citep{schultz2007norms}. TU/e could separately consider recognition for verified improvements, but awards or institutional incentives require their own governance and must not be decided by unvalidated prototype scores.
+
+\subsection{Explicability, human control and privacy}
+The proposed knowledge base has three reviewed layers: authoritative TU/e guidance where applicable, published factors with scope and date, and consented cases whose conditions and outcomes have been checked. AI may classify activities, retrieve and summarise sources, propose comparators and draft suggestions. It may not create official policy, approve an archive entry or alter criteria without review. Fixed formulas perform arithmetic; an authorised maintainer validates source updates and can withdraw outdated advice. This separation makes outcomes traceable to both evidence and responsible people, reflecting the course's explicability and meaningful-human-control themes \citep{friedman2019shaping,santoni2018control,eu_ethics_2021}.
+
+The researcher chooses the detail entered, may omit unpublished or industry-confidential information, confirms AI-extracted activities, corrects assumptions, accepts or rejects advice, and chooses separately whether to save a private result, contribute to aggregate comparison, or share a reviewed case. Self-assessment remains available without archive sharing. The owner can recognise their own record; other users see only a consented, redacted case under a code (e.g., ``Case A'') or a sufficiently broad aggregate. A designated data steward would keep any identity--code mapping separately with restricted access; curators need only the case code and approved summary. Small groups and distinctive project details should be suppressed when they permit inference. A code is \emph{pseudonymisation}, not guaranteed anonymity: linkable records remain personal data \citep{edpb2025pseudonymisation,gdpr2016}. This design applies purpose limitation, data minimisation and privacy by default, while leaving retention periods, legal basis and access roles for TU/e to determine \citep{gdpr2016,nissenbaum2004privacy}. A source challenge goes to a named reviewer and is not silently learned from as truth.
+
+\subsection{Evidence-to-design rationale}
+The source-to-design links are concentrated in Table~\ref{tab:phase2-gaps}. The US graduate survey motivates activity prompts and actionable guidance, but requires local testing \citep{shiekh2026graduate}. VSD makes explicability, autonomy and environmental impact design values to investigate with stakeholders rather than merely interface labels \citep{friedman2019shaping}. Feedback theory motivates Start--Shift, while meaningful human control and contextual privacy justify correction, curator review and separate sharing choices \citep{carver1982control,hattie2007feedback,santoni2018control,nissenbaum2004privacy}. OECD/JRC guidance supports keeping criteria visible and treating any overall index as a validated, optional summary \citep{oecd2008composite}.
+
+\subsection{Evaluation plan and team responsibilities}
+The prototype will be compared with a structured non-AI checklist on the same test cases, as proposed in Phase 1. Measures are absolute calculation error, the share of recommendations supported by reviewed sources, the share of users who can explain a criterion, task completion and correction time, correct handling of sharing choices, and the share of suggestions judged feasible by domain reviewers. A separate test should compare a static profile with the profile-plus-gap display on comprehension, chosen action and later follow-up. Thresholds and reviewers must be agreed before testing; no result is claimed here.
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Member & Main module & Research and design responsibility & Expected deliverable \\
+\midrule
+Dennis de Hoon & Home and integration & Navigation, shared UI and advisory framing. & Homepage and integrated flow. \\
+Peng Wang & Assess; scoring & Criteria, formulas, comparators and scoring safeguards. & Assessment screen and worked case. \\
+Yehao Chen & Learn; Assess support & Concepts, source library, explanations and feedback wording. & Learning pages and linked advice. \\
+Gerald Tobenna Eluagu & Query and history & Records, search, comparability, consent and access. & Query mock-up and privacy controls. \\
+\bottomrule
+\end{tabularx}
+\caption{Working allocation based on the current team sketch. Each owner may revise their module and report text with the group.}
+\label{tab:phase2-owners}
+\end{table}
+\clearpage

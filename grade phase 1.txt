@@ -1,0 +1,38 @@
+ENSU Q
+Topic and aims
+
+8
+
+Methods and key concepts
+
+8
+
+Practical development of design strategy
+
+10
+
+Aim and impact
+
+7
+
+Style and audience
+
+8
+
+Referencing
+
+6
+
+Overall
+
+7.833333333333333
+
+ 
+
+ 
+
+Thank you for your work on Phase 1. Below is some brief written feedback on your group's submission, and attached is the score per assessment item. Please look at the assessment scales (submit page) to see a qualitative description corresponding to the items/ numbers, where "6", "8", and "10" roughly correspond to the righthand columns. In borderline cases, other numbers are used.
+
+The report is focused, easy to read, and it develops a concrete idea. The values identified through VSD need more grounding. (For example, why not explicability?) The knowledge base for the model is unclear. The literature search is minimal and does not uncover much about the users' motivations or the institutional context. On the other hand, the design strategy and requirements have been made specific and are plausible.
+
+- Philip Nickel
