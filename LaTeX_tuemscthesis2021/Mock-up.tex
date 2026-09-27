@@ -142,29 +142,52 @@ Documentation & 2 & 1 & 2 & Add factors, boundaries and source versions. \\
 An optional overall index $S=\sum_i w_i s_i$ could be displayed only after relevant impact criteria $s_i$ have approved definitions, compatible normalisation, weights $w_i$, comparable reference cases, uncertainty checks and sensitivity analysis. It would appear beside the full profile, never replace it. The present evidence-readiness rubric is not averaged with kWh or presented as a sustainability impact score. OECD/JRC guidance explains why weighting and aggregation are value-laden choices that require transparency \citep{oecd2008composite}. Comparisons should prioritise a researcher's earlier version, an approved practice benchmark or genuinely comparable cases; the interface should not rank unlike disciplines.
 
 \subsection{Start--Shift: direction, not just a number}
-The user first records a self-rating $P_0$ and chooses a relevant goal $T$. The system then produces an evidence-supported profile $E_0$. For a validated criterion where higher means better, $g_i=E_{0,i}-T_i<0$ indicates room to improve; $E_{0,i}-P_{0,i}$ separately reveals any mismatch between self-perception and evidence. After a feasible action, a later assessment $E_1$ gives the criterion-level Shift $\Delta_i=E_{1,i}-E_{0,i}$.
-\begin{figure}[H]
+The user first records a self-rating $P_0$ and chooses a relevant goal $T$. The system then produces an evidence-supported profile $E_0$. For a validated criterion where higher means better, $g_i=E_{0,i}-T_i<0$ indicates room to improve; $E_{0,i}-P_{0,i}$ separately reveals any mismatch between self-perception and evidence. A later assessment is optional: after an action, $E_n$ records the $n$th observed state and $\Delta_n=E_n-E_{n-1}$ its change, while an expected outcome remains a labelled projection. Figure~\ref{fig:start-shift-loop} separates the core path from optional repeated visits and preserves criterion-level snapshots instead of a single 0--100 grade.
+\begin{figure}[!htbp]
 \centering
-\resizebox{0.91\textwidth}{!}{%
+\begin{minipage}[t]{0.43\textwidth}
+\centering
+\textbf{Core path and optional return}\\[-0.1em]
+\resizebox{\linewidth}{!}{%
 \begin{tikzpicture}[
-  loopbox/.style={draw=blue!65!black,fill=blue!4,rounded corners,align=center,text width=3.35cm,minimum height=1.25cm,font=\small},
-  loop/.style={-{Stealth[length=2mm]},thick}]
-\node[loopbox] (start) at (0,2.1) {\textbf{Start}\\Self-view $P_0$; goal $T$};
-\node[loopbox] (assess) at (4.1,0.75) {\textbf{Evaluate}\\Evidence profile $E_0$};
-\node[loopbox] (gap) at (2.55,-2.0) {\textbf{Gap}\\$g_i=E_{0,i}-T_i$};
-\node[loopbox] (act) at (-2.55,-2.0) {\textbf{Act}\\Relevant case and advice};
-\node[loopbox] (shift) at (-4.1,0.75) {\textbf{Shift}\\Follow-up $\Delta_i=E_{1,i}-E_{0,i}$};
-\draw[loop] (start.east)--(assess.north west);
-\draw[loop] (assess.south)--(gap.north east);
-\draw[loop] (gap.west)--(act.east);
-\draw[loop] (act.north west)--(shift.south);
-\draw[loop] (shift.north east)--(start.west);
-\node[align=center,font=\footnotesize] at (0,0) {Review evidence\\and repeat};
+  core/.style={draw=blue!65!black,fill=blue!7,rounded corners,align=center,text width=4.15cm,minimum height=0.72cm,font=\small},
+  choice/.style={draw=teal!65!black,fill=teal!8,rounded corners,align=center,text width=4.15cm,minimum height=0.72cm,font=\small},
+  future/.style={draw=gray!65,dashed,fill=gray!5,rounded corners,align=center,text width=4.15cm,minimum height=0.68cm,font=\small},
+  flow/.style={-{Stealth[length=2mm]},thick,draw=blue!70!black},
+  revisit/.style={-{Stealth[length=2mm]},dashed,draw=gray!65}]
+\node[core] (start) at (0,0) {\textbf{Start} $P_0$ and goal $T$};
+\node[core] (assess) at (0,-1.08) {\textbf{Evaluate} $E_0$ and raw impact};
+\node[core] (gap) at (0,-2.16) {\textbf{Gap} $E_0-T$; evidence check};
+\node[choice] (advice) at (0,-3.24) {\textbf{Guidance} and action plan};
+\node[future] (follow) at (0,-4.35) {\textbf{Optional follow-up} $E_1,E_2,\ldots$};
+\draw[flow] (start)--(assess);
+\draw[flow] (assess)--(gap);
+\draw[flow] (gap)--(advice);
+\draw[revisit] (advice)--(follow);
+\draw[revisit] (follow.west) -- ++(-0.55,0) |- (assess.west);
 \end{tikzpicture}}
-\caption{Start--Shift feedback loop. Negative gaps are meaningful only for comparable, validated higher-is-better criteria. Unknown evidence remains unknown; raw impacts such as kWh keep their original units.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.53\textwidth}
+\centering
+\textbf{Versioned phase matrix}\\[-0.1em]
+\footnotesize
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.28\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Layer & Illustrative compute-efficiency record \\
+\midrule
+Initial & Self-view $P_0=2/2$; goal $T=2/2$ \\
+Evaluated & Evidence $E_0=0/2$; run estimate 8.64 kWh \\
+Difference & Goal gap $-2$; perception gap $-2$ \\
+Guidance & Pilot fewer GPUs at equal research quality \\
+Expected & Action hypothesis; no measured gain yet \\
+Observed shift & $E_1$ and $\Delta_1$ pending; $E_2$ optional \\
+\bottomrule
+\end{tabularx}
+\end{minipage}
+\caption{Solid blue arrows show the first usable result; muted dashed arrows mean a second or third assessment may occur, but is not required. Each relevant criterion can keep separate stage records, assumptions and source versions if the user chooses private storage. An estimate, a target and an observed improvement are different kinds of information; unknowns remain unknown.}
 \label{fig:start-shift-loop}
 \end{figure}
-Goal-reference research supports presenting change relative to a meaningful target: people evaluate gains and shortfalls relative to reference points, rather than only final totals \citep{kahneman1979prospect,heath1999goals}. This motivates showing a signed gap and next action alongside the absolute profile. It does \emph{not} establish that a negative number will always motivate TU/e researchers; comprehension, discouragement and actual follow-up must be tested \citep{carver1982control,hattie2007feedback}.
+Goal-reference research supports presenting change relative to a meaningful target: people evaluate gains and shortfalls relative to reference points, rather than only final totals \citep{kahneman1979prospect,heath1999goals}. Formative-feedback work supports specific next steps rather than a terminal grade; self-regulation and personal-informatics models describe iterative, stage-based reflection and action \citep{shute2008feedback,zimmerman2002self,li2010stages}. These are design analogies, not evidence that this display will improve TU/e research behaviour. Comprehension, discouragement and actual follow-up must be tested \citep{carver1982control,hattie2007feedback}.
 
 Consented cases from a proposed restricted repository could provide a nearby peer reference when activity, scale and research-quality requirements match. This addresses the gap between general sustainability knowledge and locally relevant action illustrated by the graduate survey \citep{shiekh2026graduate}. Social-norm experiments on household energy use show both potential benefits and a possible boomerang effect, so peer comparison should remain contextual and opt-in rather than a public ranking \citep{schultz2007norms}. TU/e could separately consider recognition for verified improvements, but awards or institutional incentives require their own governance and must not be decided by unvalidated prototype scores.
 
