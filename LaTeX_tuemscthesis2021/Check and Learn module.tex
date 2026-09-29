@@ -1,0 +1,104 @@
+% Included by Mock-up.tex. This proposed Option 2 screen requires review by its module owner.
+\clearpage
+\subsection{Option 2 --- I want to Check \& Learn: concepts and sources}
+\label{sec:learn-dialogue}
+This route implements the purpose described in Section~\ref{sec:phase2-interface}: explain the tool, show why research activities matter, teach key concepts, and let researchers inspect a proposed Sustainability Library. Static cards and filters answer routine questions. AI is used only for a contextual explanation requested by the researcher. The library and its review roles are proposed, not deployed.
+
+\newtcolorbox{learnscreen}{enhanced,breakable,colback=teal!4,colframe=teal!55!black,
+  boxrule=0.6pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,
+  before=\par\noindent,after=\par\medskip}
+\newtcolorbox{learnuser}{enhanced,colback=blue!5,colframe=blue!55!black,
+  boxrule=0.6pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,
+  width=0.83\linewidth,halign=left}
+
+\begin{learnscreen}
+\textbf{Home $>$ 2. I want to Check \& Learn}\par\medskip
+\fbox{\textsf{Our Story}}\quad
+\fbox{\textsf{Why It Matters}}\quad
+\fbox{\textsf{Key Concepts}}\quad
+\fbox{\textsf{Resources \& Library}}\quad
+\fbox{\textsf{FAQ / User Guide}}\par\medskip
+The researcher can open any card directly. A saved assessment is not loaded into this route unless the researcher explicitly selects it.
+\end{learnscreen}
+
+\subsubsection*{A. Short explanations and reusable concept cards}
+\begin{learnscreen}
+\textbf{Selected:} \fbox{\textsf{Our Story}}\par
+This proposed tool helps TU/e researchers reflect on the environmental inputs of their own research activities, inspect the evidence behind advice, and decide what to change. It provides guidance rather than research approval.\par\medskip
+\fbox{\textsf{Why It Matters}}\quad
+\fbox{\textsf{Start an assessment}}\quad
+\fbox{\textsf{Return to Learn menu}}
+\end{learnscreen}
+
+\begin{learnscreen}
+\textbf{Selected:} \fbox{\textsf{Why It Matters}}\par
+Research activities can use electricity and materials and create waste. The relevant inputs depend on the activity, so the tool asks for a defined task and evidence before suggesting a change. It helps with reflection and does not approve or certify research.\par\medskip
+\fbox{\textsf{See a battery example}}\quad
+\fbox{\textsf{Open Key Concepts}}\quad
+\fbox{\textsf{Return to Learn menu}}
+\end{learnscreen}
+
+\begin{learnscreen}
+\textbf{Selected:} \fbox{\textsf{Key Concepts}}\par
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.27\linewidth}X@{}}
+Functional unit & The result being compared, such as one sample that passes the same research test. \\
+System boundary & The steps included in a quantity; a fabrication-only record excludes upstream material production. \\
+Evidence status & A measured value, a sourced estimate and an unknown are labelled differently. \\
+\end{tabularx}
+\medskip\fbox{\textsf{Apply to my assessment}}\quad
+\fbox{\textsf{Browse sources}}\quad
+\fbox{\textsf{Ask a question}}
+\end{learnscreen}
+
+\pagebreak
+\subsubsection*{B. Browse the proposed Sustainability Library}
+\begin{learnscreen}
+\textbf{Selected:} \fbox{\textsf{Resources \& Library}}\par
+\textbf{Filter by source type:}\quad
+\fbox{\textsf{TU/e guidance}}\quad
+\fbox{\textsf{Scientific study}}\quad
+\fbox{\textsf{Case study}}\quad
+\fbox{\textsf{Framework}}\quad
+\fbox{\textsf{Database / external resource}}\par
+\textbf{Further filters:}\quad
+\fbox{\textsf{Activity}}\quad
+\fbox{\textsf{Scope}}\quad
+\fbox{\textsf{Date}}\quad
+\fbox{\textsf{Review status}}\par\medskip
+The result list separates reviewed records from candidates awaiting expert review. Only reviewed, relevant records may support assessment advice.
+\end{learnscreen}
+
+\begin{learnscreen}
+\textbf{Illustrative source card --- institutional context}\par
+\textbf{Title:} TU/e Sustainability Visioning Report \citep{tue_sustainability_2021}.\par
+\textbf{Origin and type:} TU/e; institutional vision report.\par
+\textbf{Scope:} Context for why sustainability matters at TU/e.\par
+\textbf{Limit:} This card is not a battery-specific electricity or emissions factor.\par
+\textbf{Record fields before deployment:} link, publication or update date, version, reviewer, review date and withdrawal status. Expert approval of this proposed library entry has not been established here.\par\medskip
+\fbox{\textsf{View source details}}\quad
+\fbox{\textsf{Find activity method}}\quad
+\fbox{\textsf{Report a source issue}}
+\end{learnscreen}
+
+\subsubsection*{C. Ask for context only when the cards do not answer it}
+\begin{flushright}\begin{learnuser}
+\textbf{Researcher, after choosing ``Ask a question''}\par
+My battery assessment shows upstream material impact as unknown. Why does the tool leave it blank?
+\end{learnuser}\end{flushright}
+
+\begin{learnscreen}
+\textbf{AI-assisted explanation for this example}\par
+The confirmed activity boundary covers sample fabrication, and the upstream material production step was excluded. A number for that step would need suitable material quantities and a reviewed, matching method or factor. Until then, the result stays \emph{unknown}; it is not zero. This explanation uses the activity boundary recorded in Assess. The TU/e vision report above provides institutional context, not a calculation input.\par\medskip
+\fbox{\textsf{Review my boundary}}\quad
+\fbox{\textsf{Find a reviewed method}}\quad
+\fbox{\textsf{Return to Learn menu}}
+\end{learnscreen}
+
+\begin{learnscreen}
+\textbf{FAQ / User Guide --- fixed answers}\par
+\textbf{Where did this advice come from?} Open its source card to see origin, scope, date and review status.\par
+\textbf{Can I correct it?} Use \fbox{\textsf{Correct assessment input}} or \fbox{\textsf{Report a source issue}}. A designated expert reviews source changes; AI does not add or approve official library entries.\par
+\fbox{\textsf{Return home}}\quad
+\fbox{\textsf{Open Assess}}\quad
+\fbox{\textsf{Open Query}}
+\end{learnscreen}

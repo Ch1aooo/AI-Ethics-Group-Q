@@ -6,17 +6,18 @@
 
 \subsection{Home screen: choose a module}
 \label{sec:phase2-home}
-The prototype opens with three menu choices. The walkthrough below follows Option 1 and Option 3; Option 2 is listed for navigation while its library screen is developed by the responsible teammate. All records and figures shown in the walkthrough are fictional demonstration data, not measured TU/e results.
+The prototype opens with three menu choices. The walkthrough below sketches each route; the Check \& Learn screen is a proposed interpretation of its module description for the responsible teammate to review. All records and figures shown in the walkthrough are fictional demonstration data, not measured TU/e results.
 
 \begin{tcolorbox}[colback=gray!3,colframe=black!55,title={Home --- AI for a Greener Research Future},breakable]
 \textbf{What would you like to do?}\par\medskip
 \fbox{\textsf{1. I want to Assess}}\quad
 \fbox{\textsf{2. I want to Check \& Learn}}\quad
 \fbox{\textsf{3. I want to Query}}\par\medskip
-\textbf{Selected route:} Option 1 opens the assessment shown in Section~\ref{sec:assess-dialogue}; Option 3 opens the history and search flow in Section~\ref{sec:query-dialogue}. A researcher can return here from either route.
+\textbf{Selected route:} Option 1 opens Section~\ref{sec:assess-dialogue}; Option 2 opens Section~\ref{sec:learn-dialogue}; Option 3 opens Section~\ref{sec:query-dialogue}. A researcher can return here from any route.
 \end{tcolorbox}
 
 \input{Assess interaction module}
+\input{Check and Learn module}
 \input{Query and history module}
 
 \clearpage
@@ -24,10 +25,10 @@ The prototype opens with three menu choices. The walkthrough below follows Optio
 This section translates the Phase 1 ethical analysis into a testable web interface. A researcher should be able to see where a project stands, why an assessment was produced, what evidence is missing, and what action could improve it. The tool guides a structured reflection loop rather than assigning an unexplained sustainability score. Its intended output is an advisory, multidimensional profile with source-linked recommendations and a record of how the researcher's understanding or plan changes. It does not grant research approval. Figure~\ref{fig:workflow} in the retained Phase 1 report remains the detailed architecture and consent flow; the diagrams here focus on the user-facing prototype.
 
 \subsection{System structure and modules}
-% MEMBER 1: Dennis de Hoon -- homepage, shared navigation and visual style.
-% MEMBERS 2 + 3: Peng Wang and Yehao Chen -- Assess branch.
-% MEMBER 3: Yehao Chen -- Check & Learn branch.
-% MEMBER 4: Gerald Tobenna Eluagu -- Query branch.
+% Yehao Chen -- overall workflow, concepts, homepage and integration.
+% Peng Wang and Yehao Chen -- Assess detail and follow-up loop.
+% Dennis de Hoon -- Check & Learn, including story, library and FAQ.
+% Gerald Tobenna Eluagu -- Query and history.
 % Owners may edit, move, add or remove nodes. Coordinates below are editable.
 \begin{figure}[H]
 \centering
@@ -38,12 +39,12 @@ This section translates the Phase 1 ethical analysis into a testable web interfa
   branch/.style={draw,rounded corners,align=center,text width=4.5cm,minimum height=0.8cm,font=\sffamily\bfseries},
   items/.style={draw,rounded corners,align=left,text width=4.5cm,inner sep=8pt,font=\sffamily\small},
   link/.style={-{Stealth[length=2mm]},thick}]
-\node[root] (home) at (0,0) {Home: AI for a Greener Research Future\\\footnotesize Member 1 -- entry page and shared navigation};
+\node[root] (home) at (0,0) {Home: AI for a Greener Research Future\\\footnotesize Shared entry and navigation};
 % ASSESS -- Peng and Yehao may edit this block and its position.
 \node[branch,draw=blue!70!black,fill=blue!8] (assess) at (-5.25,-1.55) {1. I want to Assess};
 \node[items,draw=blue!55!black,fill=blue!3,anchor=north] (assessitems) at (-5.25,-2.15)
  {1. Project Information\\2. Activity Assessment\\3. Impact and Criteria\\4. Recommendations\\5. Summary, Report and Feedback};
-% CHECK & LEARN -- Yehao may edit this block and its position.
+% CHECK & LEARN -- Dennis may edit this block and its position.
 \node[branch,draw=green!60!black,fill=green!8] (learn) at (0,-1.55) {2. I want to Check \& Learn};
 \node[items,draw=green!50!black,fill=green!3,anchor=north] (learnitems) at (0,-2.15)
  {1. Our Story\\2. Why It Matters\\3. Key Concepts\\4. Resources \& Library\\5. FAQ / User Guide};
@@ -216,6 +217,7 @@ The researcher chooses the detail entered, may omit unpublished or industry-conf
 The source-to-design links are concentrated in Table~\ref{tab:phase2-gaps}. The US graduate survey motivates activity prompts and actionable guidance, but requires local testing \citep{shiekh2026graduate}. VSD makes explicability, autonomy and environmental impact design values to investigate with stakeholders rather than merely interface labels \citep{friedman2019shaping}. Feedback theory motivates Start--Shift, while meaningful human control and contextual privacy justify correction, curator review and separate sharing choices \citep{carver1982control,hattie2007feedback,santoni2018control,nissenbaum2004privacy}. OECD/JRC guidance supports keeping criteria visible and avoiding unsupported aggregation \citep{oecd2008composite}.
 
 \subsection{Interface}
+\label{sec:phase2-interface}
 The interface will be designed as a simple web-based tool with three main functions: I want to Assess, I want to Check \& Learn, and I want to Query. The homepage will provide a clear overview of these functions so that researchers can choose between assessing their own research, learning more about sustainability, or exploring previous records and available resources.
 
 The Assess function is the main AI-based part of the tool. The researcher first provides information about their research project, such as the type of research, activities, equipment, duration and other relevant details. The AI analyses this information and asks follow-up questions when important information is missing. It then identifies possible sustainability impacts and provides explanations and recommendations. The results can include aspects such as energy use, carbon emissions and other environmental impacts. The researcher can review the results, correct information or assumptions made by the AI, and then receive a final summary and guidance. The assessment is intended to support self-reflection and is not an official sustainability certification or approval.
@@ -226,23 +228,23 @@ The library will also contain examples of research activities and their possible
 
 The Query function allows researchers to explore information beyond their current assessment. Researchers can view their own previous assessments and search the available database using filters such as research field, impact type or keywords. They can also explore relevant case studies, datasets, best practices and policies. When appropriate, comparable previous cases can help researchers understand how similar research activities have considered sustainability. Detailed information and relevant resources can be viewed or downloaded. Any sharing of research records should be subject to appropriate consent and privacy controls.
 
-The interface will use clear headings, buttons and information cards. The three main functions will be visually separated so users can understand each purpose. Researcher input, AI-generated suggestions and retrieved records will be visually distinguished. This walkthrough details Assess and Query; the Check \& Learn screen remains to be developed with its module owner.
+The interface will use clear headings, buttons and information cards. The three main functions will be visually separated so users can understand each purpose. Researcher input, AI-generated suggestions and retrieved records will be visually distinguished. The three walkthroughs are proposed screens for team review; Dennis will refine the Check \& Learn content and its source presentation.
 
 
 \subsection{Evaluation plan and team responsibilities}
 The prototype will be compared with a structured non-AI checklist on the same test cases, as proposed in Phase 1. Measures are absolute calculation error, the share of recommendations supported by reviewed sources, the share of users who can explain a criterion, task completion and correction time, correct handling of sharing choices, and the share of suggestions judged feasible by domain reviewers. A separate test should compare a static profile with the profile-plus-gap display on comprehension, chosen action and later follow-up. Thresholds and reviewers must be agreed before testing; no result is claimed here.
 \begin{table}[H]
 \centering\small
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.39\textwidth}X@{}}
 \toprule
-Member & Main module & Research and design responsibility & Expected deliverable \\
+Member & Lead responsibility & Shared work or handoff \\
 \midrule
-Dennis de Hoon & Home and integration & Navigation, shared UI and advisory framing. & Homepage and integrated flow. \\
-Peng Wang & Assess; project comparison & Activity-specific criteria, transparent arithmetic and comparison safeguards. & Assessment screen and worked case. \\
-Yehao Chen & Learn; Assess support & Concepts, source library, explanations and feedback wording. & Learning pages and linked advice. \\
-Gerald Tobenna Eluagu & Query and history & Records, search, comparability, consent and access. & Query mock-up and privacy controls. \\
+Yehao Chen & Overall workflow, core concepts and shared navigation. & Assess steps and follow-up loop with Peng. \\
+Dennis de Hoon & Check \& Learn: Our Story, Why It Matters, Library and FAQ. & Explanations and source cards linked to Assess. \\
+Peng Wang & Assessment criteria, interface and data presentation. & Assess steps and follow-up loop with Yehao. \\
+Gerald Tobenna Eluagu & Query and history: records, search, filters and sharing controls. & Connect past records and reviewed cases to Assess. \\
 \bottomrule
 \end{tabularx}
-\caption{Working allocation based on the current team sketch. Each owner may revise their module and report text with the group.}
+\caption{Current Phase 2 responsibilities and the shared Assess workflow.}
 \label{tab:phase2-owners}
 \end{table}
