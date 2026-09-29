@@ -1,0 +1,110 @@
+\documentclass{article} 
+\usepackage[utf8]{inputenc} 
+\usepackage{geometry} 
+\geometry{a4paper, margin=1in} 
+\usepackage{enumitem}
+
+\title{AI Sustainability Assessment Tool: ``I want to Query'' Demo Script}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\noindent \textbf{Italics} will be used to represent \textbf{whatever the user clicks on the system interface} and \textbf{whenever I want to further elaborate on a concept}
+
+\vspace{2.5em}
+\noindent \textbf{[System Interface Notes]:} The user has clicked the \textit{``I want to Query''} tab on the main dashboard to check his/her past research cases and access the data records.
+
+\vspace{2.5em}
+\section*{SECTION 1: My History (Viewing and Managing Past Assessments)}
+
+\noindent \textbf{User:} ``I want to see the history of the sustainability self-assessments I ran earlier this semester.''
+
+\vspace{0.5em}
+\noindent \textbf{AI System:} ``Loading your personal archive history. Found \textbf{2 past assessments} under your student login details:
+
+\begin{itemize}[noitemsep,topsep=0.5pt]
+    \item \textbf{Case \#2026-A}: Electric Vehicle Battery Fabrication (Status: Completed - Shared to Archive) – \textit{Archive here refers to the proposed Restricted TU/e Case Archive}
+    
+    \vspace{1.0em}
+    \item \textbf{Case \#2026-B}: Machine Learning Model Training (Status: Draft - Private)
+\end{itemize}
+
+\vspace{1.0em}
+\noindent Would you like to open a specific report or change the archive sharing permissions for your draft?''
+
+\subsection*{User Feedback Opportunity:}
+\noindent \textbf{User clicks:} \textit{[Change Case \#2026-A from 'Shared' to 'Private']}
+
+\vspace{1.5em}
+\noindent \textbf{AI System (Responding to Feedback):} \\\\
+``Got it! Updating database access. \\
+Case \#2026-A has been successfully removed from the shared campus pool. \\
+The activity data is now private to your profile'' - \textit{this ensures your data is protected and you have full control over who sees that activity data (Case \#2026-A) in particular.}
+
+\vspace{2.5em}
+\section*{SECTION 2: Database Search (Exploring Case Studies, Best Practices \& Policies)}
+
+\noindent \textbf{User:} ``I'm planning on doing a new project on battery testing cycles. Carry out a database search to see what similar research exists at TU/e and what the green criteria are.''
+
+\vspace{0.5em}
+\noindent \textbf{AI System:} ``Searching the restricted TU/e case archive using the RAG index......\\ 
+
+\noindent Found \textbf{12 examined case studies} and \textbf{2 university policy papers} related to battery laboratory testing.
+
+\vspace{0.5em}
+\begin{itemize}[noitemsep,topsep=0.5pt]
+    \item \textbf{Top Case Match}: Pseudonymous Case \#TUe-BATT-88 - Lithium-ion lifecycle testing cycles using grid electricity.  – \textit{the name ``Pseudonymous Case \#TUe-BATT-88'' is the anonymized name of the actual file name since at this point, the person who saved it in the system decided to share it to the archive or campus pool for others to access it}
+    
+    \vspace{1.0em}
+    \item \textbf{Key Policy Found}:  TU/e Green Compute Standard, Part 5 (Battery Testing Efficiency Rules).
+\end{itemize}
+
+\vspace{1.0em}
+\noindent The system observes that these reference cases are verified criteria approved by the campus sustainability expert.'' – \textit{i.e the person responsible for managing the system}
+
+\vspace{2.5em}
+\section*{SECTION 3: Filters and Categories (Narrowing Down the Search)}
+
+\noindent \textbf{User:} ``That's too many results. Use filters and categories to narrow it down. Filter by Research Field: Electrical Engineering and Type of Environmental Impact: Electricity Consumption.''
+
+\vspace{0.5em}
+\noindent \textbf{AI System:} ``Applying filters and categories... \\
+
+\noindent Active Category: \textbf{Electrical Engineering} \\
+Primary Measurement Focus: \textbf{Measured Electricity Use (kWh)} \\
+
+\noindent Results have been narrowed down from \textbf{12} to \textbf{3 applicable use cases}. These cases show laboratories using local renewable energy microgrids to manage electricity consumption effectively.''
+
+\vspace{2.5em}
+\section*{SECTION 4: Details \& Download (Accessing Detailed Info \& Resources)}
+
+\noindent \textbf{User:} ``Okay. I’d like to take a look at the details for Case \#TUe-BATT-88. I also want to download the breakdown so I can use its formulas/key points to guide my own project plan.''
+
+\vspace{0.5em}
+\noindent \textbf{AI System:} ``Opening Case \#TUe-BATT-88. (full view)
+
+\vspace{0.5em}
+\noindent \textbf{Detailed Sustainability Indicators (No Aggregated Score):} - \textit{No sum total score, everything is broken down}
+\begin{itemize}[noitemsep,topsep=0.5pt]
+    \item \textbf{Energy Consumption:} 420 kWh (Measured using the lab dedicated meter)
+
+    \vspace{1.0em}
+    \item \textbf{Environmental Impact:} Upstream lithium supplier’s carbon footprint is unavailable (information was withheld to prevent wrong calculations).
+
+    \vspace{1.0em}
+    \item \textbf{Best Practice Recommendation:} Shifting the test cycles to off-peak hours reduced carbon load by 12% based on the amount of carbon emitted from the local grids.
+\end{itemize}
+
+\vspace{1.0em}
+\noindent \textbf{Download Ready:} Click below to export the .CSV raw equipment dataset alongside the math sheet containing the formulas that were used to calculate the carbon levels and energy levels''
+
+\vspace{1.0em}
+\subsection*{User Feedback Opportunity:}
+\noindent \textbf{User:} ``hold on......I just opened the spreadsheet you generated and I don't see a formula for the carbon emission factor. Where did that number actually come from? I need to cite it for my lab report.''
+
+\vspace{0.5em}
+\noindent \textbf{AI System (Responding to Feedback):} ``Ah, I see that now! Sorry about that. The download file just saved the final numbers as a plain text. I've re-exported the sheet to include the full Excel formula (=B2*C2). I also added a note saying it uses data from the TU/e Sustainable Campus Dashboard (2025 Update). I believe you should be able to see the math now''
+
+\end{document}
