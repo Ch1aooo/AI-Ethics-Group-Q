@@ -1,110 +1,95 @@
-\documentclass{article} 
-\usepackage[utf8]{inputenc} 
-\usepackage{geometry} 
-\geometry{a4paper, margin=1in} 
-\usepackage{enumitem}
+% Included by Mock-up.tex. All records, counts and measurements below are illustrative.
+\clearpage
+\subsection{Query and history: an illustrative dialogue}
+\label{sec:query-dialogue}
+This screen sketch follows a researcher through the third module, \emph{I want to Query}. Blue bubbles show researcher input; green bubbles show the proposed tool's response. Case identifiers, counts and measurements are demonstration data, not records from an existing TU/e database.
 
-\title{AI Sustainability Assessment Tool: ``I want to Query'' Demo Script}
-\author{}
-\date{}
+\newtcolorbox{queryuser}{enhanced,colback=blue!5,colframe=blue!55!black,
+  boxrule=0.6pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,
+  width=0.80\linewidth,halign=left}
+\newtcolorbox{querysystem}{enhanced,colback=green!5,colframe=green!45!black,
+  boxrule=0.6pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,
+  width=0.88\linewidth,before=\par\noindent,after=\par\medskip}
+\newenvironment{userturn}{\begin{flushright}\begin{queryuser}}{\end{queryuser}\end{flushright}}
 
-\begin{document}
+\subsubsection*{1. My History: view and manage past assessments}
+\begin{userturn}
+\textbf{Researcher}\par
+I want to see the sustainability self-assessments I ran earlier this semester.
+\end{userturn}
 
-\maketitle
-\noindent \textbf{Italics} will be used to represent \textbf{whatever the user clicks on the system interface} and \textbf{whenever I want to further elaborate on a concept}
-
-\vspace{2.5em}
-\noindent \textbf{[System Interface Notes]:} The user has clicked the \textit{``I want to Query''} tab on the main dashboard to check his/her past research cases and access the data records.
-
-\vspace{2.5em}
-\section*{SECTION 1: My History (Viewing and Managing Past Assessments)}
-
-\noindent \textbf{User:} ``I want to see the history of the sustainability self-assessments I ran earlier this semester.''
-
-\vspace{0.5em}
-\noindent \textbf{AI System:} ``Loading your personal archive history. Found \textbf{2 past assessments} under your student login details:
-
-\begin{itemize}[noitemsep,topsep=0.5pt]
-    \item \textbf{Case \#2026-A}: Electric Vehicle Battery Fabrication (Status: Completed - Shared to Archive) – \textit{Archive here refers to the proposed Restricted TU/e Case Archive}
-    
-    \vspace{1.0em}
-    \item \textbf{Case \#2026-B}: Machine Learning Model Training (Status: Draft - Private)
+\begin{querysystem}
+\textbf{Assessment tool}\par
+Your private history contains \textbf{two past assessments}:
+\begin{itemize}[nosep,leftmargin=1.5em]
+  \item \textbf{Case \#2026-A:} Electric Vehicle Battery Fabrication --- completed; shared with the proposed restricted case archive.
+  \item \textbf{Case \#2026-B:} Machine Learning Model Training --- draft; private.
 \end{itemize}
+Would you like to open a report or change a sharing choice?
+\end{querysystem}
 
-\vspace{1.0em}
-\noindent Would you like to open a specific report or change the archive sharing permissions for your draft?''
+\begin{userturn}
+\textbf{Researcher action}\par
+\emph{Change Case \#2026-A from ``Shared'' to ``Private''.}
+\end{userturn}
 
-\subsection*{User Feedback Opportunity:}
-\noindent \textbf{User clicks:} \textit{[Change Case \#2026-A from 'Shared' to 'Private']}
+\begin{querysystem}
+\textbf{Assessment tool}\par
+Case \#2026-A is now private and no longer appears in shared search results. Your own history still contains it. Previously downloaded copies cannot be recalled; the interface should explain this limit before the change is confirmed.
+\end{querysystem}
 
-\vspace{1.5em}
-\noindent \textbf{AI System (Responding to Feedback):} \\\\
-``Got it! Updating database access. \\
-Case \#2026-A has been successfully removed from the shared campus pool. \\
-The activity data is now private to your profile'' - \textit{this ensures your data is protected and you have full control over who sees that activity data (Case \#2026-A) in particular.}
+\subsubsection*{2. Database Search: find cases, practices and guidance}
+\begin{userturn}
+\textbf{Researcher}\par
+I'm planning a project on battery testing cycles. Search for similar research and relevant sustainability guidance.
+\end{userturn}
 
-\vspace{2.5em}
-\section*{SECTION 2: Database Search (Exploring Case Studies, Best Practices \& Policies)}
-
-\noindent \textbf{User:} ``I'm planning on doing a new project on battery testing cycles. Carry out a database search to see what similar research exists at TU/e and what the green criteria are.''
-
-\vspace{0.5em}
-\noindent \textbf{AI System:} ``Searching the restricted TU/e case archive using the RAG index......\\ 
-
-\noindent Found \textbf{12 examined case studies} and \textbf{2 university policy papers} related to battery laboratory testing.
-
-\vspace{0.5em}
-\begin{itemize}[noitemsep,topsep=0.5pt]
-    \item \textbf{Top Case Match}: Pseudonymous Case \#TUe-BATT-88 - Lithium-ion lifecycle testing cycles using grid electricity.  – \textit{the name ``Pseudonymous Case \#TUe-BATT-88'' is the anonymized name of the actual file name since at this point, the person who saved it in the system decided to share it to the archive or campus pool for others to access it}
-    
-    \vspace{1.0em}
-    \item \textbf{Key Policy Found}:  TU/e Green Compute Standard, Part 5 (Battery Testing Efficiency Rules).
+\begin{querysystem}
+\textbf{Assessment tool}\par
+In this demonstration, the proposed restricted archive returns \textbf{12 reviewed cases} and \textbf{two guidance documents} related to battery laboratory testing.
+\begin{itemize}[nosep,leftmargin=1.5em]
+  \item \textbf{Closest case:} Case \#TUe-BATT-88 --- lithium-ion battery cycle testing using grid electricity. The code replaces identifying details in the shared view.
+  \item \textbf{Related guidance:} a battery-testing efficiency note. Its source, version and reviewer would be shown here once approved.
 \end{itemize}
+The tool may retrieve these sources, but an authorised reviewer must approve case summaries and guidance before reuse.
+\end{querysystem}
 
-\vspace{1.0em}
-\noindent The system observes that these reference cases are verified criteria approved by the campus sustainability expert.'' – \textit{i.e the person responsible for managing the system}
+\subsubsection*{3. Filters and Categories: narrow the results}
+\begin{userturn}
+\textbf{Researcher}\par
+That's too many results. Filter by \emph{Electrical Engineering} and \emph{measured electricity use}.
+\end{userturn}
 
-\vspace{2.5em}
-\section*{SECTION 3: Filters and Categories (Narrowing Down the Search)}
+\begin{querysystem}
+\textbf{Assessment tool}\par
+\textbf{Active filters:} Electrical Engineering; measured electricity use (kWh).\par
+The illustrative results narrow from \textbf{12 to three cases}. Some describe laboratories using local renewable-energy microgrids. Before comparing them with your project, check equipment, test duration, measurement boundary and research purpose.
+\end{querysystem}
 
-\noindent \textbf{User:} ``That's too many results. Use filters and categories to narrow it down. Filter by Research Field: Electrical Engineering and Type of Environmental Impact: Electricity Consumption.''
+\subsubsection*{4. Details and Download: inspect evidence}
+\begin{userturn}
+\textbf{Researcher}\par
+Open Case \#TUe-BATT-88. I want to download its data and formulas to help plan my own project.
+\end{userturn}
 
-\vspace{0.5em}
-\noindent \textbf{AI System:} ``Applying filters and categories... \\
-
-\noindent Active Category: \textbf{Electrical Engineering} \\
-Primary Measurement Focus: \textbf{Measured Electricity Use (kWh)} \\
-
-\noindent Results have been narrowed down from \textbf{12} to \textbf{3 applicable use cases}. These cases show laboratories using local renewable energy microgrids to manage electricity consumption effectively.''
-
-\vspace{2.5em}
-\section*{SECTION 4: Details \& Download (Accessing Detailed Info \& Resources)}
-
-\noindent \textbf{User:} ``Okay. I’d like to take a look at the details for Case \#TUe-BATT-88. I also want to download the breakdown so I can use its formulas/key points to guide my own project plan.''
-
-\vspace{0.5em}
-\noindent \textbf{AI System:} ``Opening Case \#TUe-BATT-88. (full view)
-
-\vspace{0.5em}
-\noindent \textbf{Detailed Sustainability Indicators (No Aggregated Score):} - \textit{No sum total score, everything is broken down}
-\begin{itemize}[noitemsep,topsep=0.5pt]
-    \item \textbf{Energy Consumption:} 420 kWh (Measured using the lab dedicated meter)
-
-    \vspace{1.0em}
-    \item \textbf{Environmental Impact:} Upstream lithium supplier’s carbon footprint is unavailable (information was withheld to prevent wrong calculations).
-
-    \vspace{1.0em}
-    \item \textbf{Best Practice Recommendation:} Shifting the test cycles to off-peak hours reduced carbon load by 12% based on the amount of carbon emitted from the local grids.
+\begin{querysystem}
+\textbf{Assessment tool}\par
+\textbf{Case \#TUe-BATT-88 --- detailed indicators}\par
+\begin{itemize}[nosep,leftmargin=1.5em]
+  \item \textbf{Electricity:} 420 kWh, reported as measured by a dedicated laboratory meter.
+  \item \textbf{Missing information:} the upstream lithium supplier's carbon footprint is unavailable, so this impact is not estimated.
+  \item \textbf{Possible practice:} the case reports a 12\% reduction in estimated grid emissions after shifting test cycles. This figure needs its time-specific emission factors and calculation method before it can guide another project.
 \end{itemize}
+\textbf{Downloads:} the approved equipment-data CSV and a calculation sheet with formulas, units, boundaries and source versions. Only data cleared for sharing can be exported. No aggregate sustainability score is shown.
+\end{querysystem}
 
-\vspace{1.0em}
-\noindent \textbf{Download Ready:} Click below to export the .CSV raw equipment dataset alongside the math sheet containing the formulas that were used to calculate the carbon levels and energy levels''
+\pagebreak
+\begin{userturn}
+\textbf{Researcher}\par
+The spreadsheet shows a carbon result, but I cannot find the emission factor or its source. Where did that number come from? I need to cite it in my lab report.
+\end{userturn}
 
-\vspace{1.0em}
-\subsection*{User Feedback Opportunity:}
-\noindent \textbf{User:} ``hold on......I just opened the spreadsheet you generated and I don't see a formula for the carbon emission factor. Where did that number actually come from? I need to cite it for my lab report.''
-
-\vspace{0.5em}
-\noindent \textbf{AI System (Responding to Feedback):} ``Ah, I see that now! Sorry about that. The download file just saved the final numbers as a plain text. I've re-exported the sheet to include the full Excel formula (=B2*C2). I also added a note saying it uses data from the TU/e Sustainable Campus Dashboard (2025 Update). I believe you should be able to see the math now''
-
-\end{document}
+\begin{querysystem}
+\textbf{Assessment tool}\par
+You are right: the export does not document the emission factor. The carbon result should be marked \emph{unverified} until the factor's value, unit, date, location and source are supplied. The calculation sheet can then show the formula \texttt{=B2*C2} alongside those details. I have flagged this case for curator review; I cannot provide a citation that has not been verified.
+\end{querysystem}
