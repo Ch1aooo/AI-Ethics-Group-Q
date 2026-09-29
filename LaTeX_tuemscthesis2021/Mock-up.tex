@@ -1,9 +1,25 @@
 % PHASE 2 DESIGN ADDENDUM. Team members may edit their named blocks below.
 % This is a proposed mock-up, not a deployed or validated TU/e service.
 \clearpage
-\section{Phase 2 Mock-up: From Reflection to Action}
+\section{Phase 2 Mock-up: Screen Walkthrough and Design Rationale}
 \label{sec:phase2-mockup}
 
+\subsection{Home screen: choose a module}
+\label{sec:phase2-home}
+The prototype opens with three menu choices. The walkthrough below follows Option 1 and Option 3; Option 2 is listed for navigation while its library screen is developed by the responsible teammate. All records and figures shown in the walkthrough are fictional demonstration data, not measured TU/e results.
+
+\begin{tcolorbox}[colback=gray!3,colframe=black!55,title={Home --- AI for a Greener Research Future},breakable]
+\textbf{What would you like to do?}\par\medskip
+\fbox{\textsf{1. I want to Assess}}\quad
+\fbox{\textsf{2. I want to Check \& Learn}}\quad
+\fbox{\textsf{3. I want to Query}}\par\medskip
+\textbf{Selected route:} Option 1 opens the assessment shown in Section~\ref{sec:assess-dialogue}; Option 3 opens the history and search flow in Section~\ref{sec:query-dialogue}. A researcher can return here from either route.
+\end{tcolorbox}
+
+\input{Assess interaction module}
+\input{Query and history module}
+
+\clearpage
 \subsection{Orientation and purpose}
 This section translates the Phase 1 ethical analysis into a testable web interface. A researcher should be able to see where a project stands, why an assessment was produced, what evidence is missing, and what action could improve it. The tool guides a structured reflection loop rather than assigning an unexplained sustainability score. Its intended output is an advisory, multidimensional profile with source-linked recommendations and a record of how the researcher's understanding or plan changes. It does not grant research approval. Figure~\ref{fig:workflow} in the retained Phase 1 report remains the detailed architecture and consent flow; the diagrams here focus on the user-facing prototype.
 
@@ -74,7 +90,7 @@ Awareness & TU/e has a vision and self-assessment; project-level impacts still n
 Action & Information alone leaves no feasible next step. & \citep{shiekh2026graduate,abrahamse2005review}. & Pair each gap with an action, constraint and source. \\
 Explicability & Phase 1 calls for traceability; local factors and boundaries are unspecified. & \citep{friedman2019shaping}. & Expose formula, source version, uncertainty and missing data. \\
 Control and privacy & Correction and consent are proposed; reviewer and retention are unassigned. & \citep{santoni2018control,nissenbaum2004privacy}. & Give correction and sharing controls; name a curator. \\
-Benchmark & Comparable cases proposed; peer groups and weights unvalidated. & \citep{oecd2008composite}. & Match like activities; test criteria and weights. \\
+Comparable guidance & Relevant cases may suggest methods; their outcomes depend on activity and boundary. & \citep{oecd2008composite}. & Show case conditions; track change against the researcher's own baseline. \\
 \bottomrule
 \end{tabularx}
 \caption{Gap analysis. The US survey motivates questions for local validation; it is not evidence of TU/e prevalence.}
@@ -107,42 +123,42 @@ The example user is a researcher planning a six-hour experiment on four GPUs. Th
 The system identifies activity types and missing fields, performs checkable calculations, retrieves cases only when their boundaries are comparable, and drafts recommendations linked to reviewed sources. A researcher can reject a classification or revise an input; the system then recalculates and records what changed. Missing factors produce a qualified result rather than an invented estimate.
 
 \subsection{Criteria, profile and concrete output}
-The score is a possible quantitative outcome of reflection, not the product itself. Raw environmental quantities and evidence quality must remain distinct. For this demonstration, four GPUs used for six hours at an assumed average 0.30 kW each imply $4\times6\times0.30=7.20$ kWh. With a provisional 20\% system allowance the displayed total is 8.64 kWh. These assumptions are not TU/e measurements; carbon emissions and a peer benchmark are withheld until applicable reviewed factors are available \citep{lacoste2019carbon}.
+The assessment follows the researcher's own activity rather than assigning a universal score. It records the scientific purpose, relevant resource use, data quality, a feasible change, and what happened after that change. Quantities retain their units and boundaries; missing information remains unknown. For example, four GPUs used for six hours amount to 24 GPU-hours, but this alone does not establish electricity use or emissions \citep{lacoste2019carbon}.
 
-The following compact screen is the intended output format. Its 0--2 ratings describe \emph{evidence and practice readiness}, not physical environmental impact: 0 = not addressed, 1 = planned or estimated, 2 = supported by a record or measured comparison. User self-ratings and system-supported ratings are shown side by side so that disagreements can be inspected. The target of 2 is a demonstration rubric, not an official TU/e standard.
+Table~\ref{tab:phase2-profile} turns five provisional criteria into prompts for a project-specific profile. A comparison is meaningful only when the research outcome, quality requirement, units and system boundary are comparable. A personal target is recorded as the researcher's intention; an observed improvement requires follow-up evidence.
 \begin{table}[H]
 \centering\small
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.10\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}X@{}}
 \toprule
-Criterion & Start self-rating & Evidence-supported & Demo target & Improvement action \\
+Criterion & Project-specific input and evidence & Personal comparison and output \\
 \midrule
-Energy record & 2 & 1 & 2 & Measure actual power and runtime. \\
-Compute efficiency & 2 & 0 & 2 & Compare a short pilot with fewer GPUs at equal quality. \\
-Hardware reuse & 1 & ? & 2 & Confirm whether shared or existing equipment is used. \\
-Data retention & 1 & ? & 2 & Specify retention period and necessity. \\
-Documentation & 2 & 1 & 2 & Add factors, boundaries and source versions. \\
+C1 Activity boundary and inputs & State the scientific outcome, functional unit, included steps, equipment or materials, amounts, duration, repeats and data sources. & Show relevant quantities with units and exclusions; ask for missing inputs. \\
+C2 Comparable alternative & Describe the current method and a feasible alternative that meets the same research-quality requirement. & Compare with this project's baseline only where boundaries and evidence match; otherwise explain why comparison is pending. \\
+C3 Avoidable use & Record failed or repeated runs, idle equipment or material loss, and a feasible action or pilot. & Identify a specific opportunity and action; record the result after testing. \\
+C4 Wider impacts and total use & Include total runs or samples, other relevant energy, materials and waste, and any change in project scope. & Check whether a local saving shifts impacts or reduces total project use. \\
+C5 Follow-up and revision & Keep the baseline, personal target, review date, comparable follow-up data and explanation of changes. & Show baseline, action and observed outcome separately; revise advice when evidence changes. \\
 \bottomrule
 \end{tabularx}
-\caption{Illustrative multidimensional profile. A question mark means insufficient evidence; it must not be converted to zero. No empirical TU/e benchmark or overall score is claimed.}
+\caption{Provisional activity-specific assessment prompts, adapted from the team's tutor-meeting outline. Measured values, sourced estimates and unknowns remain distinct. The criteria do not imply thresholds, weights, a ranking or an overall score.}
 \label{tab:phase2-profile}
 \end{table}
 \begin{center}
 \fcolorbox{blue!65!black}{blue!3}{\begin{minipage}{0.91\textwidth}
-\textbf{Your preliminary sustainability profile}\\
-\textbf{Where am I?} Estimated run electricity: 8.64 kWh; compute-efficiency evidence 0/2.\\
-\textbf{Why?} Four GPUs, six hours, assumed 0.30 kW each and a provisional 20\% allowance.\\
-\textbf{Gap:} Self-rating 2/2; evidence 0/2; against the demo target 2/2, $g=-2$. This is an evidence/practice gap, not a measured environmental loss.\\
-\textbf{What is missing?} Metered power, utilisation, equipment history and an approved peer set.\\
-\textbf{What next?} Pilot the run, record actual energy and check a smaller configuration at equal scientific quality.\\
-\textbf{Shift:} Pending follow-up. A documented pilot could change the evidence rating; no improvement is assumed in advance.\\
-\textbf{Controls:} [Correct] [Challenge] [Private] [Aggregate comparison] [Review ``Case A'' for sharing].
+\textbf{Illustrative GPU-computation profile}\\
+\textbf{Purpose and boundary:} One successful run at the required scientific quality; also track all project runs.\\
+\textbf{Current record:} Four GPUs for six hours (24 GPU-hours); electricity and emissions unknown without suitable power and facility data.\\
+\textbf{Personal aim:} Test whether a smaller configuration can deliver the same result with less total electricity.\\
+\textbf{What is missing?} Measured or defensible power, utilisation, failed runs and total planned runs.\\
+\textbf{Next action:} Pilot a comparable configuration and record energy, run count and research quality.\\
+\textbf{Observed improvement:} Pending follow-up; a projected saving is not presented as a measured result.\\
+\textbf{Controls:} [Correct] [Challenge] [Save privately] [Review ``Case A'' for sharing].
 \end{minipage}}
 \end{center}
 
-An optional overall index $S=\sum_i w_i s_i$ could be displayed only after relevant impact criteria $s_i$ have approved definitions, compatible normalisation, weights $w_i$, comparable reference cases, uncertainty checks and sensitivity analysis. It would appear beside the full profile, never replace it. The present evidence-readiness rubric is not averaged with kWh or presented as a sustainability impact score. OECD/JRC guidance explains why weighting and aggregation are value-laden choices that require transparency \citep{oecd2008composite}. Comparisons should prioritise a researcher's earlier version, an approved practice benchmark or genuinely comparable cases; the interface should not rank unlike disciplines.
+The output keeps environmental quantities, evidence quality and goal progress separate. The five criteria are prompts for tailored feedback, not a scale to add or average. A laboratory battery batch could instead track material losses and valid samples; a printed prototype could track failed prints and acceptable parts. In each case, advice must preserve scientific quality and safety. Cross-project examples may inform methods, but do not provide a ranking. Weighting unlike indicators into one number would require value judgements the group has not established \citep{oecd2008composite}.
 
-\subsection{Start--Shift: direction, not just a number}
-The user first records a self-rating $P_0$ and chooses a relevant goal $T$. The system then produces an evidence-supported profile $E_0$. For a validated criterion where higher means better, $g_i=E_{0,i}-T_i<0$ indicates room to improve; $E_{0,i}-P_{0,i}$ separately reveals any mismatch between self-perception and evidence. A later assessment is optional: after an action, $E_n$ records the $n$th observed state and $\Delta_n=E_n-E_{n-1}$ its change, while an expected outcome remains a labelled projection. Figure~\ref{fig:start-shift-loop} separates the core path from optional repeated visits and preserves criterion-level snapshots instead of a single 0--100 grade.
+\subsection{Start--Shift: project-specific progress}
+The researcher records an initial activity and a personal goal. The system identifies relevant quantities and evidence gaps, then suggests a feasible action. At a later visit, the researcher can enter comparable measurements and explain changes in research scope or quality. Figure~\ref{fig:start-shift-loop} separates the first usable advice from optional follow-up; expected and observed outcomes remain distinct.
 \begin{figure}[!htbp]
 \centering
 \begin{minipage}[t]{0.43\textwidth}
@@ -155,11 +171,11 @@ The user first records a self-rating $P_0$ and chooses a relevant goal $T$. The 
   future/.style={draw=gray!65,dashed,fill=gray!5,rounded corners,align=center,text width=4.15cm,minimum height=0.68cm,font=\small},
   flow/.style={-{Stealth[length=2mm]},thick,draw=blue!70!black},
   revisit/.style={-{Stealth[length=2mm]},dashed,draw=gray!65}]
-\node[core] (start) at (0,0) {\textbf{Start} $P_0$ and goal $T$};
-\node[core] (assess) at (0,-1.08) {\textbf{Evaluate} $E_0$ and raw impact};
-\node[core] (gap) at (0,-2.16) {\textbf{Gap} $E_0-T$; evidence check};
+\node[core] (start) at (0,0) {\textbf{Start} activity and personal goal};
+\node[core] (assess) at (0,-1.08) {\textbf{Assess} baseline and evidence};
+\node[core] (gap) at (0,-2.16) {\textbf{Identify} opportunity and data gaps};
 \node[choice] (advice) at (0,-3.24) {\textbf{Guidance} and action plan};
-\node[future] (follow) at (0,-4.35) {\textbf{Optional follow-up} $E_1,E_2,\ldots$};
+\node[future] (follow) at (0,-4.35) {\textbf{Optional follow-up} observed result};
 \draw[flow] (start)--(assess);
 \draw[flow] (assess)--(gap);
 \draw[flow] (gap)--(advice);
@@ -173,14 +189,14 @@ The user first records a self-rating $P_0$ and chooses a relevant goal $T$. The 
 \footnotesize
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.28\linewidth}>{\raggedright\arraybackslash}X@{}}
 \toprule
-Layer & Illustrative compute-efficiency record \\
+Stage & Illustrative GPU-computation record \\
 \midrule
-Initial & Self-view $P_0=2/2$; goal $T=2/2$ \\
-Evaluated & Evidence $E_0=0/2$; run estimate 8.64 kWh \\
-Difference & Goal gap $-2$; perception gap $-2$ \\
-Guidance & Pilot fewer GPUs at equal research quality \\
-Expected & Action hypothesis; no measured gain yet \\
-Observed shift & $E_1$ and $\Delta_1$ pending; $E_2$ optional \\
+Baseline & Four GPUs for six hours; 24 GPU-hours \\
+Evidence gap & Electricity, failed runs and total runs unknown \\
+Goal & Same research quality with less total electricity \\
+Action & Pilot fewer GPUs; measure comparable runs \\
+Expected & Possible saving; no measured gain yet \\
+Follow-up & Record actual energy, quality and total use \\
 \bottomrule
 \end{tabularx}
 \end{minipage}
@@ -189,7 +205,7 @@ Observed shift & $E_1$ and $\Delta_1$ pending; $E_2$ optional \\
 \end{figure}
 Goal-reference research supports presenting change relative to a meaningful target: people evaluate gains and shortfalls relative to reference points, rather than only final totals \citep{kahneman1979prospect,heath1999goals}. Formative-feedback work supports specific next steps rather than a terminal grade; self-regulation and personal-informatics models describe iterative, stage-based reflection and action \citep{shute2008feedback,zimmerman2002self,li2010stages}. These are design analogies, not evidence that this display will improve TU/e research behaviour. Comprehension, discouragement and actual follow-up must be tested \citep{carver1982control,hattie2007feedback}.
 
-Consented cases from a proposed restricted repository could provide a nearby peer reference when activity, scale and research-quality requirements match. This addresses the gap between general sustainability knowledge and locally relevant action illustrated by the graduate survey \citep{shiekh2026graduate}. Social-norm experiments on household energy use show both potential benefits and a possible boomerang effect, so peer comparison should remain contextual and opt-in rather than a public ranking \citep{schultz2007norms}. TU/e could separately consider recognition for verified improvements, but awards or institutional incentives require their own governance and must not be decided by unvalidated prototype scores.
+Consented cases from a proposed restricted repository could offer examples of feasible methods when activity and research-quality requirements match. This addresses the gap between general sustainability knowledge and locally relevant action illustrated by the graduate survey \citep{shiekh2026graduate}. Such examples would give context for the researcher's own decision, without ranking projects or researchers. TU/e could separately consider recognition for verified improvements, but awards or institutional incentives require their own governance.
 
 \subsection{Explicability, human control and privacy}
 The proposed knowledge base has three reviewed layers: authoritative TU/e guidance where applicable, published factors with scope and date, and consented cases whose conditions and outcomes have been checked. AI may classify activities, retrieve and summarise sources, propose comparators and draft suggestions. It may not create official policy, approve an archive entry or alter criteria without review. Fixed formulas perform arithmetic; an authorised maintainer validates source updates and can withdraw outdated advice. This separation makes outcomes traceable to both evidence and responsible people, reflecting the course's explicability and meaningful-human-control themes \citep{friedman2019shaping,santoni2018control,eu_ethics_2021}.
@@ -197,7 +213,7 @@ The proposed knowledge base has three reviewed layers: authoritative TU/e guidan
 The researcher chooses the detail entered, may omit unpublished or industry-confidential information, confirms AI-extracted activities, corrects assumptions, accepts or rejects advice, and chooses separately whether to save a private result, contribute to aggregate comparison, or share a reviewed case. Self-assessment remains available without archive sharing. The owner can recognise their own record; other users see only a consented, redacted case under a code (e.g., ``Case A'') or a sufficiently broad aggregate. A designated data steward would keep any identity--code mapping separately with restricted access; curators need only the case code and approved summary. Small groups and distinctive project details should be suppressed when they permit inference. A code is \emph{pseudonymisation}, not guaranteed anonymity: linkable records remain personal data \citep{edpb2025pseudonymisation,gdpr2016}. This design applies purpose limitation, data minimisation and privacy by default, while leaving retention periods, legal basis and access roles for TU/e to determine \citep{gdpr2016,nissenbaum2004privacy}. A source challenge goes to a named reviewer and is not silently learned from as truth.
 
 \subsection{Evidence-to-design rationale}
-The source-to-design links are concentrated in Table~\ref{tab:phase2-gaps}. The US graduate survey motivates activity prompts and actionable guidance, but requires local testing \citep{shiekh2026graduate}. VSD makes explicability, autonomy and environmental impact design values to investigate with stakeholders rather than merely interface labels \citep{friedman2019shaping}. Feedback theory motivates Start--Shift, while meaningful human control and contextual privacy justify correction, curator review and separate sharing choices \citep{carver1982control,hattie2007feedback,santoni2018control,nissenbaum2004privacy}. OECD/JRC guidance supports keeping criteria visible and treating any overall index as a validated, optional summary \citep{oecd2008composite}.
+The source-to-design links are concentrated in Table~\ref{tab:phase2-gaps}. The US graduate survey motivates activity prompts and actionable guidance, but requires local testing \citep{shiekh2026graduate}. VSD makes explicability, autonomy and environmental impact design values to investigate with stakeholders rather than merely interface labels \citep{friedman2019shaping}. Feedback theory motivates Start--Shift, while meaningful human control and contextual privacy justify correction, curator review and separate sharing choices \citep{carver1982control,hattie2007feedback,santoni2018control,nissenbaum2004privacy}. OECD/JRC guidance supports keeping criteria visible and avoiding unsupported aggregation \citep{oecd2008composite}.
 
 \subsection{Interface}
 The interface will be designed as a simple web-based tool with three main functions: I want to Assess, I want to Check \& Learn, and I want to Query. The homepage will provide a clear overview of these functions so that researchers can choose between assessing their own research, learning more about sustainability, or exploring previous records and available resources.
@@ -210,7 +226,7 @@ The library will also contain examples of research activities and their possible
 
 The Query function allows researchers to explore information beyond their current assessment. Researchers can view their own previous assessments and search the available database using filters such as research field, impact type or keywords. They can also explore relevant case studies, datasets, best practices and policies. When appropriate, comparable previous cases can help researchers understand how similar research activities have considered sustainability. Detailed information and relevant resources can be viewed or downloaded. Any sharing of research records should be subject to appropriate consent and privacy controls.
 
-The interface will use a clean layout with clear headings, buttons and information cards. The three main functions will be visually separated so that users can easily understand what each part of the tool is for. Researcher input, AI-generated information and information retrieved from the library or database will be visually distinguished. The prototype will demonstrate the complete interaction from entering research information and receiving an assessment, to learning about the sustainability concepts behind the assessment and querying previous records and resources.
+The interface will use clear headings, buttons and information cards. The three main functions will be visually separated so users can understand each purpose. Researcher input, AI-generated suggestions and retrieved records will be visually distinguished. This walkthrough details Assess and Query; the Check \& Learn screen remains to be developed with its module owner.
 
 
 \subsection{Evaluation plan and team responsibilities}
@@ -222,7 +238,7 @@ The prototype will be compared with a structured non-AI checklist on the same te
 Member & Main module & Research and design responsibility & Expected deliverable \\
 \midrule
 Dennis de Hoon & Home and integration & Navigation, shared UI and advisory framing. & Homepage and integrated flow. \\
-Peng Wang & Assess; scoring & Criteria, formulas, comparators and scoring safeguards. & Assessment screen and worked case. \\
+Peng Wang & Assess; project comparison & Activity-specific criteria, transparent arithmetic and comparison safeguards. & Assessment screen and worked case. \\
 Yehao Chen & Learn; Assess support & Concepts, source library, explanations and feedback wording. & Learning pages and linked advice. \\
 Gerald Tobenna Eluagu & Query and history & Records, search, comparability, consent and access. & Query mock-up and privacy controls. \\
 \bottomrule
@@ -230,5 +246,3 @@ Gerald Tobenna Eluagu & Query and history & Records, search, comparability, cons
 \caption{Working allocation based on the current team sketch. Each owner may revise their module and report text with the group.}
 \label{tab:phase2-owners}
 \end{table}
-
-\input{Query and history module}

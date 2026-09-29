@@ -1,95 +1,89 @@
-% Included by Mock-up.tex. All records, counts and measurements below are illustrative.
-\clearpage
-\subsection{Query and history: an illustrative dialogue}
+% Included by Mock-up.tex. All records, counts and measurements below are fictional demonstration data.
+\subsection{Option 3 --- I want to Query: history and reviewed cases}
 \label{sec:query-dialogue}
-This screen sketch follows a researcher through the third module, \emph{I want to Query}. Blue bubbles show researcher input; green bubbles show the proposed tool's response. Case identifiers, counts and measurements are demonstration data, not records from an existing TU/e database.
+The third home-menu choice supports two routes: a researcher's private history and a search of consented, reviewed cases. Fixed buttons handle navigation, filters and sharing choices; a short conversation is available when the researcher needs an explanation. The illustrative records below do not represent an existing TU/e database.
 
+\newtcolorbox{queryscreen}{enhanced,breakable,colback=green!4,colframe=green!45!black,
+  boxrule=0.6pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,
+  before=\par\noindent,after=\par\medskip}
 \newtcolorbox{queryuser}{enhanced,colback=blue!5,colframe=blue!55!black,
   boxrule=0.6pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,
-  width=0.80\linewidth,halign=left}
-\newtcolorbox{querysystem}{enhanced,colback=green!5,colframe=green!45!black,
-  boxrule=0.6pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,
-  width=0.88\linewidth,before=\par\noindent,after=\par\medskip}
-\newenvironment{userturn}{\begin{flushright}\begin{queryuser}}{\end{queryuser}\end{flushright}}
+  width=0.83\linewidth,halign=left}
 
-\subsubsection*{1. My History: view and manage past assessments}
-\begin{userturn}
-\textbf{Researcher}\par
-I want to see the sustainability self-assessments I ran earlier this semester.
-\end{userturn}
+\begin{queryscreen}
+\textbf{Home $>$ 3. I want to Query}\par\medskip
+\fbox{\textsf{My History}}\quad
+\fbox{\textsf{Search reviewed cases}}\quad
+\fbox{\textsf{Guidance and methods}}\quad
+\fbox{\textsf{Return home}}\par\medskip
+The following two paths illustrate the first two choices. A search result is never treated as a benchmark without checking its research purpose, quality requirement, unit and boundary.
+\end{queryscreen}
 
-\begin{querysystem}
-\textbf{Assessment tool}\par
-Your private history contains \textbf{two past assessments}:
+\subsubsection*{A. My History: inspect a record or change sharing}
+\begin{queryscreen}
+\textbf{Selected:} \fbox{\textsf{My History}}\par
+\textbf{Your private assessment list}\par
 \begin{itemize}[nosep,leftmargin=1.5em]
-  \item \textbf{Case \#2026-A:} Electric Vehicle Battery Fabrication --- completed; shared with the proposed restricted case archive.
-  \item \textbf{Case \#2026-B:} Machine Learning Model Training --- draft; private.
+  \item \textbf{Case \#2026-A:} Battery sample fabrication --- baseline and follow-up recorded; case sharing enabled.
+  \item \textbf{Case \#2026-B:} Machine-learning training --- draft; private.
 \end{itemize}
-Would you like to open a report or change a sharing choice?
-\end{querysystem}
+\fbox{\textsf{Open A}}\quad
+\fbox{\textsf{Open B}}\quad
+\fbox{\textsf{Compare my versions}}\quad
+\fbox{\textsf{Manage sharing}}
+\end{queryscreen}
 
-\begin{userturn}
-\textbf{Researcher action}\par
-\emph{Change Case \#2026-A from ``Shared'' to ``Private''.}
-\end{userturn}
+\begin{queryscreen}
+\textbf{Selected:} \fbox{\textsf{Manage sharing $>$ Case \#2026-A $>$ Private}}\par
+Before confirming, the screen explains that the case will disappear from future shared searches, while previously downloaded copies cannot be recalled.\par\medskip
+\fbox{\textsf{Confirm private}}\quad
+\fbox{\textsf{Cancel}}\par\medskip
+On confirmation, the researcher's private history still contains both versions. Only a reviewed, consented and redacted case may appear in the shared search route.
+\end{queryscreen}
 
-\begin{querysystem}
-\textbf{Assessment tool}\par
-Case \#2026-A is now private and no longer appears in shared search results. Your own history still contains it. Previously downloaded copies cannot be recalled; the interface should explain this limit before the change is confirmed.
-\end{querysystem}
+\subsubsection*{B. Search: choose filters, inspect a case, challenge a source}
+\begin{queryscreen}
+\textbf{Selected:} \fbox{\textsf{Search reviewed cases}}\par
+\textbf{Activity:} \fbox{\textsf{Battery testing}}\quad
+\fbox{\textsf{GPU computation}}\quad
+\fbox{\textsf{Other}}\par
+\textbf{Suggested filters:} \fbox{\textsf{Same research purpose}}\quad
+\fbox{\textsf{Measured electricity}}\quad
+\fbox{\textsf{Matching boundary}}\par\medskip
+The researcher selects battery testing and the three suggested filters. These are fixed controls populated from the confirmed activity; the researcher can change them.
+\end{queryscreen}
 
-\subsubsection*{2. Database Search: find cases, practices and guidance}
-\begin{userturn}
-\textbf{Researcher}\par
-I'm planning a project on battery testing cycles. Search for similar research and relevant sustainability guidance.
-\end{userturn}
+\begin{queryscreen}
+\textbf{Illustrative results:} 12 reviewed battery-testing cases before filtering; three after the selected filters.\par
+\textbf{Case \#TUe-BATT-88:} cycle testing with grid electricity. Its shared view omits identifying details.\par
+\textbf{Matching check:} equipment, test duration, valid outcome and measurement boundary still need inspection before a numerical comparison.\par\medskip
+\fbox{\textsf{Open case details}}\quad
+\fbox{\textsf{Change filters}}\quad
+\fbox{\textsf{Return home}}
+\end{queryscreen}
 
-\begin{querysystem}
-\textbf{Assessment tool}\par
-In this demonstration, the proposed restricted archive returns \textbf{12 reviewed cases} and \textbf{two guidance documents} related to battery laboratory testing.
+\begin{queryscreen}
+\textbf{Case \#TUe-BATT-88 --- detail card}\par
 \begin{itemize}[nosep,leftmargin=1.5em]
-  \item \textbf{Closest case:} Case \#TUe-BATT-88 --- lithium-ion battery cycle testing using grid electricity. The code replaces identifying details in the shared view.
-  \item \textbf{Related guidance:} a battery-testing efficiency note. Its source, version and reviewer would be shown here once approved.
+  \item Electricity: 420 kWh reported from a dedicated meter, with its test boundary shown.
+  \item Upstream lithium supply: unknown; no zero value or footprint is inferred.
+  \item A reported 12\% change in estimated grid emissions requires its time-specific electricity factor, method and source before reuse.
 \end{itemize}
-The tool may retrieve these sources, but an authorised reviewer must approve case summaries and guidance before reuse.
-\end{querysystem}
+\textbf{Downloads:} only approved data, units, boundaries and source versions. No overall sustainability score or public rank.\par\medskip
+\fbox{\textsf{View source}}\quad
+\fbox{\textsf{Download approved data}}\quad
+\fbox{\textsf{Ask about a number}}
+\end{queryscreen}
 
-\subsubsection*{3. Filters and Categories: narrow the results}
-\begin{userturn}
-\textbf{Researcher}\par
-That's too many results. Filter by \emph{Electrical Engineering} and \emph{measured electricity use}.
-\end{userturn}
+\begin{flushright}\begin{queryuser}
+\textbf{Researcher, after choosing ``Ask about a number''}\par
+The carbon result has no emission factor or citation in the export. Can I use it in my lab report?
+\end{queryuser}\end{flushright}
 
-\begin{querysystem}
+\begin{queryscreen}
 \textbf{Assessment tool}\par
-\textbf{Active filters:} Electrical Engineering; measured electricity use (kWh).\par
-The illustrative results narrow from \textbf{12 to three cases}. Some describe laboratories using local renewable-energy microgrids. Before comparing them with your project, check equipment, test duration, measurement boundary and research purpose.
-\end{querysystem}
-
-\subsubsection*{4. Details and Download: inspect evidence}
-\begin{userturn}
-\textbf{Researcher}\par
-Open Case \#TUe-BATT-88. I want to download its data and formulas to help plan my own project.
-\end{userturn}
-
-\begin{querysystem}
-\textbf{Assessment tool}\par
-\textbf{Case \#TUe-BATT-88 --- detailed indicators}\par
-\begin{itemize}[nosep,leftmargin=1.5em]
-  \item \textbf{Electricity:} 420 kWh, reported as measured by a dedicated laboratory meter.
-  \item \textbf{Missing information:} the upstream lithium supplier's carbon footprint is unavailable, so this impact is not estimated.
-  \item \textbf{Possible practice:} the case reports a 12\% reduction in estimated grid emissions after shifting test cycles. This figure needs its time-specific emission factors and calculation method before it can guide another project.
-\end{itemize}
-\textbf{Downloads:} the approved equipment-data CSV and a calculation sheet with formulas, units, boundaries and source versions. Only data cleared for sharing can be exported. No aggregate sustainability score is shown.
-\end{querysystem}
-
-\pagebreak
-\begin{userturn}
-\textbf{Researcher}\par
-The spreadsheet shows a carbon result, but I cannot find the emission factor or its source. Where did that number come from? I need to cite it in my lab report.
-\end{userturn}
-
-\begin{querysystem}
-\textbf{Assessment tool}\par
-You are right: the export does not document the emission factor. The carbon result should be marked \emph{unverified} until the factor's value, unit, date, location and source are supplied. The calculation sheet can then show the formula \texttt{=B2*C2} alongside those details. I have flagged this case for curator review; I cannot provide a citation that has not been verified.
-\end{querysystem}
+That carbon result is unverified. The factor's value, unit, date, location and source must be supplied before the calculation can be checked or cited. I have flagged this record for curator review.\par\medskip
+\fbox{\textsf{View available evidence}}\quad
+\fbox{\textsf{Report source issue}}\quad
+\fbox{\textsf{Return to results}}
+\end{queryscreen}

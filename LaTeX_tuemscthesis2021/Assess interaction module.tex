@@ -1,0 +1,114 @@
+% Included by Mock-up.tex. Every project record and number below is fictional demonstration data.
+\subsection{Option 1 --- I want to Assess: a guided project assessment}
+\label{sec:assess-dialogue}
+This walkthrough uses a laboratory battery-sample project to show where fixed controls, AI assistance and a short conversation each help. The same sequence could ask different activity-specific questions for GPU computation or a printed prototype. The tool proposes an activity type and follow-up prompts; the researcher confirms them. Arithmetic uses recorded quantities, not an AI-generated score.
+
+\newtcolorbox{assessscreen}{enhanced,breakable,colback=green!4,colframe=green!45!black,
+  boxrule=0.6pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,
+  before=\par\noindent,after=\par\medskip}
+\newtcolorbox{assessuser}{enhanced,colback=blue!5,colframe=blue!55!black,
+  boxrule=0.6pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm,
+  width=0.83\linewidth,halign=left}
+
+\subsubsection*{A. Start from the menu and confirm the activity}
+\begin{assessscreen}
+\textbf{Home $>$ 1. I want to Assess $>$ New assessment}\par
+\textbf{Choose a starting point:}\quad
+\fbox{\textsf{Battery or laboratory samples}}\quad
+\fbox{\textsf{GPU computation}}\quad
+\fbox{\textsf{3D-printed prototype}}\quad
+\fbox{\textsf{Describe another activity}}\par\medskip
+\textbf{Researcher selects:} \fbox{\textsf{Describe another activity}}.
+\end{assessscreen}
+
+\begin{flushright}\begin{assessuser}
+\textbf{Researcher}\par
+I make lithium-ion battery electrode samples. I want to reduce wasted material and electricity without changing which samples count as scientifically valid.
+\end{assessuser}\end{flushright}
+
+\begin{assessscreen}
+\textbf{AI-assisted draft:} This appears to be a laboratory battery-sample activity. I would assess one batch and one valid sample, while retaining total batch use. Please confirm the activity and define a valid sample.\par\medskip
+\fbox{\textsf{Confirm battery-sample activity}}\quad
+\fbox{\textsf{Edit description}}\quad
+\fbox{\textsf{Choose another activity}}
+\end{assessscreen}
+
+\subsubsection*{B. Fill known fields; ask only for a missing condition}
+\begin{assessscreen}
+\textbf{Project information form --- illustrative prior batch}\par
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.37\linewidth}X@{}}
+Scientific outcome & Electrode samples meeting the same test requirement. \\
+Prior batch & 6 attempts; 5 valid samples. \\
+Relevant inputs & 60 kWh for the defined batch; 1.2 kg starting material. \\
+Boundary and source & Fabrication steps only; fictional lab meter and material log. Upstream production excluded. \\
+Personal goal & At most 10 kWh per valid sample, with unchanged quality and safety. \\
+\end{tabularx}
+\medskip\fbox{\textsf{Confirm fields}}\quad
+\fbox{\textsf{Edit amounts or boundary}}\quad
+\fbox{\textsf{Mark unknown}}
+\end{assessscreen}
+
+\begin{assessscreen}
+\textbf{One follow-up question:} What makes a sample valid for this research? The proposed alternative can be compared only if it meets the same requirement.
+\end{assessscreen}
+\begin{flushright}\begin{assessuser}
+\textbf{Researcher}\par
+A valid sample passes our existing electrochemical test and safety checks. Keep those requirements for the pilot batch.
+\end{assessuser}\end{flushright}
+
+\subsubsection*{C. Review the initial profile and choose an action}
+\begin{assessscreen}
+\textbf{Initial profile --- before the pilot}\par
+The recorded batch used 60 kWh for 5 valid samples, or \textbf{12 kWh per valid sample}. The personal goal is \textbf{10 kWh per valid sample}; the initial gap is \textbf{2 kWh per valid sample above that goal}. Material loss and repeated attempts may be avoidable, but no improvement has yet been observed. Upstream material impacts remain unknown.\par\medskip
+\textbf{Suggested action:} Pilot a process change that reduces failed samples; record electricity, starting material, valid samples and test results for the whole batch.\par\medskip
+\fbox{\textsf{Plan pilot}}\quad
+\fbox{\textsf{Why this advice?}}\quad
+\fbox{\textsf{Correct input}}\quad
+\fbox{\textsf{Save privately}}
+\end{assessscreen}
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}X@{}}
+\toprule
+Criterion & Current evidence & Next check \\
+\midrule
+C1 Boundary and inputs & Batch, validity rule, meter and material log recorded; upstream excluded. & Confirm the same steps and units in the pilot. \\
+C2 Comparable alternative & Process change proposed; quality condition stated. & Test sample performance before claiming a fair comparison. \\
+C3 Avoidable use & One failed attempt in the prior batch. & Check whether the change reduces failures or waste. \\
+C4 Total use & Batch electricity and material recorded. & Show batch totals alongside per-valid-sample values. \\
+C5 Follow-up & Personal goal recorded; result pending. & Set a review date and enter the pilot record. \\
+\bottomrule
+\end{tabularx}
+\caption{Illustrative assessment matrix using the five provisional criteria. These are evidence and action notes, not points to add into a score.}
+\label{tab:assess-criteria-screen}
+\end{table}
+
+\subsubsection*{D. Optional return: compare the project's own history}
+The researcher later selects \fbox{\textsf{My History $>$ Add follow-up}} and enters a fictional pilot batch: 6 attempts, 6 valid samples, 54 kWh and 1.1 kg starting material. The tool first checks that the scientific test, safety requirements and measurement boundary are unchanged. If they changed, it asks for a revised baseline instead of presenting the difference as an improvement.
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}X@{}}
+\toprule
+Measure (same batch boundary) & Prior batch & Pilot batch & Change or goal gap \\
+\midrule
+Valid samples / attempts & 5 / 6 & 6 / 6 & One more valid sample. \\
+Batch electricity & 60 kWh & 54 kWh & $-6$ kWh for the batch. \\
+Electricity / valid sample & 12 kWh & 9 kWh & $-3$ kWh from own baseline; $-1$ kWh against the 10 kWh goal. \\
+Starting material & 1.2 kg & 1.1 kg & $-0.1$ kg for the batch. \\
+\bottomrule
+\end{tabularx}
+\caption{Fictional follow-up display. Differences are pilot minus the stated reference; negative electricity values indicate less use under the same boundary. A goal is a declaration, while the pilot values require recorded evidence.}
+\label{tab:assess-history-screen}
+\end{table}
+
+\pagebreak
+\begin{assessscreen}
+\textbf{Your project, so far:} The pilot is 1 kWh per valid sample below your personal goal and 3 kWh below your own prior batch. Total batch electricity is 6 kWh lower. This is a project-specific observed change only if the meter record and quality checks are confirmed. It does not cover upstream impacts.\par\medskip
+\textbf{Optional similar-case view:} If three reviewed cases genuinely match the functional unit, quality test and boundary, a \emph{fictional demonstration mean} of 11 kWh per valid sample would place this pilot 2 kWh below that reference. The real interface would show the case count, range, sources and exclusions; otherwise it displays \emph{no comparable reference available}. This comparison is context, not a rank.\par\medskip
+\fbox{\textsf{View evidence}}\quad
+\fbox{\textsf{Revise goal}}\quad
+\fbox{\textsf{Query related cases}}\quad
+\fbox{\textsf{Return home}}
+\end{assessscreen}
