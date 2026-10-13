@@ -1,5 +1,7 @@
 # Phase 2 评析与修改说明（Group Q，peer-review 草稿）
 
+后续整理说明：用户在 10 月 12 日进一步说明当前产品聚焦相似性、独特性与两棵结果树。当前产品与四人决定请看 `PROJECT_ALIGNMENT_BOARD.md`；下面保留的是此前草稿的评析。原混合主文件已保存到 `LaTeX_tuemscthesis2021/archive/2026-10-12-before-cleanup/`，`samplemscthesis.tex` 现在只调用独立 Phase 1 报告，旧自评设计另由 `historical-design-notes.tex` 编译。
+
 这次按“小幅编辑，不补造新内容，不替未完成部分写作”的范围处理。原稿已备份到 `tmp/phase2-review/Assignment 2.before-edit.tex`，Phase 1 主文件、各模块和原始截图没有改动。当前 PDF 是供同学评价的草稿，不能因格式已修好就视为最终报告已经满足全部评分要求。
 
 ## 最影响成绩的判断

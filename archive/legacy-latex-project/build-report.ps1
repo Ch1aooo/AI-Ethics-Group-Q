@@ -6,11 +6,7 @@ if (-not (Get-Command perl -ErrorAction SilentlyContinue)) {
         $env:PATH = 'C:\Program Files\Git\usr\bin;' + $env:PATH
     }
 }
-$reportSource = Get-Content -LiteralPath 'samplemscthesis.tex' -Raw
-$bodyStart = $reportSource.IndexOf('\section{Introduction')
-$bodyEnd = $reportSource.IndexOf('\bibliographystyle')
-if ($bodyStart -lt 0 -or $bodyEnd -le $bodyStart) { throw 'Cannot identify main-text boundaries.' }
-$countSource = $reportSource.Substring($bodyStart, $bodyEnd - $bodyStart)
+$countSource = Get-Content -LiteralPath 'chapters\phase1-body.tex' -Raw
 # Count narrative prose only: exclude tables, diagrams, headings, TODOs and references.
 $countSource = [regex]::Replace($countSource, '(?s)\\begin\{(table\*?|figure\*?|longtable)\}.*?\\end\{\1\}', '')
 $countSource = [regex]::Replace($countSource, '\\(?:section|subsection|subsubsection|placeholder|input|nocite)\*?\{[^{}]*\}', '')
@@ -24,9 +20,12 @@ if ($bodyCount -notmatch '^\d+$') { throw 'Unexpected TeXcount output.' }
 [IO.File]::WriteAllText((Join-Path $PSScriptRoot 'wordcount.tex'), "\newcommand{\mainwordcount}{$bodyCount}`n")
 Remove-Item -LiteralPath (Join-Path $PSScriptRoot 'wordcount-body.tmp.tex')
 Write-Output "Main-text word count: $bodyCount (TeXcount; excludes headings, tables, figures, TODOs, references and appendices)."
+$reportOutputDirectory = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\output\pdf'))
+New-Item -ItemType Directory -Force -Path $reportOutputDirectory | Out-Null
+$reportJobName = 'Group-Q-Phase1-Retained'
 foreach ($stage in 1..4) {
-    if ($stage -eq 2) { & bibtex samplemscthesis | Out-Null }
-    else { & pdflatex -interaction=nonstopmode -halt-on-error samplemscthesis.tex | Out-Null }
+    if ($stage -eq 2) { & bibtex (Join-Path $reportOutputDirectory $reportJobName) | Out-Null }
+    else { & pdflatex -interaction=nonstopmode -halt-on-error "-output-directory=$reportOutputDirectory" "-jobname=$reportJobName" phase1-report.tex | Out-Null }
     if ($LASTEXITCODE -ne 0) { throw "Build failed at stage $stage; see the LaTeX log." }
 }
-Write-Output 'Built samplemscthesis.pdf.'
+Write-Output 'Built output/pdf/Group-Q-Phase1-Retained.pdf (retained Phase 1 only).'

@@ -1,0 +1,33 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex-current-document",
+      "command": "pdflatex",
+      "args": [
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-synctex=1",
+        "-output-directory=%DIR%/output/pdf",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Compile current submission",
+      "tools": [
+        "pdflatex-current-document",
+        "pdflatex-current-document",
+        "pdflatex-current-document"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.outDir": "%DIR%/output/pdf",
+  "files.exclude": {
+    "**/*.aux": true,
+    "**/*.log": true,
+    "**/*.out": true,
+    "**/*.synctex.gz": true
+  }
+}
