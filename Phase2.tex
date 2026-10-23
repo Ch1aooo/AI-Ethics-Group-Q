@@ -14,6 +14,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage[authoryear,round]{natbib}
+\renewcommand{\bibsection}{} % Explicit reference headings are provided below.
 \usepackage{microtype}
 \usepackage{float}
 \usepackage{booktabs}
@@ -35,19 +36,19 @@
 }
 
 % --- Cover/Metadata Setup ---
-\title{\textbf{Group Q: Phase 2 Report}\\[0.5em]\Large Research Roots\\[0.3em]\large Peer-review draft}
+\title{\textbf{Group Q: Phase 2 Report}\\[0.5em]\Large Research Roots\\[0.3em]\large Author revision copy -- not for submission}
 
 \author{\textbf{Group Q} \\\\
 Course: 5ARF0 Ethics of AI: Theory and Practice \\
 Eindhoven University of Technology}
-\date{12 October 2026}
+\date{23 October 2026}
 
 
 
 % BEGIN embedded assignment2-wordcounts.tex
-\newcommand{\Bwordcount}{108}
-\newcommand{\Cwordcount}{1417}
-\newcommand{\Dwordcount}{291}
+\newcommand{\Bwordcount}{119}
+\newcommand{\Cwordcount}{1644}
+\newcommand{\Dwordcount}{295}
 \newcommand{\Fwordcount}{385}
 
 % END embedded assignment2-wordcounts.tex
@@ -73,10 +74,10 @@ Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{p.wang1@st
 \end{tabularx}
 \end{center}
 \vspace{0.6cm}
-\noindent\textit{Draft status: The direction described on 12 October focuses on research similarity and distinctiveness, presented in two trees. Section C still describes three trees; Sections B, F and G retain the earlier self-assessment concept. These sections await alignment by their authors. Section H remains incomplete.}
+\noindent\textit{Team revision copy: Sections B and C have been aligned with the two-tree research-discovery design. Section C now includes deployment, cold start, replication choices, governance and evaluation. Dennis's Section D remains for his final revision. Gerald coordinates the other components; Sections F and G still show the legacy self-assessment example, and H requires contributor records. The editorial checklist at the end is for team review and must be removed before submission.}
 
 \medskip
-\noindent\small Word counts use TeXcount narrative-text counts, excluding headings, citations, references, captions and draft-status notes. Section H contains placeholders rather than completed documentation.\normalsize
+\noindent\small Word counts use TeXcount narrative-text counts, excluding headings, citations, references, captions and editorial notes. Recount after further edits.\normalsize
 
 \thispagestyle{empty}
 \clearpage
@@ -90,64 +91,83 @@ Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{p.wang1@st
 % =========================================================================
 % B. PUBLIC SUMMARY
 % =========================================================================
+% Gerald: review the updated public summary against the final product name and shared demonstration.
 \section*{B. Public Summary}
 \addcontentsline{toc}{section}{B. Public Summary}
 \noindent\textit{Word count: \Bwordcount / 150}\par\medskip
 
 
-\vspace{1em}
-\noindent Our AI-Supported Sustainability Self-Assessment for TU/e Research (ENSU) project explores how researchers can assess the environmental footprint of laboratory or computational experiments. We propose an interactive web application in which a large language model (LLM) helps users describe their activities and develop guidance. A separate step-by-step calculation tool assesses resource consumption, such as equipment runtime and electricity use. The tool could help researchers translate campus sustainability goals into everyday research decisions without adding an institutional approval procedure.
+\noindent Research Roots would help TU/e students and researchers find existing work and resources while planning a study. Users describe their question and methods, then explore two trees: one shows connections to earlier research; the other highlights possible differences to investigate. Each connection leads to a source that users can check. The aim is to make useful knowledge, equipment and potential collaborators easier to discover, creating opportunities to reuse resources before committing to a new experiment. Researchers remain free to pursue replication and disregard suggestions. The main challenges are incomplete records, misleading connections and protecting unpublished ideas. A proposed pilot would test whether the tool helps users make better planning decisions and whether reuse leads to measurable resource savings.
 
-The main anticipated challenges are defining clear assessment boundaries for shared laboratory equipment and infrastructure, ensuring that recommendations can be traced to their sources, and preventing overreliance on automated feedback.
 \clearpage
 
 % =========================================================================
 % C. COMPREHENSIVE SUMMARY
 % =========================================================================
+% Section C substantively revised from the author-provided design and verified sources on 23 October 2026.
 \section*{C. Comprehensive Summary}
 \addcontentsline{toc}{section}{C. Comprehensive Summary}
 \noindent\textit{Word count: \Cwordcount / 2000}\par\medskip
 
 \subsection*{Problem Definition and Objective(s)}
 
-A student starting a new project may find a paper on the same topic yet overlook a useful method or piece of equipment in another TU/e department. The university's research portal already lists projects, publications and equipment \citep{tueportal}. Our project addresses the difficulty of finding relevant work before the student knows the right title, author or search term. The extent of this problem at TU/e has not yet been established and would need to be investigated with researchers.
+A student planning a study may find publications on the same topic while overlooking a useful method, dataset or piece of equipment in another TU/e department. The TU/e research portal already contains publications, projects, equipment and facilities \citep{tueportal}; the problem we address is discovering relevant connections before the student knows the right author or search term. Its extent at TU/e still requires local investigation. We therefore propose a design strategy for research discovery rather than claim that researchers routinely waste resources.
 
-We propose a website where a student or researcher enters a short description of a planned study: the question, method and, if relevant, equipment needed. The site would show related TU/e work and explain the connection. For example, someone planning a LiDAR (light detection and ranging) experiment might find a similar sensing method used for a different purpose in another department. They could then ask whether a protocol, dataset or setup can be reused. This may save time and resources, but finding a match does not itself save electricity or materials. We would test whether people actually change their plans after using the site.
+Research Roots would let students and researchers describe a planned study and explore related work through a Similarity Tree and a Distinctiveness Tree. The intended change is to make potential reuse visible while research plans remain open to revision. A LiDAR study, for example, might benefit from a sensing method used for another application. Researchers would still need to check whether the method transfers and whether the associated resources are available.
 
-The main users would be students and researchers at an early planning stage. Project leaders might use it to find partners. Librarians, equipment managers and data stewards would help keep records useful and decide what can be shared. Researchers whose projects appear in the results should be able to decide whether details of unfinished work are visible. The tool would support their judgment; it would not decide whether a project is original or deserves funding. Contacting another group can also create work for that group. The site should help users decide when a conversation is worthwhile rather than send automatic requests to everyone with a similar project.
+Students gain a starting point for discussion with supervisors; researchers can discover potential collaborators and resources. Librarians would help with discovery and metadata, equipment managers would confirm access conditions, and data stewards would advise on sharing. Their participation is necessary: a matching record cannot establish permission or suitability for reuse. The tool would support planning, without assessing eligibility for funding or deciding whether a project deserves to proceed.
 
 \subsection*{Background of Current Approaches and Knowledge}
 
-The TU/e research portal provides the starting point. We would build on records that the university allows us to reuse rather than create a second collection from scratch. Public indexes such as OpenAlex could give some wider context for published work \citep{openalex2026}. Neither source, however, tells us about every ongoing project or confidential idea. For an initial version, we would use permitted titles, abstracts and equipment descriptions. A researcher could also choose to add a short summary of work in progress. Every result would show where it came from and when it was last updated.
+The research portal provides an institutional starting point, while OpenAlex could supplement the published literature beyond TU/e \citep{openalex2026}. These sources serve different purposes: wider literature contextualises a research question; institutional records help locate local expertise and resources. Neither establishes complete coverage of ongoing or confidential work. Pure and Research Cockpit should also be distinguished. Pure offers research-information services; TU/e's Research Cockpit supports processes including data management and ethical applications \citep{pureapi,tuerdm}. A link from an existing workflow would not imply access to its underlying data.
 
-Existing research gives us a reason to look for connections, but it does not tell us exactly what TU/e researchers need. In one study at a US university, later collaboration was most common when researchers had some topic overlap, rather than almost none or almost complete overlap \citep{smith2021}. A study including TU/e also argues that sustainability work depends on cooperation across departments and on support from the university \citep{karo2026}. These findings suggest possible benefits, yet we still need to ask local users when they welcome a match and when it might feel like competition or unwanted exposure.
-
-Scientific-text representation methods provide a technical approach to explore. Models such as SPECTER compare scientific texts using titles, abstracts and citation links \citep{cohan2020}. Later work shows that performance differs between search and ranking tasks \citep{singh2023}. We therefore cannot assume that an embedding model, which represents text numerically, will reliably match short project plans. We would compare it with ordinary keyword search and ask researchers whether the suggested links make sense. We would record our search terms, sources and selection decisions so that the background review can be checked. For example, a sensing method might appear in robotics and building research under different keywords. A method-based link could reveal this, though a researcher still has to decide whether the technique really transfers.
+SPECTER provides a research basis for representing scientific documents through citation-informed learning \citep{cohan2020}. SciRepEval evaluates representations across different scientific tasks \citep{singh2023}. Neither establishes the accuracy of matching short TU/e project descriptions. Our technical question is therefore whether semantic retrieval adds useful connections beyond keyword search in this setting. The design must also explain those connections, disclose missing information and permit correction; finding similar text alone does not establish scientific relevance.
 
 \subsection*{Plan of Approach / Design Strategy}
 
-We would use Value Sensitive Design to examine whose needs the site serves and how its features affect stakeholders \citep{friedman2008}. The initial values are sustainability, privacy, fairness, researchers' control over their ideas and explicability. Explicability requires users to understand why projects are linked. Privacy matters because even a brief description may reveal an unpublished research direction. Fairness matters because departments with more complete records may appear more often in results. These values provide a starting point for stakeholder discussion rather than a final list defined on users' behalf.
+\paragraph{Two trees and the knowledge boundary.}
+Users would enter a research question, method and relevant resource needs, then choose which aspects to prioritise. Keyword and semantic retrieval would search permitted records. The Similarity Tree would group connections by question, method or resource, helping researchers identify evidence and possible reuse. The Distinctiveness Tree would describe differences from those records and questions worth investigating. Future directions belong within this second tree, avoiding a separate third output. Each branch would open a source card with the original record, the reason for the connection, its update information and any relevant missing fields. We would avoid a single similarity or novelty percentage that conceals these different relationships.
 
-First, we would speak with researchers from different departments, a librarian or research-support worker, and a data steward. We would ask how they currently find related work, what makes a match useful, and which details they would be willing to share. A simple mock-up would help them react to something concrete. Their comments would shape the required fields, sharing options and explanations. TU/e requires ethical review for research with participants or personal data, so any interviews or user tests would follow the relevant procedure \citep{tueethics}.
+Matt Might's illustrated guide describes research as building knowledge towards a boundary and contributing beyond it \citep{might}. We use this as a visual metaphor: existing work supports the researcher's foundation, while differences suggest questions to investigate. Our interface can represent only the selected records, not the boundary of all human knowledge. Adding an overlooked paper could change an apparent difference. The visualisation should make this dependence clear rather than present an empty region as proof of a research gap.
 
-The initial prototype would request a short description of the problem, method and possible application. It would search permitted records by keywords and by scientific-text similarity. Users could indicate whether topic, method or equipment is their priority. Results would be grouped under these headings, with a link back to the original record. We would avoid presenting one exact similarity percentage, since the same number could hide different kinds of connection. If an abstract is missing or a department is poorly covered, the site should say so. We would use a compact search method first and add generated wording only if users understand the results better without extra errors or unreasonable computing costs.
+\paragraph{Replication and researcher choice.}
+At input, researchers could indicate whether a module aims to explore a new question, reproduce a result or identify reusable resources. Someone conducting replication could disable distinctiveness suggestions for that module while retaining references and method connections. They could accept, correct or disregard recommendations without having to justify the study to the system. This choice concerns optional advice; it does not bypass experimental safety, ethical review or access restrictions. Similarity can be valuable evidence for replication, and the same method may answer a different question.
 
-The proposed interface has three linked trees. A \emph{similarity tree} shows which records share a topic, method or resource with the user's idea. A \emph{difference tree} points out how the idea differs from the records found; it cannot prove that the difference is a new research gap. A \emph{future tree} gives questions the researcher could discuss with a supervisor, based on the same records. Each branch should lead to its source. Users could mark a bad match, save a useful one or ask for contact through an approved channel. The tree design is meant to make the information easier to explore; a tree image alone is not evidence of sustainability.
+\paragraph{Institutional deployment and cold start.}
+The proposed deployment is a TU/e-managed web service on a university subdomain, using institutional hosting such as Azure if approved. SURFconext single sign-on would avoid a separate password account. Its guidance recommends minimal attribute disclosure; for returning accounts we would request a persistent pseudonymous OpenID Connect \texttt{sub} identifier \citep{surfattributes}. The application would separately manage permissions for private drafts and shared records. Linking an account to Pure would require an approved mapping and user verification; we would not assume that \texttt{eduPersonPrincipalName} is a persistent cross-system key. Hosting, security review, data-protection assessment and operational ownership would be agreed with university staff before deployment. These arrangements are proposed, not secured approvals.
 
-A user's draft description would not automatically join the shared database. They could separately agree to share a short summary, choose who may see it and later withdraw it. TU/e staff would have to approve storage, access and maintenance arrangements under the university's research-data policy \citep{tuerdm}. Maintenance would also require responsibility for correcting outdated records and handling complaints about incorrect links. Without this work, even a good search model would soon become less useful.
+Cold start has two distinct forms. First, the collection must be useful before users contribute descriptions. We would seed a limited pilot with permitted Pure/portal titles, abstracts, affiliations and equipment descriptions, recording provenance and update dates. The Pure API documentation confirms that access depends on permissions and sharing configuration \citep{pureapi}. Access to grants or unpublished projects cannot be assumed. We would begin with records from two departments, check coverage with their researchers and expand after correcting omissions.
 
-We would begin with a small set of records from two departments and review missed matches with researchers before expanding it. That would let us check permissions and record quality without assuming that one method works equally well across the university. We would then test the prototype with tasks drawn from real project-planning situations. Users would try both the current portal and the new interface. We would ask domain experts to judge whether the top matches are relevant and whether the explanations are accurate. We would measure time to find a useful record or contact and note where users correct or reject a suggestion. Later, we would ask whether a match led to a conversation, reuse of data or equipment, or a changed plan. These outcomes are more directly connected to the project objective than click counts. Any estimate of saved resources would need a clear comparison case and would include the site's own computing costs. This is the path by which the tool might help environmental sustainability, but its effect remains to be shown.
+Second, new users may have no publication history. Manual descriptions must therefore support the complete basic search. Users with a Pure profile could optionally review imported research information as context, then correct or reject it. Historical publications would not define their current interests. A short survey would investigate discovery needs and willingness to share; it would inform the design rather than substitute for missing research records.
+
+For equipment omitted from abstracts, researchers or equipment managers could confirm resource tags. Integration with booking systems remains a later option: reservations do not establish actual use or suitability for another study. Automatically inferring methods and citations from bookings would introduce unsupported claims and additional personal-data processing. We would first test whether confirmed equipment descriptions meet the discovery need. The tool could direct users towards existing institutional workflows without becoming a mandatory stage in DMP approval.
+
+\paragraph{Values, participation and governance.}
+Value Sensitive Design (VSD) connects conceptual, empirical and technical investigations \citep{friedman2008,vsdlab}. Conceptually, we would examine sustainability, privacy, fairness, explicability and researcher autonomy, including people whose work appears in results but who never use the tool. Empirically, interviews and mock-up walkthroughs with researchers, students and support staff would examine useful connections, unacceptable disclosures and maintenance burdens. Technically, these findings would shape access controls, source explanations and sharing choices. Research with participants or personal data would follow TU/e's ethical-review procedures \citep{tueethics}.
+
+A concrete conflict concerns discovery versus confidentiality. A researcher may want others to find a reusable setup while protecting an unpublished hypothesis. Using VSD value scenarios, we would compare sharing a full description, sharing confirmed resource tags, and keeping the draft private. Participants would explain benefits and objections; the team would document its choice, affected parties and reasons, then test the revised interface with them. Our proposed default is a private draft with separately chosen sharing and contact preferences. This sacrifices some discovery coverage to protect control over unfinished work; stakeholder review would assess whether narrower sharing remains useful.
+
+Withdrawal would remove a voluntarily shared summary from active discovery and initiate removal from derived indexes and caches. Saved views controlled by the service would hide withdrawn content and indicate that it is unavailable. This cannot guarantee deletion of external downloads or remove independently public publications. Approved retention arrangements would cover backups and necessary logs. TU/e's RDM framework defines research-data responsibilities \citep{tuerdm}. For this service, we propose a named owner coordinating corrections and withdrawals, with source and equipment owners maintaining their records under agreed responsibilities.
+
+\paragraph{Evaluation and route towards impact.}
+The pilot would compare the current portal with the proposed interface using equivalent planning tasks, balancing task order to reduce practice effects. Domain experts would judge the relevance of top results and whether explanations accurately reflect their sources. Relevance would be reported as the proportion of reviewed results judged useful; explanation errors would be claims unsupported by the linked records. We would record time to find a useful connection, missed relevant records and whether users understand the coverage limits. Results would be examined across departments and users with or without publication histories, so stronger metadata coverage does not conceal poor support for newcomers.
+
+Users could flag an incorrect connection or outdated record. The service owner would check the source, distinguish metadata errors from retrieval or explanation errors, revise the relevant component, and repeat the affected tasks before releasing the change. A rejected suggestion would not automatically become a training label. Keeping a versioned correction record would make improvements inspectable and help determine whether errors recur.
+
+Environmental impact requires a further chain of action: a researcher identifies a resource, its owner confirms access and suitability, the researcher changes the plan, and the resulting inputs are measured. We would compare the original and revised plans for the same scientific objective and quality requirements. Electricity and material use would be reported separately, including additional preparation, transport or cleaning where relevant and the platform's own computing costs. Uncertain estimates would remain identified as estimates. Follow-up would establish whether a suggested match actually led to reuse; clicks or accepted suggestions would not count as resource savings. Valuable replication would remain a scientific objective rather than an avoided cost.
 
 \subsection*{Comparison to Alternatives}
 
-Our Phase 1 idea was an AI-supported self-assessment of a research activity's environmental footprint. That could be useful once a workflow is defined, but it needs measurements and reference data. The new idea acts earlier, while the researcher can still choose a method or reuse an existing resource. A simpler option would be to improve the current portal's search filters without AI. We would keep that as the baseline; if semantic matching does not help users find better results, the simpler option is preferable.
+Our Phase 1 self-assessment concept acted after an activity was defined, requiring resource measurements and reference data. Research Roots moves the intervention earlier, when finding an existing method or resource might still change the plan. It complements rather than replaces subsequent footprint assessment.
 
-The main challenges are incomplete records, different terms across fields, confidential work and misleading matches. A polished visualisation could make a weak match appear more certain than the evidence supports. We would show sources and missing information and let researchers correct results. We also need to avoid implying that similar work makes a new project pointless: a similar method can serve a different question. The aim for this phase is a design that can be tested honestly, not a claim that the website has already reduced research waste.
+Improved portal filters and librarian-supported keyword searches are a simpler alternative. We would retain them as the baseline and fallback because they avoid some model and maintenance costs. Semantic retrieval is worth pursuing only if the pilot finds useful connections that this baseline misses, without unacceptable explanation errors or burdens. University-wide automatic profiling is another option, but requires broader permissions and risks exposing unfinished work. The limited, optional-import approach gives priority to a testable service with clear responsibilities. Its contribution is a strategy for informed research planning; effectiveness and net environmental benefit still require evaluation.
+
 
 % =========================================================================
 % D. RESPONSIBLE INNOVATION PROJECT STATEMENT
 % =========================================================================
 \clearpage
+% AUTHOR TODO -- Dennis: keep existing transparency/coverage discussion; develop one concrete value conflict, withdrawal, autonomy and feedback handling; max 1000 words.
 \section*{D. Responsible Innovation Project Statement}
 \noindent\textit{Word count: \Dwordcount / 1000}\par\medskip
 This statement examines transparency, bias and reliability in the proposed research-matching tool. The measures below address the values identified in our Value Sensitive Design approach: explicability, fairness and researchers' control over results \citep{friedman2008}.
@@ -168,7 +188,7 @@ The tool's results may be biased by the sources available to it. For example, ac
 \end{itemize}
 
 \subsection*{Interpreting results and future work}
-Our design aims to make results easy to interpret through a chatbot that provides sources and explains their relevance. Future work could help researchers identify ways to improve or differentiate their research. Previous work on the same topic does not necessarily mean that a researcher should abandon a project: there may still be useful differences to explore. In such cases, the tool could also help researchers consider better use of research resources.
+Our design aims to make results easy to interpret through an interface that provides sources and explains their relevance. Future work could help researchers identify ways to refine their research or investigate differences from earlier work. Previous work on the same topic does not necessarily mean that a researcher should abandon a project: there may still be useful differences to explore. In such cases, the tool could also help researchers consider better use of research resources.
 
 
 % =========================================================================
@@ -181,7 +201,7 @@ Our design aims to make results easy to interpret through a chatbot that provide
 \begin{thebibliography}{99}
 
 \bibitem[Cohan et~al.(2020)]{cohan2020}
-Cohan, A., Feldman, S., Beltagy, I., Downey, D., \& Weld, D. S. (2020).
+Cohan, A., Feldman, S., Beltagy, I., Downey, D., \& Weld, D. (2020).
 SPECTER: Document-level representation learning using citation-informed transformers.
 \emph{Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics}, 2270--2282.
 \url{https://doi.org/10.18653/v1/2020.acl-main.207}
@@ -192,15 +212,15 @@ Value sensitive design and information systems.
 In K. E. Himma \& H. T. Tavani (Eds.), \emph{The handbook of information and computer ethics}. Wiley.
 \url{https://doi.org/10.1002/9780470281819.ch4}
 
-\bibitem[Karo et~al.(2026)]{karo2026}
-Karo, E., Shakya, S., Voll, C. N., Fuchs, L., Cuevas Garcia, C., \& Lember, V. (2026).
-How can universities become transformative change agents? Sustainability strategizing in European technological universities.
-\emph{Minerva}.
-\url{https://doi.org/10.1007/s11024-026-09636-z}
+\bibitem[Might(n.d.)]{might}
+Might, M. (n.d.).
+\emph{The illustrated guide to a Ph.D.}
+\url{https://matt.might.net/articles/phd-school-in-pictures/}
 
-\bibitem[OpenAlex(2026)]{openalex2026}
-OpenAlex. (2026).
+\bibitem[OpenAlex(n.d.)]{openalex2026}
+OpenAlex. (n.d.).
 \emph{Works overview}.
+Retrieved October 23, 2026, from
 \url{https://help.openalex.org/data/works/}
 
 \bibitem[Singh et~al.(2023)]{singh2023}
@@ -209,40 +229,51 @@ SciRepEval: A multi-format benchmark for scientific document representations.
 \emph{Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing}, 5548--5566.
 \url{https://doi.org/10.18653/v1/2023.emnlp-main.338}
 
-\bibitem[Smith et~al.(2021)]{smith2021}
-Smith, T. B., Vacca, R., Krenz, T., \& McCarty, C. (2021).
-Great minds think alike, or do they often differ? Research topic overlap and the formation of scientific teams.
-\emph{Journal of Informetrics, 15}(1), 101104.
-\url{https://doi.org/10.1016/j.joi.2020.101104}
+\bibitem[SURF(n.d.)]{surfattributes}
+SURF. (n.d.).
+\emph{Attribute best practice}.
+\url{https://servicedesk.surf.nl/wiki/spaces/IAM/pages/128910241/Attribute+best+practice}
 
-\bibitem[TU/e(n.d.-a)]{tueportal}
+\bibitem[TU/e(n.d.-a)]{pureapi}
 Eindhoven University of Technology (TU/e). (n.d.-a).
+\emph{Pure API documentation}.
+\url{https://pure.tue.nl/ws/api/documentation/index.html}
+
+\bibitem[TU/e(n.d.-b)]{tueportal}
+Eindhoven University of Technology (TU/e). (n.d.-b).
 \emph{Research portal}.
 \url{https://research.tue.nl/en/}
 
-\bibitem[TU/e(n.d.-b)]{tueethics}
-Eindhoven University of Technology (TU/e). (n.d.-b).
+\bibitem[TU/e(2026a)]{tueethics}
+Eindhoven University of Technology (TU/e). (2026a, October 15).
 \emph{Ethical approval}.
 \url{https://rdm.tue.nl/docs/before-research/ethical-approval/}
 
-\bibitem[TU/e(n.d.-c)]{tuerdm}
-Eindhoven University of Technology (TU/e). (n.d.-c).
+\bibitem[TU/e(2026b)]{tuerdm}
+Eindhoven University of Technology (TU/e). (2026b, June 9).
 \emph{TU/e RDM framework policy}.
 \url{https://rdm.tue.nl/docs/intro/tue-policy/}
 
+\bibitem[VSD Lab(n.d.)]{vsdlab}
+VSD Lab. (n.d.).
+\emph{About VSD}.
+\url{https://vsdesign.org/vsd/}
+
 \end{thebibliography}
+
 
 \clearpage
 % =========================================================================
 % F. USER NARRATIVE
 % =========================================================================
+% AUTHOR TODO -- Gerald: replace old energy-calculator scenario with current two-tree journey; max 500 words.
 \section*{F. User Narrative}
 \addcontentsline{toc}{section}{F. User Narrative}
 \noindent\textit{Word count: \Fwordcount / 500}\par\medskip
 
 \noindent Dr. Alex, a postdoctoral researcher at Eindhoven University of Technology, is designing a new fabrication run of lithium-ion battery electrode samples within a TU/e laboratory building. Eager to lower total electricity and material waste without changing the scientific parameters that make the batch valid, Alex logs onto the AI-Supported Sustainability Self-Assessment (ENSU) web portal from his laptop or phone.
 
-On the home dashboard, Alex selects "1. I want to Assess", initiating a 5-step evaluation process. Rather than selecting rigid checkboxes, Alex inputs a plain-text description: "I make lithium-ion battery electrode samples. I want to minimize material loss and electricity use while preserving our existing electrochemical testing requirements." The language model interprets the description and proposes an activity classification: "This appears to be a laboratory battery-sample activity." Alex clicks "Confirm activity", advancing to the data input sheet.
+On the home dashboard, Alex selects "1. I want to Assess", initiating a 5-step evaluation process. Rather than selecting fixed checkboxes, Alex inputs a plain-text description: "I make lithium-ion battery electrode samples. I want to minimize material loss and electricity use while preserving our existing electrochemical testing requirements." The language model interprets the description and proposes an activity classification: "This appears to be a laboratory battery-sample activity." Alex clicks "Confirm activity", advancing to the data input sheet.
 
 Alex completes the project fields based on a prior set of data: 6 fabrication attempts yielding 5 valid samples, consuming 60 kWh of meter-tracked laboratory electricity and 1.2 kg of starting materials. The system asks a follow-up question regarding what constitutes a valid sample. Alex types: "A valid sample passes our electrochemical test and safety checks."
 
@@ -253,6 +284,7 @@ A week later, Dr. Alex returns to the ENSU web portal. He navigates to "My Histo
 
 
 \clearpage
+% AUTHOR TODO -- Gerald: replace old screenshots; exactly one A4 page corresponding to revised F.
 \section*{G. Visual Representation of Mock-up}
 \addcontentsline{toc}{section}{G. Visual Representation of Mock-up}
 
@@ -342,18 +374,20 @@ A week later, Dr. Alex returns to the ENSU web portal. He navigates to "My Histo
 % =========================================================================
 % H. TECHNICAL DOCUMENTATION & INSTRUCTIONS
 % =========================================================================
+% AUTHOR TODO -- Gerald coordinates: H is required in the group report; collect actual prompt/source/tool records from every contributor. I/J/K are separate.
 \section*{H. Documentation of Prompts, Sources, and Tools}
 \addcontentsline{toc}{section}{H. Documentation of Prompts, Sources, and Tools}
-\textit{Provide step-by-step instructions detailing the prompts, database registries, and tools explored, serving as a functional onboarding guide for future project hand-offs.}
-
-\subsection*{Prompt Engineering Registry}
-\begin{enumerate}
-    \item \textbf{System Generation Prompts:} ...
-    \item \textbf{Refinement \& Interaction Queries:} ...
-\end{enumerate}
-
-\subsection*{Technical Infrastructure Setup}
-[Document technical details like Streamlit/Gradio environments, database stacks, or UI component generators.]
+%TC:ignore
+\noindent\textbf{Contributor completion notes -- Gerald coordinates.}
+These are handover requirements, not a record of completed model or API tests.
+\begin{itemize}[leftmargin=*]
+\item Collect the actual prompts and refinements used for the demo, with their purpose and any model or tool version recorded by the contributor.
+\item Identify which sources were actually queried or imported. Distinguish documentation review from successful API access, and illustrative records from retrieved records.
+\item Give the real steps needed to reproduce the demo: inputs, source preparation, retrieval, output inspection and correction. Record known failures and missing dependencies.
+\item Document current files and editing tools. The report is maintained in \texttt{Phase2.tex}; its embedded bibliography is edited in that file. Run \texttt{scripts/compile.ps1 -Document Phase2} from the project workspace to build \texttt{output/pdf/Phase2.pdf}.
+\item For the written report, document AI-assisted drafting, restructuring, language editing and source checking of B/C and the editorial notes. Add the other contributors' actual tool use; do not label this work as spelling correction alone.
+\end{itemize}
+%TC:endignore
 
 % =========================================================================
 % APPENDIX / REMINDERS FOR SEPARATE SUBMISSIONS (Optional Section)
@@ -365,5 +399,41 @@ The following elements are tracked by the course syllabus but must be submitted 
 - J. Personal Reflection (500 words per student)
 - K. Peer Evaluation Sheet
 \fi
+
+
+%TC:ignore
+\clearpage
+\section*{Editorial checklist -- remove before submission}
+\noindent\textbf{Team working notes, excluded from section word counts.}
+
+\subsection*{Section C -- revision completed for team review}
+\begin{itemize}[leftmargin=*]
+\item The two trees, knowledge-boundary metaphor and module-level replication choice now form one design argument. Sources support the methods; effectiveness is not claimed as a measured result.
+\item Cold start now separates initial collection coverage from users without publications. Pure import is permission-dependent and optional; booking inference is deferred.
+\item Deployment now distinguishes hosting, authentication, application permissions and Pure identity mapping. Proposed TU/e arrangements are not represented as secured approvals.
+\item Peer feedback is addressed through contact preferences, a concrete confidentiality conflict, withdrawal boundaries, correction handling and resource comparisons. Dennis should develop the ethical justification in D without duplicating C's workflow description.
+\end{itemize}
+
+\subsection*{Section D -- Dennis}
+\begin{itemize}[leftmargin=*]
+\item Retain the source-transparency and coverage measures. Review the minor terminology change from chatbot to interface; confirm whether a chatbot remains part of the design.
+\item Work through a specific conflict between discovering reusable resources and protecting unpublished ideas. Use the course framework to identify affected parties, compare options, justify a choice and define a review process.
+\item Specify contact preferences and the separation between using the tool and sharing a research summary.
+\item Explain withdrawal for live records, derived indexes, saved results and external copies; distinguish voluntarily shared summaries from independently public publications.
+\item Explain how incorrect links are flagged, checked, corrected and retested. A rejected suggestion is not automatically a reliable training label.
+\item Link researcher autonomy to replication choices and to the right to disregard suggestions. Consider users and departments with sparse records.
+\end{itemize}
+
+\subsection*{Remaining components -- Gerald coordinates}
+\begin{itemize}[leftmargin=*]
+\item \textbf{A/B:} Confirm one product name across report and pitch. B has been updated to the current tool; confirm the wording against the final interface and shared example. Its maximum remains 150 words.
+\item \textbf{E:} Check each source against the claim it supports, as well as author names, dates, identifiers and reference style. Add sources only after consulting them. The eleven revised C references have received independent source checking; any new source added by a contributor also needs verification.
+\item \textbf{F:} Replace the legacy batch-calculation story with a concrete current journey: location, input, source-backed tree output, researcher decision and sharing choice; maximum 500 words.
+\item \textbf{G:} Replace the old screenshots with one readable A4 page matching F. Include sample input/output, two trees and a legible source card. Clearly distinguish illustrative output from actual retrieved results.
+\item \textbf{H:} Collect actual prompts, sources, model/tool versions where known, explored steps, limitations and reproducible hand-off instructions from the group. Replace every placeholder. Keep proposed integrations separate from completed work; disclose AI assistance accurately.
+\item \textbf{I:} Submit the 3--5 minute pitch separately. \textbf{J/K:} Each member submits the personal reflection and peer evaluation separately. These are not additional sections to write in this group PDF, but they are not automatically optional.
+\item \textbf{Final check:} Recount B/C/D/F, remove this checklist, update the draft status only when accurate, compile and inspect all pages, and verify the uploaded file and submission receipt.
+\end{itemize}
+%TC:endignore
 
 \end{document}
