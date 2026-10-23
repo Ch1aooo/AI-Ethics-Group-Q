@@ -36,7 +36,7 @@
 }
 
 % --- Cover/Metadata Setup ---
-\title{\textbf{Group Q: Phase 2 Report}\\[0.5em]\Large Research Roots\\[0.3em]\large Author revision copy -- not for submission}
+\title{\textbf{Group Q: Phase 2 Report}\\[0.5em]\Large Eco-log\\[0.3em]\large Author revision copy -- not for submission}
 
 \author{\textbf{Group Q} \\\\
 Course: 5ARF0 Ethics of AI: Theory and Practice \\
@@ -46,10 +46,10 @@ Eindhoven University of Technology}
 
 
 % BEGIN embedded assignment2-wordcounts.tex
-\newcommand{\Bwordcount}{119}
-\newcommand{\Cwordcount}{1644}
-\newcommand{\Dwordcount}{295}
-\newcommand{\Fwordcount}{385}
+\newcommand{\Bwordcount}{137}
+\newcommand{\Cwordcount}{1670}
+\newcommand{\Dwordcount}{536}
+\newcommand{\Fwordcount}{485}
 
 % END embedded assignment2-wordcounts.tex
 
@@ -74,7 +74,7 @@ Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{p.wang1@st
 \end{tabularx}
 \end{center}
 \vspace{0.6cm}
-\noindent\textit{Team revision copy: Sections B and C have been aligned with the two-tree research-discovery design. Section C now includes deployment, cold start, replication choices, governance and evaluation. Dennis's Section D remains for his final revision. Gerald coordinates the other components; Sections F and G still show the legacy self-assessment example, and H requires contributor records. The editorial checklist at the end is for team review and must be removed before submission.}
+\noindent\textit{Team revision copy: Sections B and C have been aligned with the two-tree research-discovery design. Section C now includes deployment, cold start, replication choices, governance and evaluation. Dennis's Section D remains for his final revision. Gerald coordinates the other components; Section F incorporates the latest five-step Eco-log narrative; G still needs matching screenshots, and H requires contributor records. The editorial checklist at the end is for team review and must be removed before submission.}
 
 \medskip
 \noindent\small Word counts use TeXcount narrative-text counts, excluding headings, citations, references, captions and editorial notes. Recount after further edits.\normalsize
@@ -87,7 +87,7 @@ Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{p.wang1@st
 \section*{A. Project Title}
 \addcontentsline{toc}{section}{A. Project Title}
 
-\noindent\textbf{Research Roots: Finding Related TU/e Research and Reusable Resources}
+\noindent\textbf{Eco-log: Finding Related TU/e Research and Reusable Resources}
 % =========================================================================
 % B. PUBLIC SUMMARY
 % =========================================================================
@@ -97,8 +97,9 @@ Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{p.wang1@st
 \noindent\textit{Word count: \Bwordcount / 150}\par\medskip
 
 
-\noindent Research Roots would help TU/e students and researchers find existing work and resources while planning a study. Users describe their question and methods, then explore two trees: one shows connections to earlier research; the other highlights possible differences to investigate. Each connection leads to a source that users can check. The aim is to make useful knowledge, equipment and potential collaborators easier to discover, creating opportunities to reuse resources before committing to a new experiment. Researchers remain free to pursue replication and disregard suggestions. The main challenges are incomplete records, misleading connections and protecting unpublished ideas. A proposed pilot would test whether the tool helps users make better planning decisions and whether reuse leads to measurable resource savings.
+\noindent Our Environmental Sustainability project introduces Eco-log, an AI-supported web tool that helps TU/e researchers connect planned studies with existing work. It addresses a practical question: how can researchers discover opportunities to reuse data and laboratory equipment before committing additional resources? Two interactive trees show similarities and possible differences relative to the sources found. Researchers can explore relevant studies and potential collaborators, while retaining the choice to conduct replication.
 
+For the TU/e community, the intended benefit is to turn sustainability goals into research-planning decisions. Identifying reusable resources could reduce additional material and energy use, but savings would need to be measured. The main challenges are keeping records updated, protecting unpublished ideas, explaining incomplete coverage and preventing overreliance on automated suggestions. The tool supports researcher judgment; it cannot establish originality or prove an environmental benefit by itself.
 \clearpage
 
 % =========================================================================
@@ -113,7 +114,7 @@ Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{p.wang1@st
 
 A student planning a study may find publications on the same topic while overlooking a useful method, dataset or piece of equipment in another TU/e department. The TU/e research portal already contains publications, projects, equipment and facilities \citep{tueportal}; the problem we address is discovering relevant connections before the student knows the right author or search term. Its extent at TU/e still requires local investigation. We therefore propose a design strategy for research discovery rather than claim that researchers routinely waste resources.
 
-Research Roots would let students and researchers describe a planned study and explore related work through a Similarity Tree and a Distinctiveness Tree. The intended change is to make potential reuse visible while research plans remain open to revision. A LiDAR study, for example, might benefit from a sensing method used for another application. Researchers would still need to check whether the method transfers and whether the associated resources are available.
+Eco-log would let students and researchers describe a planned study and explore related work through a Similarity \& Reuse Tree and a Distinctiveness \& Research Gaps Tree. The intended change is to make potential reuse visible while research plans remain open to revision. A low-temperature cathode study, for example, might benefit from an experimental setup or dataset used in earlier battery research. Researchers would still need to check whether the method transfers and whether the associated resources are available.
 
 Students gain a starting point for discussion with supervisors; researchers can discover potential collaborators and resources. Librarians would help with discovery and metadata, equipment managers would confirm access conditions, and data stewards would advise on sharing. Their participation is necessary: a matching record cannot establish permission or suitability for reuse. The tool would support planning, without assessing eligibility for funding or deciding whether a project deserves to proceed.
 
@@ -126,7 +127,7 @@ SPECTER provides a research basis for representing scientific documents through 
 \subsection*{Plan of Approach / Design Strategy}
 
 \paragraph{Two trees and the knowledge boundary.}
-Users would enter a research question, method and relevant resource needs, then choose which aspects to prioritise. Keyword and semantic retrieval would search permitted records. The Similarity Tree would group connections by question, method or resource, helping researchers identify evidence and possible reuse. The Distinctiveness Tree would describe differences from those records and questions worth investigating. Future directions belong within this second tree, avoiding a separate third output. Each branch would open a source card with the original record, the reason for the connection, its update information and any relevant missing fields. We would avoid a single similarity or novelty percentage that conceals these different relationships.
+Users would enter a research question, method and relevant resource needs, then choose which aspects to prioritise. A clarified proposal could be divided into experiment modules so researchers can consider reuse and replication choices separately. Keyword and semantic retrieval would search permitted records. The Similarity \& Reuse Tree would group connections by question, method or resource, helping researchers identify evidence and possible reuse. The Distinctiveness \& Research Gaps Tree would describe differences from those records and questions worth investigating. Future directions belong within this second tree, avoiding a separate third output. Each branch would open a source card with the original record, the reason for the connection, its update information and any relevant missing fields. We would avoid a single similarity or novelty percentage that conceals these different relationships.
 
 Matt Might's illustrated guide describes research as building knowledge towards a boundary and contributing beyond it \citep{might}. We use this as a visual metaphor: existing work supports the researcher's foundation, while differences suggest questions to investigate. Our interface can represent only the selected records, not the boundary of all human knowledge. Adding an overlooked paper could change an apparent difference. The visualisation should make this dependence clear rather than present an empty region as proof of a research gap.
 
@@ -158,7 +159,7 @@ Environmental impact requires a further chain of action: a researcher identifies
 
 \subsection*{Comparison to Alternatives}
 
-Our Phase 1 self-assessment concept acted after an activity was defined, requiring resource measurements and reference data. Research Roots moves the intervention earlier, when finding an existing method or resource might still change the plan. It complements rather than replaces subsequent footprint assessment.
+Our Phase 1 self-assessment concept acted after an activity was defined, requiring resource measurements and reference data. Eco-log moves the intervention earlier, when finding an existing method or resource might still change the plan. It complements rather than replaces subsequent footprint assessment.
 
 Improved portal filters and librarian-supported keyword searches are a simpler alternative. We would retain them as the baseline and fallback because they avoid some model and maintenance costs. Semantic retrieval is worth pursuing only if the pilot finds useful connections that this baseline misses, without unacceptable explanation errors or burdens. University-wide automatic profiling is another option, but requires broader permissions and risks exposing unfinished work. The limited, optional-import approach gives priority to a testable service with clear responsibilities. Its contribution is a strategy for informed research planning; effectiveness and net environmental benefit still require evaluation.
 
@@ -186,6 +187,21 @@ The tool's results may be biased by the sources available to it. For example, ac
     \item \textbf{Search strategies:} Where possible, the search should use synonyms, similarities across disciplines and different terminology.
     \item \textbf{User input:} Users should be able to adjust their search query, giving them more control when the AI encounters limitations.
 \end{itemize}
+
+\subsection*{Reliability}
+AI search results can contain errors. Without checking them, users may draw incorrect conclusions: for example, the tool may present studies as similar when their methods or objectives differ. We propose the following measures:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Access to original:} The user should be able to inspect the papers from the results themselves. By doing this they can check whether the results are relevant to the research.
+
+    \item \textbf{Limitations:} The limitations of the tool should be made clear to the user. When available information is limited, the tool should explain the uncertainty in its comparison. Additionally, finding no relevant results does not automatically mean that no previous research exists on the topic.
+
+    \item \textbf{Human verification:} Users should decide whether a suggested source is relevant. The tool helps them find research; it does not decide what should happen to their plans.
+\end{itemize}
+
+\subsection*{Sustainable resource use}
+The main objective of the tool is to help the user find existing research before they spend time and resources on their project. If previous findings lead a user to revise a plan, this may prevent avoidable repetition and reduce additional material, energy, equipment and computing requirements. These savings would need to be evaluated. \newline \newline
+However, similarity does not mean that a study is wasteful. Replication may be scientifically important, and similarities can help researchers plan it. To ensure sustainable resource use, the tool needs to provide explanations containing the similarities. Then it is up to the user how they interpret the results in terms of relevance.
 
 \subsection*{Interpreting results and future work}
 Our design aims to make results easy to interpret through an interface that provides sources and explains their relevance. Future work could help researchers identify ways to refine their research or investigate differences from earlier work. Previous work on the same topic does not necessarily mean that a researcher should abandon a project: there may still be useful differences to explore. In such cases, the tool could also help researchers consider better use of research resources.
@@ -266,20 +282,26 @@ VSD Lab. (n.d.).
 % =========================================================================
 % F. USER NARRATIVE
 % =========================================================================
-% AUTHOR TODO -- Gerald: replace old energy-calculator scenario with current two-tree journey; max 500 words.
+% Gerald: latest five-step Eco-log narrative retained from origin/main; verify illustrative records against the final mock-up. Max 500 words.
 \section*{F. User Narrative}
 \addcontentsline{toc}{section}{F. User Narrative}
 \noindent\textit{Word count: \Fwordcount / 500}\par\medskip
 
-\noindent Dr. Alex, a postdoctoral researcher at Eindhoven University of Technology, is designing a new fabrication run of lithium-ion battery electrode samples within a TU/e laboratory building. Eager to lower total electricity and material waste without changing the scientific parameters that make the batch valid, Alex logs onto the AI-Supported Sustainability Self-Assessment (ENSU) web portal from his laptop or phone.
+\noindent Dr. Alex sits at a desk inside the Eindhoven University of Technology chemistry lab, staring at a blank document. A new round of battery cathode tests is scheduled for next week, but Alex wants to make sure that this energy-heavy laboratory test won't just be a repeat of a study someone else has already done before. Hoping to find local equipment to share and existing data to build on, Alex opens a web browser and navigates to Eco-log.
 
-On the home dashboard, Alex selects "1. I want to Assess", initiating a 5-step evaluation process. Rather than selecting fixed checkboxes, Alex inputs a plain-text description: "I make lithium-ion battery electrode samples. I want to minimize material loss and electricity use while preserving our existing electrochemical testing requirements." The language model interprets the description and proposes an activity classification: "This appears to be a laboratory battery-sample activity." Alex clicks "Confirm activity", advancing to the data input sheet.
+Clicking the main button, "Explore My Research," Alex signs in instantly using his TU/e credentials via SURFconext. A clean workspace opens up, displaying a clear five-step progress tracker at the top.
 
-Alex completes the project fields based on a prior set of data: 6 fabrication attempts yielding 5 valid samples, consuming 60 kWh of meter-tracked laboratory electricity and 1.2 kg of starting materials. The system asks a follow-up question regarding what constitutes a valid sample. Alex types: "A valid sample passes our electrochemical test and safety checks."
+Alex begins at Step 1: "Describe research". Alex types in the main research question about low-temperature cathode optimization. He adds the planned chemical methods. Then he selects TU/e as the home institution.
 
-Upon confirming the fields, the tool runs its step-by-step calculation engine and outputs an initial evaluation profile. Rather than showing an aggregated green score or compliance badge, the interface reports separate resource-use indicators: electricity use of 12 kWh per valid sample, which is 2 kWh above Alex's personal sustainability target of 10 kWh. Beneath the values, a targeted suggestion appears: "Pilot a process change that reduces failed samples; record electricity, starting material, valid samples, and test results for the whole batch." Alex clicks "Plan pilot", exits the interface, and tests the proposed process change in the lab.
+Moving to Step 2: "Clarify the proposal", a friendly AI consultation window pops up. It asks a quick question to clarify how the battery cells will be normalized. Alex types a short reply. The screen immediately organizes the plan into a neat checklist of three experiment modules (E1, E2 and E3).
 
-A week later, Dr. Alex returns to the ENSU web portal. He navigates to "My History" under the "Query" module, and logs the pilot outcomes: 6 attempts, 6 valid samples, 54 kWh, and 1.1 kg of material. The comparison dashboard updates instantly, using visual bars to compare the two batches: batch electricity dropped by 6 kWh, material consumption fell by 0.1 kg, and electricity use reached 9 kWh per valid sample, meeting Dr. Alex's original electricity-use target. Alex saves the session privately to his personal archive, using the recorded comparison to review his research plan.
+Next comes Step 3: "Review related work". Instead of a messy list of links, the dashboard organizes matching academic papers by geographic distance. Alex filters the results to show projects from the same campus and nearby regional universities. This helps Alex locate potential contacts; scientific relevance still needs checking.
+
+This data comes to life during Step 4: "Generate two trees". Alex explores the large, interactive visual layouts. Hovering over a branch on the Similarity \& Reuse Tree, a tooltip pops up showing exactly which past TU/e theses have used a matching experimental setup. Switching over to the Distinctiveness \& Research Gaps Tree, Alex clicks a node labeled "No close match found in reviewed sources". This identifies a possible difference within the reviewed sources; Alex still needs to check the wider literature before claiming a research gap.
+
+Finally, Alex reaches Step 5: "Explore recommendations". Under the "Same University" section, a card catches Alex's eye. A nearby research group right here at TU/e has an active profile listing a shared "tube furnace and coin-cell line plus a 2023 cycling dataset". A badge labeled "Avoided measurement" flags a possible reuse opportunity, not a measured saving. Alex must check whether the dataset can replace any planned measurements. The tool also lists practical next steps, advising Alex to message the lab manager to check the furnace availability.
+
+Satisfied with the plan, Alex clicks the green "Save Assessment" button at the bottom left to securely archive his session in a private history log. Closing his laptop, Alex stands up and walks down the hallway to find the local battery team. Alex now has references, possible reuse opportunities and questions to discuss with the team. The example illustrates the proposed interaction, not verified research findings or resource savings.
 
 
 
@@ -318,7 +340,7 @@ A week later, Dr. Alex returns to the ENSU web portal. He navigates to "My Histo
         \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/03-activity-assessment.jpeg}
         \caption{I want to assess - activity assessment}
     \end{subfigure}
-    
+
     \vspace{0.12cm}
 
     % Row 3
@@ -333,7 +355,7 @@ A week later, Dr. Alex returns to the ENSU web portal. He navigates to "My Histo
         \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/10-recommendations.jpeg}
         \caption{I want to assess - recommendations}
     \end{subfigure}
-    
+
     \vspace{0.12cm}
 
     % Row 4
@@ -364,10 +386,10 @@ A week later, Dr. Alex returns to the ENSU web portal. He navigates to "My Histo
         \caption{I want to query - light mode}
     \end{subfigure}
 
-    \caption{Earlier self-assessment mock-up corresponding to Section F. The example inputs and outputs illustrate the proposed interaction; they are not measured evaluation results.}
+    \caption{Legacy self-assessment mock-up, awaiting replacement with the five-step Eco-log interface described in Section F. These images are historical illustrations, not outputs of the current research-discovery design.}
     \label{fig:all_mockups}
 \end{figure}
-    
+
 
 \clearpage
 
@@ -416,7 +438,7 @@ The following elements are tracked by the course syllabus but must be submitted 
 
 \subsection*{Section D -- Dennis}
 \begin{itemize}[leftmargin=*]
-\item Retain the source-transparency and coverage measures. Review the minor terminology change from chatbot to interface; confirm whether a chatbot remains part of the design.
+\item Retain the updated transparency, coverage, reliability and sustainable-resource-use sections. Confirm how the clarification chat and tree interface support human verification.
 \item Work through a specific conflict between discovering reusable resources and protecting unpublished ideas. Use the course framework to identify affected parties, compare options, justify a choice and define a review process.
 \item Specify contact preferences and the separation between using the tool and sharing a research summary.
 \item Explain withdrawal for live records, derived indexes, saved results and external copies; distinguish voluntarily shared summaries from independently public publications.
@@ -428,7 +450,7 @@ The following elements are tracked by the course syllabus but must be submitted 
 \begin{itemize}[leftmargin=*]
 \item \textbf{A/B:} Confirm one product name across report and pitch. B has been updated to the current tool; confirm the wording against the final interface and shared example. Its maximum remains 150 words.
 \item \textbf{E:} Check each source against the claim it supports, as well as author names, dates, identifiers and reference style. Add sources only after consulting them. The eleven revised C references have received independent source checking; any new source added by a contributor also needs verification.
-\item \textbf{F:} Replace the legacy batch-calculation story with a concrete current journey: location, input, source-backed tree output, researcher decision and sharing choice; maximum 500 words.
+\item \textbf{F:} The latest five-step narrative has been retained. Verify its illustrative records and interface labels, and add the module-level replication choice if shown in the demo; maximum 500 words.
 \item \textbf{G:} Replace the old screenshots with one readable A4 page matching F. Include sample input/output, two trees and a legible source card. Clearly distinguish illustrative output from actual retrieved results.
 \item \textbf{H:} Collect actual prompts, sources, model/tool versions where known, explored steps, limitations and reproducible hand-off instructions from the group. Replace every placeholder. Keep proposed integrations separate from completed work; disclose AI assistance accurately.
 \item \textbf{I:} Submit the 3--5 minute pitch separately. \textbf{J/K:} Each member submits the personal reflection and peer evaluation separately. These are not additional sections to write in this group PDF, but they are not automatically optional.
