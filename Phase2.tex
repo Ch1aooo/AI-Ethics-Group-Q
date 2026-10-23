@@ -96,9 +96,10 @@ Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{p.wang1@st
 
 
 \vspace{1em}
-\noindent Our AI-Supported Sustainability Self-Assessment for TU/e Research (ENSU) project explores how researchers can assess the environmental footprint of laboratory or computational experiments. We propose an interactive web application in which a large language model (LLM) helps users describe their activities and develop guidance. A separate step-by-step calculation tool assesses resource consumption, such as equipment runtime and electricity use. The tool could help researchers translate campus sustainability goals into everyday research decisions without adding an institutional approval procedure.
+\noindent Our Environmental Sustainability project introduces Eco-log, an AI-backed web tool designed to help university researchers check how their work connects to already existing studies. It fixes a major problem: how can laboratories avoid repeating expensive and resource-heavy experiments? By generating two interactive visual trees, this tool highlights hidden research gaps as well as local opportunities to reuse data and laboratory equipment.
+This tool is very important for the TU/e community and the public because it turns high-level campus climate goals into practical, daily actions. Instead of buying new materials or doing the same tests over again, researchers can easily find nearby collaborators to share physical equipments or digital datasets.
 
-The main anticipated challenges are defining clear assessment boundaries for shared laboratory equipment and infrastructure, ensuring that recommendations can be traced to their sources, and preventing overreliance on automated feedback.
+Our major anticipated challenges include: (i) keeping campus resource records updated. (ii) Helping users see the difference between a cool new idea and its actual impact on the world. (iii) Preventing researchers from blindly trusting automated AI suggestions.
 \clearpage
 
 % =========================================================================
@@ -166,6 +167,21 @@ The tool's results may be biased by the sources available to it. For example, ac
     \item \textbf{Search strategies:} Where possible, the search should use synonyms, similarities across disciplines and different terminology.
     \item \textbf{User input:} Users should be able to adjust their search query, giving them more control when the AI encounters limitations.
 \end{itemize}
+
+\subsection*{Reliability}
+AI is not always 100\% reliable. The search results from the tool can contain errors. If the user does not check the results, it may happen that they make a wrong conclusion. For example research could be different in reality but according to the tool very similar. To prevent this the following measures should be taken:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Access to original:} The user should be able to inspect the papers from the results themselves. By doing this they can check whether the results are relevant to the research. 
+    
+    \item \textbf{Limitations:} The limitations of the tool should be made clear to the user. If the information the tool obtains is limited it should indicate the low condifence in the studies being similar. Additionally, no relevant results from the tool does not automatically mean that no previous research exists on the topic.
+    
+    \item \textbf{Human verification:} The user should still confirm themselves whether a source provided is relevant or not. The tool is there to help the users in finding the research not to decide what should happen with the user's plan. 
+\end{itemize}
+
+\subsection*{Sustainable resource use}
+The main objective of the tool is to help the user find existing research before they spent time and resources on their project. If the plans of the user should be changed due to previous research results it will prevent unnecessary duplication of experiments. This will save additional materials, energy consumption, equipment and computational resources. \newline \newline
+However, similarities in research does not always mean that it is a waste. Sometimes replicating results is important for a study. In this case similarity is not a bad thing but help for new experiments. To ensure sustainable resource use, the tool needs to provide explanations containing the similarities. Then it is up to the user how they interpret the results in terms of relevancy.
 
 \subsection*{Interpreting results and future work}
 Our design aims to make results easy to interpret through a chatbot that provides sources and explains their relevance. Future work could help researchers identify ways to improve or differentiate their research. Previous work on the same topic does not necessarily mean that a researcher should abandon a project: there may still be useful differences to explore. In such cases, the tool could also help researchers consider better use of research resources.
@@ -240,15 +256,21 @@ Eindhoven University of Technology (TU/e). (n.d.-c).
 \addcontentsline{toc}{section}{F. User Narrative}
 \noindent\textit{Word count: \Fwordcount / 500}\par\medskip
 
-\noindent Dr. Alex, a postdoctoral researcher at Eindhoven University of Technology, is designing a new fabrication run of lithium-ion battery electrode samples within a TU/e laboratory building. Eager to lower total electricity and material waste without changing the scientific parameters that make the batch valid, Alex logs onto the AI-Supported Sustainability Self-Assessment (ENSU) web portal from his laptop or phone.
+\noindent Dr. Alex sits at a desk inside the Eindhoven University of Technology chemistry lab, staring at a blank document. A new round of battery cathode tests is scheduled for next week, but Alex wants to make sure that this energy-heavy laboratory test won't just be a repeat of a study someone else has already done before. Hoping to find local equipment to share and existing data to build on, Alex opens a web browser and navigates to Eco-log.
 
-On the home dashboard, Alex selects "1. I want to Assess", initiating a 5-step evaluation process. Rather than selecting rigid checkboxes, Alex inputs a plain-text description: "I make lithium-ion battery electrode samples. I want to minimize material loss and electricity use while preserving our existing electrochemical testing requirements." The language model interprets the description and proposes an activity classification: "This appears to be a laboratory battery-sample activity." Alex clicks "Confirm activity", advancing to the data input sheet.
+Clicking the main button, "Explore My Research," Alex signs in instantly using his TU/e credentials via SURFconext. A clean workspace opens up, displaying a clear five-step progress tracker at the top.
 
-Alex completes the project fields based on a prior set of data: 6 fabrication attempts yielding 5 valid samples, consuming 60 kWh of meter-tracked laboratory electricity and 1.2 kg of starting materials. The system asks a follow-up question regarding what constitutes a valid sample. Alex types: "A valid sample passes our electrochemical test and safety checks."
+Alex begins at Step 1: "Describe research". Alex types in the main research question about low-temperature cathode optimization. He adds the planned chemical methods. Then he selects TU/e as the home institution.
 
-Upon confirming the fields, the tool runs its step-by-step calculation engine and outputs an initial evaluation profile. Rather than showing an aggregated green score or compliance badge, the interface reports separate resource-use indicators: electricity use of 12 kWh per valid sample, which is 2 kWh above Alex's personal sustainability target of 10 kWh. Beneath the values, a targeted suggestion appears: "Pilot a process change that reduces failed samples; record electricity, starting material, valid samples, and test results for the whole batch." Alex clicks "Plan pilot", exits the interface, and tests the proposed process change in the lab.
+Moving to Step 2: "Clarify the proposal", a friendly AI consultation window pops up. It asks a quick question to clarify how the battery cells will be normalized. Alex types a short reply. The screen immediately organizes the plan into a neat checklist of three unique experiments (E1, E2 and E3).
 
-A week later, Dr. Alex returns to the ENSU web portal. He navigates to "My History" under the "Query" module, and logs the pilot outcomes: 6 attempts, 6 valid samples, 54 kWh, and 1.1 kg of material. The comparison dashboard updates instantly, using visual bars to compare the two batches: batch electricity dropped by 6 kWh, material consumption fell by 0.1 kg, and electricity use reached 9 kWh per valid sample, meeting Dr. Alex's original electricity-use target. Alex saves the session privately to his personal archive, using the recorded comparison to review his research plan.
+Next comes Step 3: "Review related work". Instead of a messy list of links, the dashboard organizes matching academic papers by geographic distance. Alex filters the results to show projects from the same campus and nearby regional universities. Hence, getting a clear picture of the community of scientists and research projects in his area.
+
+This data comes to life during Step 4: "Generate two trees". Alex explores the large, interactive visual layouts. Hovering over a branch on the Similarity \& Reuse Tree, a tooltip pops up showing exactly which past TU/e theses have used a matching experimental setup. Switching over to the Distinctiveness \& Research Gaps Tree, Alex clicks a node labeled "No close match found in reviewed sources". Hence, confirming that the new project will fill an unaddressed gap in the literature.
+
+Finally, Alex reaches Step 5: "Explore recommendations". Under the "Same University" section, a card catches Alex's eye. A nearby research group right here at TU/e has an active profile listing a shared "tube furnace and coin-cell line plus a 2023 cycling dataset". A green sustainability badge labeled "Avoided measurement" explains that reusing this existing campus dataset may avoid repeating energy-heavy baseline synthesis tests. The tool also lists practical next steps, advising Alex to message the lab manager to check the furnace availability.
+
+Satisfied with the plan, Alex clicks the green "Save Assessment" button at the bottom left to securely archive his session in a private history log. Closing his laptop, Alex stands up and walks down the hallway to find the local battery team. Thanks to Eco-log, Alex now knows exactly what existing work to build on. He also knows where the project's unique contribution lies and which nearby colleague can help him.
 
 
 
