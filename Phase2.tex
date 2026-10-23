@@ -20,6 +20,9 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{array}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,showstringspaces=false,frame=single,rulecolor=\color{tuedark},aboveskip=0.6em,belowskip=0.6em}
+
 \setlength{\parskip}{0.35em}
 
 % --- Custom Styling for Academic Polish ---
@@ -36,7 +39,7 @@
 }
 
 % --- Cover/Metadata Setup ---
-\title{\textbf{Group Q: Phase 2 Report}\\[0.5em]\Large Eco-log\\[0.3em]\large Author revision copy -- not for submission}
+\title{\textbf{Group Q: Phase 2 Report}\\[0.5em]\Large Eco-log}
 
 \author{\textbf{Group Q} \\\\
 Course: 5ARF0 Ethics of AI: Theory and Practice \\
@@ -48,8 +51,8 @@ Eindhoven University of Technology}
 % BEGIN embedded assignment2-wordcounts.tex
 \newcommand{\Bwordcount}{137}
 \newcommand{\Cwordcount}{1670}
-\newcommand{\Dwordcount}{536}
-\newcommand{\Fwordcount}{485}
+\newcommand{\Dwordcount}{648}
+\newcommand{\Fwordcount}{481}
 
 % END embedded assignment2-wordcounts.tex
 
@@ -74,10 +77,7 @@ Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{p.wang1@st
 \end{tabularx}
 \end{center}
 \vspace{0.6cm}
-\noindent\textit{Team revision copy: Sections B and C have been aligned with the two-tree research-discovery design. Section C now includes deployment, cold start, replication choices, governance and evaluation. Dennis's Section D remains for his final revision. Gerald coordinates the other components; Section F incorporates the latest five-step Eco-log narrative; G still needs matching screenshots, and H requires contributor records. The editorial checklist at the end is for team review and must be removed before submission.}
-
-\medskip
-\noindent\small Word counts use TeXcount narrative-text counts, excluding headings, citations, references, captions and editorial notes. Recount after further edits.\normalsize
+\noindent\small Word counts exclude headings, citations, references, captions and documented prompts.\normalsize
 
 \thispagestyle{empty}
 \clearpage
@@ -91,7 +91,6 @@ Peng Wang & 2342944 & \href{mailto:p.wang1@student.tue.nl}{\nolinkurl{p.wang1@st
 % =========================================================================
 % B. PUBLIC SUMMARY
 % =========================================================================
-% Gerald: review the updated public summary against the final product name and shared demonstration.
 \section*{B. Public Summary}
 \addcontentsline{toc}{section}{B. Public Summary}
 \noindent\textit{Word count: \Bwordcount / 150}\par\medskip
@@ -105,7 +104,6 @@ For the TU/e community, the intended benefit is to turn sustainability goals int
 % =========================================================================
 % C. COMPREHENSIVE SUMMARY
 % =========================================================================
-% Section C substantively revised from the author-provided design and verified sources on 23 October 2026.
 \section*{C. Comprehensive Summary}
 \addcontentsline{toc}{section}{C. Comprehensive Summary}
 \noindent\textit{Word count: \Cwordcount / 2000}\par\medskip
@@ -168,8 +166,8 @@ Improved portal filters and librarian-supported keyword searches are a simpler a
 % D. RESPONSIBLE INNOVATION PROJECT STATEMENT
 % =========================================================================
 \clearpage
-% AUTHOR TODO -- Dennis: keep existing transparency/coverage discussion; develop one concrete value conflict, withdrawal, autonomy and feedback handling; max 1000 words.
 \section*{D. Responsible Innovation Project Statement}
+\noindent\textit{Word count: \Dwordcount / 1000}\par\medskip
 
 This statement examines transparency, bias and reliability in the proposed research-matching tool. The measures below address the values identified in our Value Sensitive Design approach: explicability, fairness and researchers' control over results \citep{friedman2008}.
 
@@ -202,6 +200,9 @@ AI search results can contain errors. Without checking them, users may draw inco
 \subsection*{Sustainable resource use}
 The main objective of the tool is to help the user find existing research before they spend time and resources on their project. If previous findings lead a user to revise a plan, this may prevent avoidable repetition and reduce additional material, energy, equipment and computing requirements. These savings would need to be evaluated. \par
 However, similarity does not mean that a study is wasteful. Replication may be scientifically important, and similarities can help researchers plan it. To ensure sustainable resource use, the tool needs to provide explanations containing the similarities. Then it is up to the user how they interpret the results in terms of relevance.
+
+\subsection*{Privacy and researcher autonomy}
+Discovery can benefit a student while exposing another researcher's unpublished plans. Following our VSD approach, this conflict should be examined with both groups, including researchers whose work is indexed without their using the tool \citep{friedman2008}. The proposed default is therefore private drafting, with separate choices about sharing a summary and accepting contact. Reduced visibility is a real cost, but access to useful recommendations should not depend on disclosing unfinished ideas. Likewise, environmental aims do not justify discouraging scientifically valuable replication. Researchers should be able to disable optional distinctiveness advice for a replication module and challenge incorrect connections. These choices protect control over research decisions; they do not waive required safety or ethical procedures.
 
 \subsection*{Interpreting results and future work}
 Our design aims to make results easy to interpret through an interface that provides sources and explains their relevance. Future work could help researchers identify ways to refine their research or investigate differences from earlier work. Previous work on the same topic does not necessarily mean that a researcher should abandon a project: there may still be useful differences to explore. In such cases, the tool could also help researchers consider better use of research resources.
@@ -282,7 +283,6 @@ VSD Lab. (n.d.).
 % =========================================================================
 % F. USER NARRATIVE
 % =========================================================================
-% Gerald: latest five-step Eco-log narrative retained from origin/main; verify illustrative records against the final mock-up. Max 500 words.
 \section*{F. User Narrative}
 \addcontentsline{toc}{section}{F. User Narrative}
 \noindent\textit{Word count: \Fwordcount / 500}\par\medskip
@@ -295,115 +295,55 @@ Alex begins at Step 1: "Describe research". Alex types in the main research ques
 
 Moving to Step 2: "Clarify the proposal", a friendly AI consultation window pops up. It asks a quick question to clarify how the battery cells will be normalized. Alex types a short reply. The screen immediately organizes the plan into a neat checklist of three experiment modules (E1, E2 and E3).
 
-Next comes Step 3: "Review related work". Instead of a messy list of links, the dashboard organizes matching academic papers by geographic distance. Alex filters the results to show projects from the same campus and nearby regional universities. This helps Alex locate potential contacts; scientific relevance still needs checking.
+Next comes Step 3: "Review related work". Instead of a messy list of links, the dashboard prioritises research relevance. Alex then filters the results to show projects from the same campus and nearby regional universities. This helps Alex locate potential contacts; scientific relevance still needs checking.
 
 This data comes to life during Step 4: "Generate two trees". Alex explores the large, interactive visual layouts. Hovering over a branch on the Similarity \& Reuse Tree, a tooltip pops up showing exactly which past TU/e theses have used a matching experimental setup. Switching over to the Distinctiveness \& Research Gaps Tree, Alex clicks a node labeled "No close match found in reviewed sources". This identifies a possible difference within the reviewed sources; Alex still needs to check the wider literature before claiming a research gap.
 
-Finally, Alex reaches Step 5: "Explore recommendations". Under the "Same University" section, a card catches Alex's eye. A nearby research group right here at TU/e has an active profile listing a shared "tube furnace and coin-cell line plus a 2023 cycling dataset". A badge labeled "Avoided measurement" flags a possible reuse opportunity, not a measured saving. Alex must check whether the dataset can replace any planned measurements. The tool also lists practical next steps, advising Alex to message the lab manager to check the furnace availability.
+Finally, Alex reaches Step 5: "Explore recommendations". Under the "Same University" section, a card catches Alex's eye. A nearby research group right here at TU/e has an active profile listing a shared "tube furnace and coin-cell line plus a 2023 cycling dataset". The card explains what could be shared, why it may help, and what Alex should check next. The opportunity is not a measured saving. The tool also lists practical next steps, advising Alex to message the lab manager to check the furnace availability.
 
 Satisfied with the plan, Alex clicks the green "Save Assessment" button at the bottom left to securely archive his session in a private history log. Closing his laptop, Alex stands up and walks down the hallway to find the local battery team. Alex now has references, possible reuse opportunities and questions to discuss with the team. The example illustrates the proposed interaction, not verified research findings or resource savings.
 
 
 
 \clearpage
-% AUTHOR TODO -- Gerald: replace old screenshots; exactly one A4 page corresponding to revised F.
 \section*{G. Visual Representation of Mock-up}
 \addcontentsline{toc}{section}{G. Visual Representation of Mock-up}
 
+\noindent\small\textbf{Read this example:} a low-temperature cathode proposal leads to source-linked reuse options and checks for the researcher. Full, uncropped screens appear in Appendix A (Figures~\ref{fig:screen01}--\ref{fig:screen12}).\normalsize
 \begin{figure}[H]
-    \centering
-    \captionsetup[subfigure]{font=scriptsize,skip=2pt}
-    % Row 1
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Eco-log Landing Page.png}
-        \caption{Eco-log Landing Page}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Describe Research Section (Eco-log).png}
-        \caption{Describe Research Section}
-    \end{subfigure}
-
-    \vspace{0.12cm} % Tightly controls vertical spacing between rows
-
-    % Row 2
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Clarify Proposal Section (Part 1) (Eco-log).png}
-        \caption{Clarify Proposal Section Part 1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Clarify Proposal Section (Part 2) (Eco-log).png}
-        \caption{Clarify Proposal Section Part 2}
-    \end{subfigure}
-
-    \vspace{0.12cm}
-
-    % Row 3
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Review Related Work Section (Part 1).png}
-        \caption{Review Related Section Part 1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Review Related Work Section (Part 2).png}
-        \caption{Review Related Work Section Part 2}
-    \end{subfigure}
-
-    \vspace{0.12cm}
-
-    % Row 4
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Generate Two Trees (Part 1) Eco-log.png}
-        \caption{Generate Two Trees Part 1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Generate Two Trees (Part 2) Eco-log.png}
-        \caption{Generate Two Trees Part 2}
-    \end{subfigure}
-
-    \vspace{0.12cm}
-
-    % Row 5
-     \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Explore Recommendations (Part 1) (Eco-log).png}
-        \caption{Explore Recommendations Part 1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Explore Recommendations (Part 2) (Eco-log).png}
-        \caption{Explore Recommendations Part 2}
-    \end{subfigure}
-
-     \vspace{0.12cm}
-
-    % Row 6
-     \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Help Guide.png}
-        \caption{Help Guide}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth,height=0.115\textheight,keepaspectratio]{assets/images/phase2/Dark mode feature (Eco-log).png}
-        \caption{Dark-mode feature}
-    \end{subfigure}
-
-    \caption{Five-step Eco-log interface described in Section F.}
-    \label{fig:all_mockups}
+\centering
+\small
+\fbox{\parbox{0.95\linewidth}{\centering\textbf{Describe research $\rightarrow$ Clarify proposal $\rightarrow$ Review related work}\\[2pt]\textbf{$\rightarrow$ Generate two trees $\rightarrow$ Explore recommendations}}}
+\par\medskip
+\begin{minipage}{\linewidth}
+\textbf{(a) Input: a research question and planned methods.}\par\smallskip
+\includegraphics[width=.98\linewidth,trim=258.022bp 91.208bp 234.620bp 244.221bp,clip]{assets/images/phase2/Describe Research Section (Eco-log).png}
+\par\smallskip\textit{Task:} examine whether lower-temperature cathode synthesis could reduce fabrication energy while preserving cycle stability.
+\end{minipage}
+\par\medskip
+\begin{minipage}[t]{0.32\linewidth}
+\textbf{(b) Inspect a resource leaf.}\par\smallskip
+\includegraphics[width=.92\linewidth,trim=686.459bp 33.603bp 313.227bp 379.833bp,clip]{assets/images/phase2/Generate Two Trees (Part 1) Eco-log.png}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.64\linewidth}
+\textbf{Read the connection, not a novelty score.}\par\smallskip
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\linewidth}{@{}p{.23\linewidth}X@{}}
+\toprule
+\textbf{Layer} & \textbf{Meaning in this example}\\\midrule
+Foundation & Related methods and resource records support the proposed experiment.\\
+Reuse lead & A tube furnace, coin-cell line and cycling dataset may be relevant.\\
+Difference & A candidate difference is relative to reviewed records; incomplete coverage can change it.\\
+Decision & The researcher checks comparability and permission before changing the plan.\\\bottomrule
+\end{tabularx}
+\end{minipage}
+\par\medskip
+\textbf{(c) Recommendation: what could be reused, why, and what to check next.}\par\smallskip
+\includegraphics[width=.98\linewidth,trim=304.826bp 228.020bp 281.424bp 217.819bp,clip]{assets/images/phase2/Explore Recommendations (Part 1) (Eco-log).png}
+\caption{A traceable planning decision in the Eco-log mock-up, corresponding to Section F. Panels are enlarged excerpts of original screens. Labels and the table explain the intended interpretation; they are not additional interface controls. All displayed studies and resources are illustrative demo content. A reuse lead requires verification and is not a measured saving. The distinctiveness summary (Figure~\ref{fig:screen08}) does not prove originality; governance and replication controls discussed in Section C remain proposed design requirements.}
+\label{fig:all_mockups}
 \end{figure}
+
 
 
 \clearpage
@@ -411,51 +351,33 @@ Satisfied with the plan, Alex clicks the green "Save Assessment" button at the b
 % =========================================================================
 % H. TECHNICAL DOCUMENTATION & INSTRUCTIONS
 % =========================================================================
-% AUTHOR TODO -- Gerald coordinates: H is required in the group report; collect actual prompt/source/tool records from every contributor. I/J/K are separate.
 \section*{H. Documentation of Prompts, Sources, and Tools}
 \addcontentsline{toc}{section}{H. Documentation of Prompts, Sources, and Tools}
-%TC:ignore
-\noindent\textbf{Contributor completion notes -- Gerald coordinates.}
-These are handover requirements, not a record of completed model or API tests.
-\begin{itemize}[leftmargin=*]
-\item Collect the actual prompts and refinements used for the demo, with their purpose and any model or tool version recorded by the contributor.
-\item Identify which sources were actually queried or imported. Distinguish documentation review from successful API access, and illustrative records from retrieved records.
-\item Give the real steps needed to reproduce the demo: inputs, source preparation, retrieval, output inspection and correction. Record known failures and missing dependencies.
-\item Document current files and editing tools. The report is maintained in \texttt{Phase2.tex}; its embedded bibliography is edited in that file. Run \texttt{scripts/compile.ps1 -Document Phase2} from the project workspace to build \texttt{output/pdf/Phase2.pdf}.
-\item For the written report, document AI-assisted drafting, restructuring, language editing and source checking of B/C and the editorial notes. Add the other contributors' actual tool use; do not label this work as spelling correction alone.
-\end{itemize}
-%TC:endignore
-
-% =========================================================================
-% H. DOCUMENTATION OF PROMPTS, SOURCES, AND TOOLS
-% =========================================================================
-\section*{H. Documentation of Prompts, Sources, and Tools}
-\addcontentsline{toc}{section}{H. Documentation of Prompts, Sources, and Tools}
-\textit{This section serves as a technical handover manual and transparency registry. Each team member must fill out their respective parts below.}
+\noindent This section records prototype-development prompts, reviewed data sources, document-building instructions and AI assistance used in preparing the report. Prototype prompts describe intended behaviour; they do not establish live integration or validated research findings.
 
 \subsection*{1. System Generation \& Prompt Registry}
 
 \subsubsection*{Global Layout, System Structure \& Step 5 Recommendations}
-\noindent Base 44 was used.
+\noindent Base44 was used for the interface prototype. The first prompts below document the earlier self-assessment design; the later prompts record its transition to the current five-step Eco-log workflow.
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Initial Layout Prompt:} 
-    \begin{quote}
-    [Create a beautiful, modern, and clean web-based multi-step wizard interface for an academic AI tool named "ENSU: AI-Supported Sustainability Self-Assessment". The interface must represent the "1. I want to Assess" module, which is a guided sustainability reflection loop for university researchers.
+    \item \textbf{Initial Layout Prompt:}
+    \begin{lstlisting}
+Create a beautiful, modern, and clean web-based multi-step wizard interface for an academic AI tool named "ENSU: AI-Supported Sustainability Self-Assessment". The interface must represent the "1. I want to Assess" module, which is a guided sustainability reflection loop for university researchers.
 
 Use a professional, scientific, yet accessible design aesthetic. Palette: Clean academic look with deep slate/charcoal (#2C3E50), academic forest green (#1E824C or #27AE60) as an accent to signify sustainability, and crisp light gray backgrounds.
 
-NAVIGATION \& LAYOUT
+NAVIGATION & LAYOUT
 Top Bar: Title "ENSU Dashboard" with a breadcrumb tracking: Home > 1. I want to Assess > New Assessment. Include a button to "Return Home".
 Sidebar or Top Stepper: A clear 5-step horizontal or vertical indicator tracking the system structure exactly:
 Step 1: Project Information (Active)
 Step 2: Activity Assessment
 Step 3: Impact and Criteria
 Step 4: Recommendations
-Step 5: Summary, Report \& Feedback
-CONTENT AREA (Render Step 1 \& Step 2 as an interactive or stackable preview)
+Step 5: Summary, Report & Feedback
+CONTENT AREA (Render Step 1 & Step 2 as an interactive or stackable preview)
 Show a tabbed layout or a scrollable multi-card workflow representing a researcher's journey (e.g., using a laboratory battery-sample project):
 
-Card A: Starting Point \& Activity Selection
+Card A: Starting Point & Activity Selection
 
 Title: "A. Start from the menu and confirm the activity"
 UI Elements: Button group selectors for starting points: [Battery or Laboratory Samples] [GPU Computation] [3D-Printed Prototype] [Describe Another Activity - Selected].
@@ -465,41 +387,40 @@ Action Buttons below the AI box: [Confirm battery-sample activity (Primary Green
 Card B: Project Information Form (Data Input fields)
 
 Title: "B. Fill known fields; ask only for a missing condition"
-UI Elements: A clean key-value grid or form layout showing: • Scientific outcome: "Electrode samples meeting the same test requirement." • Prior batch: "6 attempts; 5 valid samples." • Relevant inputs: "60 kWh for the defined batch; 1.2 kg starting material." • Boundary and source: "Fabrication steps only; fictional lab meter and material log. Upstream production excluded." • Personal goal: "At most 10 kWh per valid sample, with unchanged quality and safety."
+UI Elements: A clean key-value grid or form layout showing: - Scientific outcome: "Electrode samples meeting the same test requirement." - Prior batch: "6 attempts; 5 valid samples." - Relevant inputs: "60 kWh for the defined batch; 1.2 kg starting material." - Boundary and source: "Fabrication steps only; fictional lab meter and material log. Upstream production excluded." - Personal goal: "At most 10 kWh per valid sample, with unchanged quality and safety."
 Action Buttons below the form: [Confirm fields] [Edit amounts or boundary] [Mark unknown].
 Follow-up Chat UI Segment: A dedicated clean container labeled "Follow-up Question: What makes a sample valid for this research?" with an input field containing the researcher's typed response: "A valid sample passes our existing electrochemical test and safety checks. Keep those requirements for the pilot batch."
-Card C: Initial Profile \& Suggested Action
+Card C: Initial Profile & Suggested Action
 
 Title: "C. Review the initial profile and choose an action"
 UI Elements: An analytics/insight block detailing current stats (60 kWh used for 5 valid samples = 12 kWh per sample. Target is 10 kWh; 2 kWh gap).
 Suggested Action Box: "Pilot a process change that reduces failed samples; record electricity, starting material, valid samples, and test results for the whole batch."
 Bottom Control Buttons: [Plan pilot (Primary Green)] [Why this advice?] [Correct input] [Save privately].
-Make all inputs, forms, and cards clean, spacious, with high text-readability and crisp micro-interactions for the buttons. No overall numeric sustainability score or badge should be shown, as the system relies on separate multi-dimensional indicators.]
-    \end{quote}
-    \item \textbf{Refinement \& Interactivity Prompts:} 
-    \begin{quote}
-    [The buttons are currently static and don't do anything when clicked.
+Make all inputs, forms, and cards clean, spacious, with high text-readability and crisp micro-interactions for the buttons. No overall numeric sustainability score or badge should be shown, as the system relies on separate multi-dimensional indicators.
+\end{lstlisting}
+    \item \textbf{Refinement \& Interactivity Prompts:}
+    \begin{lstlisting}
+The buttons are currently static and don't do anything when clicked.
 
-Please update the component code to add interactive state management (using React useState or standard JS click handlers). Clicking a step in the wizard or clicking the primary action buttons (like "Confirm battery-sample activity", "Confirm fields", or "Plan pilot") should dynamically advance to the next step or simulate a successful state change.]
-    \end{quote}
+Please update the component code to add interactive state management (using React useState or standard JS click handlers). Clicking a step in the wizard or clicking the primary action buttons (like "Confirm battery-sample activity", "Confirm fields", or "Plan pilot") should dynamically advance to the next step or simulate a successful state change.
+\end{lstlisting}
 \end{itemize}
 
 \subsubsection*{Step 4 Dual-Tree Visualization System}
 
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Tree Generation Prompt:} 
-    \begin{quote}
-    [
+    \item \textbf{Tree Generation Prompt:}
+    \begin{lstlisting}
 Please update our existing ENSU website for a short pitch demonstration tomorrow. Build on the current website rather than redesigning it from scratch. Preserve the existing visual identity, useful components, workflow structure, and navigation buttons wherever possible.
 Our project has shifted toward one focused purpose:
 Help a researcher understand how their proposed research connects to existing work, where it could make a distinctive contribution, and how nearby collaboration and resource reuse could support more sustainable research.
 1. Consolidate the three existing features into one main experience
-Make the first feature the clear primary entry point, titled “Explore My Research.”
-Reduce the second feature to a small “?” / “How it works” icon. It should open a short guide explaining the two trees, how to interpret the assessment, its limitations, and where users can find support. Do not give it the same prominence as the main research workflow.
-Integrate the third feature’s historical research search into the main assessment. Users should not need to run a separate search to discover previous work. If it also contains saved assessment history, make that accessible within the main experience rather than as a separate primary feature.
+Make the first feature the clear primary entry point, titled "Explore My Research."
+Reduce the second feature to a small "?" / "How it works" icon. It should open a short guide explaining the two trees, how to interpret the assessment, its limitations, and where users can find support. Do not give it the same prominence as the main research workflow.
+Integrate the third feature's historical research search into the main assessment. Users should not need to run a separate search to discover previous work. If it also contains saved assessment history, make that accessible within the main experience rather than as a separate primary feature.
 2. Create one simple, guided workflow
 Use this sequence:
-Describe research → Clarify the proposal → Review related work → Generate two trees → Explore recommendations
+Describe research  ->  Clarify the proposal  ->  Review related work  ->  Generate two trees  ->  Explore recommendations
 Allow users to enter:
 - Their research question or proposal.
 - Their field and university.
@@ -507,7 +428,7 @@ Allow users to enter:
 - Optional keywords, an abstract, or a proposal document.
 Keep the initial form short. Use a brief consultation step to clarify the research question, methods, and intended contribution only when needed.
 Assess both the overall proposal and its individual experiments. A project may contain familiar methods while still asking a distinctive research question.
-3. Tree One: Similarity \& Reuse
+3. Tree One: Similarity & Reuse
 Generate an interactive tree showing how the proposal relates to previous research.
 Use the following hierarchy:
 - Trunk: the overall research question and its closest research foundations.
@@ -520,12 +441,12 @@ Annotations should explain:
 - Which methods, findings, datasets, or resources could be reused.
 - Whether a proposed experiment appears to repeat existing work.
 - What additional value a justified replication or extension could provide.
-Use actionable labels such as “Related method,” “Potential dataset reuse,” “Possible overlap,” “Useful replication,” and “Campus collaboration.”
+Use actionable labels such as "Related method," "Potential dataset reuse," "Possible overlap," "Useful replication," and "Campus collaboration."
 The purpose is to help researchers build on existing knowledge and avoid unnecessary duplication while recognizing that replication can be scientifically valuable.
-4. Tree Two: Distinctiveness \& Research Gaps
+4. Tree Two: Distinctiveness & Research Gaps
 Generate a second interactive tree showing where the proposal may extend existing knowledge.
 Use the same visual hierarchy:
-- Trunk: the proposal’s overall position within the reviewed literature.
+- Trunk: the proposal's overall position within the reviewed literature.
 - Branches: possible contributions involving questions, methods, populations, contexts, or combinations of fields.
 - Leaves: specific candidate gaps and the evidence supporting them.
 Use visual separation to suggest conceptual distance from related work. Clearly distinguish conceptual distance from geographic distance.
@@ -536,11 +457,11 @@ Hover and click annotations should show:
 - How the proposal could contribute something different.
 - The evidence coverage and confidence behind the assessment.
 If showing a distinctiveness score, explain its basis and label it as an indicative assessment. Greater conceptual distance can suggest novelty, but distance alone does not establish scientific value or originality.
-Use “No close match found in the reviewed sources” rather than “Nobody has done this.”
+Use "No close match found in the reviewed sources" rather than "Nobody has done this."
 5. Prioritize university research and nearby collaboration
 Make university repositories, theses, publications, and research groups central to the experience.
 Present relevant collaboration opportunities in this order:
-Same university → Nearby institutions → Wider research network
+Same university  ->  Nearby institutions  ->  Wider research network
 Rank by research relevance first, then use proximity to highlight practical opportunities for sharing equipment, reusing datasets, exchanging expertise, and reducing travel where feasible.
 Clearly label institution and location. Include remote collaboration as an option when appropriate.
 Keep sustainability recommendations separate from novelty assessments. Explain potential benefits through concrete opportunities for resource reuse, avoided unnecessary experiments, or reduced travel. Do not claim that greater novelty automatically means lower environmental impact.
@@ -550,27 +471,27 @@ Show both trees together on the results page, with a concise summary:
 - Where might my contribution be distinctive?
 - Who nearby could help?
 - What should I do next?
-Include working actions such as “Edit Proposal,” “Explore Evidence,” and “Save Assessment.”
+Include working actions such as "Edit Proposal," "Explore Evidence," and "Save Assessment."
 Every evidence-based annotation should link to its underlying source where available. Clearly distinguish published evidence, inferred recommendations, and illustrative demo content. If repository integrations are unavailable, use clearly labeled sample data without implying live access to university systems.
-For tomorrow’s pitch, provide one preloaded example that demonstrates the complete journey, including both trees, several hover annotations, a source detail panel, and one campus collaboration opportunity.
+For tomorrow's pitch, provide one preloaded example that demonstrates the complete journey, including both trees, several hover annotations, a source detail panel, and one campus collaboration opportunity.
 The final experience should communicate one clear promise:
-“Understand what you can build on, where you can contribute, and who nearby can help.”]
-    \end{quote}
-    \item \textbf{Refinement \& Information Density Prompts:} 
-    \begin{quote}
-    [Please refine the current ENSU prototype based on the existing screens. Preserve the green visual identity, the single “Explore My Research” entry point, the question-mark guide, saved assessments, and the existing five-step workflow.
+"Understand what you can build on, where you can contribute, and who nearby can help."
+\end{lstlisting}
+    \item \textbf{Refinement \& Information Density Prompts:}
+    \begin{lstlisting}
+Please refine the current ENSU prototype based on the existing screens. Preserve the green visual identity, the single "Explore My Research" entry point, the question-mark guide, saved assessments, and the existing five-step workflow.
 The main priority is to make the two research trees larger, more readable, more detailed, and more useful for understanding specific research decisions.
 1. Make the trees the visual focus
 The current trees have small text, excessive empty space, and clipped leaf nodes. The empty detail panel also takes space away from the visualization.
-Give each tree a large, responsive canvas. Use tabs for “Similarity & Reuse” and “Distinctiveness & Research Gaps,” with an optional comparison view.
+Give each tree a large, responsive canvas. Use tabs for "Similarity & Reuse" and "Distinctiveness & Research Gaps," with an optional comparison view.
 Open the detail panel only when a node is selected. It should be collapsible and must not obscure the selected node.
-Use readable node labels at the default viewing size, ideally around 16–18 px on desktop. Wrap short titles instead of cutting them off. Keep full titles available in the detail panel.
-Add zoom, pan, “Fit to view,” “Reset view,” and expand/collapse controls. Do not fit more content by shrinking the text.
+Use readable node labels at the default viewing size, ideally around 16-18 px on desktop. Wrap short titles instead of cutting them off. Keep full titles available in the detail panel.
+Add zoom, pan, "Fit to view," "Reset view," and expand/collapse controls. Do not fit more content by shrinking the text.
 Each tree should have roughly the information density of one well-designed landscape A4 page. Provide a printable overview with numbered references and a separate source list.
 2. Add meaningful research levels
 Keep the trunk, branch, and leaf metaphor, but allow branches to contain smaller branches.
 Use this structure:
-Research question → Research dimension → Specific research element → Evidence leaf
+Research question  ->  Research dimension  ->  Specific research element  ->  Evidence leaf
 Possible research dimensions include:
 - Theoretical foundations and research rationale.
 - Hypotheses and research questions.
@@ -580,9 +501,9 @@ Possible research dimensions include:
 - Measurement and characterization.
 - Data processing, statistics, and interpretation.
 - Validation, reproducibility, and resource reuse.
-Only display dimensions relevant to the proposal. Generate the structure from the user’s research rather than using the same categories for every project.
+Only display dimensions relevant to the proposal. Generate the structure from the user's research rather than using the same categories for every project.
 For the current battery example, one path could be:
-Low-temperature cathode research → Experimental design → Baseline synthesis conditions → A relevant paper or thesis explaining its comparison protocol.
+Low-temperature cathode research  ->  Experimental design  ->  Baseline synthesis conditions  ->  A relevant paper or thesis explaining its comparison protocol.
 3. Enrich Tree One with approximately ten evidence leaves
 For the demo, include approximately ten distinct relevant papers or theses, distributed across several research dimensions. Datasets, laboratories, and equipment can appear as additional, clearly differentiated resource nodes.
 Each evidence leaf should show a short title, author/year, and a connection label.
@@ -591,7 +512,7 @@ Hovering should answer:
 - What specifically could I learn or reuse?
 - What important difference should I consider?
 Clicking should reveal the full citation, institution, source link where available, relevant method or finding, reuse considerations, and the connected experiment.
-Use specific descriptions such as “Reference for selecting a control condition” or “Potential characterization protocol to adapt,” rather than only “Related method.”
+Use specific descriptions such as "Reference for selecting a control condition" or "Potential characterization protocol to adapt," rather than only "Related method."
 The same paper may support multiple branches, but it should retain one source identity. Do not count repeated appearances as different papers.
 For real assessments, show the available relevant evidence rather than adding weak matches to reach ten. Clearly label illustrative demo references.
 4. Make Tree Two an evidence-linked gap analysis
@@ -608,7 +529,7 @@ Do not create one gap for every paper or force a fixed number of gaps. Avoid uns
 5. Improve consistency across the workflow
 Make the five-step progress indicator fit the desktop screen without horizontal scrolling or truncated labels. Use a compact current-step indicator on mobile.
 Replace the repeated long headline within each step with a short, task-specific heading.
-During clarification, let users review and edit the extracted research components. Move judgments such as “Distinctive question” or “Familiar method” until after the related-work review, unless clearly marked as provisional.
+During clarification, let users review and edit the extracted research components. Move judgments such as "Distinctive question" or "Familiar method" until after the related-work review, unless clearly marked as provisional.
 Separate labels for:
 - Research relevance: strong, moderate, or exploratory connection.
 - Location: same university, nearby institution, or wider network.
@@ -616,81 +537,103 @@ Selecting an experiment should highlight its relevant sources and candidate gaps
 6. Make recommendations actionable
 Connect each collaboration or reuse recommendation to the relevant experiment and evidence node.
 Explain what could be shared or adapted, why it may help, and what the researcher should check next. Keep research relevance first, then prioritize campus and nearby opportunities.
-Use conditional sustainability wording: “May reduce repeated baseline measurements if conditions are comparable,” rather than claiming that data reuse automatically eliminates an experiment.
-Shorten the “How it works” guide to match the revised hierarchy and interactions. Remove any literal “svg” placeholder text if it appears in the interface.
+Use conditional sustainability wording: "May reduce repeated baseline measurements if conditions are comparable," rather than claiming that data reuse automatically eliminates an experiment.
+Shorten the "How it works" guide to match the revised hierarchy and interactions. Remove any literal "svg" placeholder text if it appears in the interface.
 Demo acceptance criteria
 At a normal laptop viewing size, users should be able to read the main branches, expand a detailed research path, explore approximately ten evidence leaves in Tree One, open a full source record, trace a candidate gap to its evidence, and identify one practical campus collaboration opportunity.
 The central experience should make this sequence clear:
-“This is my research plan. These are its existing foundations. This is what I can reuse. This is where I may contribute.”]
-    \end{quote}
+"This is my research plan. These are its existing foundations. This is what I can reuse. This is where I may contribute."
+\end{lstlisting}
 \end{itemize}
 
-\subsection*{2. Technical Workspace Instructions \& Run Guide}
+\subsection*{2. Data Sources and Reproduction Instructions}
 
-\noindent Document the step-by-step local scripts and command terminal workflows needed to run, edit, or compile the project documentation files.
-\begin{enumerate}
-    \item \textbf{Step 1:} [Insert instruction, e.g., Open terminal]
-    \item \textbf{Step 2:} [Insert the compile script command, e.g., ./scripts/compile.ps1 ...]
-    \item \textbf{Step 3:} [Insert where to find the output files]
+\noindent The sources reviewed for the design are TU/e's research portal and Pure API documentation, OpenAlex documentation, SURFconext guidance, and the research literature cited in Section E. The illustrated battery records are demo content; their appearance in the interface does not establish live repository access, equipment availability or validated reuse. Institutional hosting and identity integration remain proposed arrangements.
+
+\begin{enumerate}[leftmargin=*]
+\item Open the project workspace in a terminal. Edit \texttt{Phase2.tex}; the reference list is embedded in that file and does not require a separate BibTeX run.
+\item Keep the screenshot files under \texttt{assets/images/phase2/}. Update the corresponding image paths if replacing a screenshot. Section G uses screenshots of the current five-step workflow.
+\item With PowerShell and a LaTeX installation providing \texttt{pdflatex}, run:
+\begin{lstlisting}
+./scripts/compile.ps1 -Document Phase2
+\end{lstlisting}
+\item Open \texttt{output/pdf/Phase2.pdf}. The script runs three compilation passes to resolve references. Inspect the PDF for legible figures, correct word counts and unresolved citations; compilation diagnostics are in \texttt{output/pdf/Phase2.log}.
+\item To continue prototype development, use the documented prompts with the existing Base44 project, preserving the five-step workflow. Review each resulting screen against the battery scenario in Section F and distinguish illustrative source records from verified sources. Reusing a prompt alone does not reproduce an identical generated interface.
 \end{enumerate}
 
-\subsection*{3. AI Assistance Transparency Log}
-\noindent List any artificial intelligence tools or conversational assistants utilized during the drafting of your text report sheets (such as Sections B, C, or D) to maintain academic transparency.
+\subsection*{3. AI Assistance in Report Preparation}
+
+\noindent OpenAI Codex was used to develop and revise text from the team's supplied ideas, drafts and feedback, including AI-assisted drafting and substantive restructuring of Sections B and C and revision of the privacy and autonomy discussion in Section D. It also assisted with language editing in Sections D and F, source checking, LaTeX formatting and compilation checks. These activities are distinct from the Base44 prototype-generation prompts above. AI output is not evidence of technical implementation, user validation or environmental benefit.
+
+\noindent Representative report-assistance requests are summarised below in English; these are translated, abridged descriptions of the interactions, not verbatim transcripts:
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Tool Used:} [e.g., ChatGPT / Claude / etc.]
-    \item \textbf{Application Area:} [e.g., Re-phrasing into present tense, structuring outline, language clarity checks]
-    \item \textbf{Core Interaction Prompt:} 
-    \begin{quote}
-    [Insert the prompt dropped for text help here]
-    \end{quote}
+\item Revise the report against the assignment criteria using the team's design materials and feedback, focusing on Section C and identifying improvements for the other contributors.
+\item Explain the proposed cold-start approach, two-tree design, TU/e embedding and researcher choices for replication, while distinguishing planned features from established results.
+\item Check the latest version, remove working notes, standardise formatting, verify section word counts and review consistency with the assignment requirements.
 \end{itemize}
 
 
-% =========================================================================
-% APPENDIX / REMINDERS FOR SEPARATE SUBMISSIONS (Optional Section)
-% =========================================================================
-\iffalse
-\section*{Separate Evaluation Deadlines (Do Not Include in Main Paper PDF)}
-The following elements are tracked by the course syllabus but must be submitted through their individual portals independently:
-- I. Video/Oral Pitch (3-5 minutes)
-- J. Personal Reflection (500 words per student)
-- K. Peer Evaluation Sheet
-\fi
-
-
-%TC:ignore
 \clearpage
-\section*{Editorial checklist -- remove before submission}
-\noindent\textbf{Team working notes, excluded from section word counts.}
+\section*{Appendix A. Complete Prototype Screenshots}
+\addcontentsline{toc}{section}{Appendix A. Complete Prototype Screenshots}
+\noindent All twelve supplied screens are retained below, in workflow order. These are full, uncropped prototype screenshots. Sample references, equipment and institutional links illustrate the design and do not establish live access or verified availability. Section G provides the one-page decision-focused overview.
 
-\subsection*{Section C -- revision completed for team review}
-\begin{itemize}[leftmargin=*]
-\item The two trees, knowledge-boundary metaphor and module-level replication choice now form one design argument. Sources support the methods; effectiveness is not claimed as a measured result.
-\item Cold start now separates initial collection coverage from users without publications. Pure import is permission-dependent and optional; booking inference is deferred.
-\item Deployment now distinguishes hosting, authentication, application permissions and Pure identity mapping. Proposed TU/e arrangements are not represented as secured approvals.
-\item Peer feedback is addressed through contact preferences, a concrete confidentiality conflict, withdrawal boundaries, correction handling and resource comparisons. Dennis should develop the ethical justification in D without duplicating C's workflow description.
-\end{itemize}
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Eco-log Landing Page.png}
+\caption{\textbf{Landing page}. The entry point opens the research-planning workflow.}\label{fig:screen01}\end{figure}
 
-\subsection*{Section D -- Dennis}
-\begin{itemize}[leftmargin=*]
-\item Retain the updated transparency, coverage, reliability and sustainable-resource-use sections. Confirm how the clarification chat and tree interface support human verification.
-\item Work through a specific conflict between discovering reusable resources and protecting unpublished ideas. Use the course framework to identify affected parties, compare options, justify a choice and define a review process.
-\item Specify contact preferences and the separation between using the tool and sharing a research summary.
-\item Explain withdrawal for live records, derived indexes, saved results and external copies; distinguish voluntarily shared summaries from independently public publications.
-\item Explain how incorrect links are flagged, checked, corrected and retested. A rejected suggestion is not automatically a reliable training label.
-\item Link researcher autonomy to replication choices and to the right to disregard suggestions. Consider users and departments with sparse records.
-\end{itemize}
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Describe Research Section (Eco-log).png}
+\caption{\textbf{Step 1: Describe research}. Research question, field, institution and planned experimental methods.}\label{fig:screen02}\end{figure}
 
-\subsection*{Remaining components -- Gerald coordinates}
-\begin{itemize}[leftmargin=*]
-\item \textbf{A/B:} Confirm one product name across report and pitch. B has been updated to the current tool; confirm the wording against the final interface and shared example. Its maximum remains 150 words.
-\item \textbf{E:} Check each source against the claim it supports, as well as author names, dates, identifiers and reference style. Add sources only after consulting them. The eleven revised C references have received independent source checking; any new source added by a contributor also needs verification.
-\item \textbf{F:} The latest five-step narrative has been retained. Verify its illustrative records and interface labels, and add the module-level replication choice if shown in the demo; maximum 500 words.
-\item \textbf{G:} Replace the old screenshots with one readable A4 page matching F. Include sample input/output, two trees and a legible source card. Clearly distinguish illustrative output from actual retrieved results.
-\item \textbf{H:} Collect actual prompts, sources, model/tool versions where known, explored steps, limitations and reproducible hand-off instructions from the group. Replace every placeholder. Keep proposed integrations separate from completed work; disclose AI assistance accurately.
-\item \textbf{I:} Submit the 3--5 minute pitch separately. \textbf{J/K:} Each member submits the personal reflection and peer evaluation separately. These are not additional sections to write in this group PDF, but they are not automatically optional.
-\item \textbf{Final check:} Recount B/C/D/F, remove this checklist, update the draft status only when accurate, compile and inspect all pages, and verify the uploaded file and submission receipt.
-\end{itemize}
-%TC:endignore
+\clearpage
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Clarify Proposal Section (Part 1) (Eco-log).png}
+\caption{\textbf{Step 2: Clarify proposal, part 1}. Consultation clarifies the planned study before reviewing related work.}\label{fig:screen03}\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Clarify Proposal Section (Part 2) (Eco-log).png}
+\caption{\textbf{Step 2: Clarify proposal, part 2}. The clarified proposal is organised into experiment modules.}\label{fig:screen04}\end{figure}
+
+\clearpage
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Review Related Work Section (Part 1).png}
+\caption{\textbf{Step 3: Review related work, part 1}. Related-work records provide context for the proposed study.}\label{fig:screen05}\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Review Related Work Section (Part 2).png}
+\caption{\textbf{Step 3: Review related work, part 2}. Continued related-work view; relevance and source coverage require researcher judgment.}\label{fig:screen06}\end{figure}
+
+\clearpage
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Generate Two Trees (Part 1) Eco-log.png}
+\caption{\textbf{Step 4: Generate two trees, part 1}. The displayed similarity view links research dimensions to evidence and resource leaves.}\label{fig:screen07}\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Generate Two Trees (Part 2) Eco-log.png}
+\caption{\textbf{Step 4: Generate two trees, part 2}. Summary of foundations, possible differences, collaborators and next steps; this is not proof of a gap.}\label{fig:screen08}\end{figure}
+
+\clearpage
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Explore Recommendations (Part 1) (Eco-log).png}
+\caption{\textbf{Step 5: Explore recommendations, part 1}. Recommendations identify potential resources and checks needed before reuse.}\label{fig:screen09}\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Explore Recommendations (Part 2) (Eco-log).png}
+\caption{\textbf{Step 5: Explore recommendations, part 2}. Continuation of recommendations and actions in the sample scenario.}\label{fig:screen10}\end{figure}
+
+\clearpage
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Help Guide.png}
+\caption{\textbf{Help guide}. Supporting guidance for interpreting the prototype.}\label{fig:screen11}\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth,height=.33\textheight,keepaspectratio]{assets/images/phase2/Dark mode feature (Eco-log).png}
+\caption{\textbf{Dark-mode view}. An alternative appearance of the same prototype, not a separate functional result.}\label{fig:screen12}\end{figure}
 
 \end{document}
